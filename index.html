@@ -239,7 +239,7 @@ input{transition:border-color .2s,box-shadow .2s}input:focus{box-shadow:0 0 0 3p
 <div><small>Compte courant</small><div id="bal">$0</div><small id="tot" style="text-transform:none;letter-spacing:0;font-size:11px;margin-top:2px"></small></div>
 <div><small>Revenu / minute</small><div class="inc" id="inc">+$0</div></div>
 <div class="xp"><small id="lvl">Niv. 1</small><div class="bar"><i id="xpb"></i></div></div>
-<button class="btn r" id="reset" style="padding:6px 10px;font-size:12px">Reset</button>
+<button class="btn r" id="reset" hidden style="display:none"></button>
 </header>
 <div id="tk2">📰 Marchés calmes pour le moment</div>
 <div class="wrap"><nav id="nav"></nav><main id="main"></main></div>
@@ -419,7 +419,7 @@ function bUpd(i){set("bn_"+i,"×"+S.biz[i]);const b=$("bb_"+i);if(b){const x=cos
 function tr(t,k,m){const a=m=="buy"?S.cash*.25:S.stk[k]*.25;if(m=="buy"){if(a<1)return;S.stk[k]+=a/SP[k];S.cash-=a}else{if(a*SP[k]<.01)return;S.stk[k]-=a;S.cash+=a*SP[k]}head();stUpd();save()}
 function bet(){const v=Math.floor(+$("bet").value);if(!(v>0)||v>S.cash){toast("Mise invalide");return}if(Math.random()<.48){S.cash+=v;toast("🎉 Gagné +"+f(v))}else{S.cash-=v;toast("💸 Perdu −"+f(v))}head();save()}
 function claim(i){const m=MIS[i];if(S.done.includes(i)||!m[1](S))return;S.done.push(i);S.cash+=m[2];gain(m[2]/20);head();mUpd();save();toast("Mission +"+f(m[2]))}
-function chest(){const l=S.chest+120000-Date.now();if(l>0)return;const g=Math.max(1000,income()*5);S.cash+=g;S.chest=Date.now();gain(g/30);head();save();toast("🎁 Coffre : +"+f(g))}
+function chest(){const l=S.chest+900000-Date.now();if(l>0)return;const g=Math.max(1000,income()*5);S.cash+=g;S.chest=Date.now();gain(g/30);head();save();toast("🎁 Coffre : +"+f(g))}
 function pickCard(i){if(wealth()<CARDS[i][3]){toast("Capital requis : "+f(CARDS[i][3]));return}S.card=i;save();shut();head();render()}
 function cardsModal(){modal(`<div class="box"><h3 style="margin-top:0">Choisir une carte</h3><p style="color:var(--mut)">Capital actuel : ${f(wealth())}</p><div class="cg">`+CARDS.map((c,i)=>`<div class="c ${S.card==i?"sel":""} ${wealth()<c[3]?"lock":""}" onclick="pickCard(${i})"><i style="background:${c[4]};color:${c[5]}">Dealor</i><b>${c[0]}</b><br><span class="up">x${c[1]} clic + ${c[2]} XP/s</span><br>${wealth()<c[3]?"🔒":"✅"} Capital : ${f(c[3])}</div>`).join("")+`</div><button class="btn" style="margin-top:12px" onclick="shut()">Fermer</button></div>`)}
 const HAND=`<svg viewBox="0 0 120 240" width="120" height="240"><defs><linearGradient id="sk" x1="0" x2="1"><stop offset="0" stop-color="#f3cfae"/><stop offset="1" stop-color="#d49b72"/></linearGradient></defs><rect x="26" y="160" width="76" height="90" rx="10" fill="#1d2433"/><path d="M34 165 L40 100 Q42 85 60 85 L88 90 Q100 96 97 118 L93 165Z" fill="url(#sk)"/><rect x="30" y="8" width="17" height="100" rx="8.5" fill="url(#sk)" transform="rotate(-8 38 100)"/><rect x="50" y="62" width="16" height="48" rx="8" fill="url(#sk)"/><rect x="68" y="68" width="15" height="42" rx="7.5" fill="url(#sk)"/><rect x="84" y="76" width="13" height="36" rx="6.5" fill="url(#sk)"/><ellipse cx="97" cy="120" rx="9" ry="22" fill="url(#sk)" transform="rotate(-28 97 120)"/></svg>`;
@@ -469,11 +469,11 @@ head()}
 // Clic n'importe où tant qu'on est sur Bank > Carte (sauf boutons, champs, carte, menus)
 document.addEventListener("click",e=>{if(tab!="Bank"||sub!="Carte"||e.target.closest("button,input,.card,.ov"))return;const v=cv();S.cash+=v;S.clicks++;gain(1);head();const d=document.createElement("div");d.className="float";d.textContent="+"+f(v);d.style.left=e.clientX-20+"px";d.style.top=e.clientY-20+"px";document.body.appendChild(d);setTimeout(()=>d.remove(),900);if(S.clicks%10==0)save()});
 // Revenus par minute réelle, appliqués 4 fois par seconde
-setInterval(()=>{const a=inc2()/240,r=reI()/240;S.cash+=a;S.pool+=r;S.savings+=S.savings*.001/240;gain(CARDS[S.card][2]/4+(a+r)/800);BOTS.forEach(b=>b.w*=1+Math.random()*.00001);shTick();phUpd();bkTick();head();set("cardAmt2",f(S.cash));empU();const l=S.chest+120000-Date.now(),b=$("chb");if(b)b.textContent=l>0?"🎁 "+Math.ceil(l/1000)+"s":"🎁 Coffre prêt !"},250);
+setInterval(()=>{const a=inc2()/240,r=reI()/240;S.cash+=a;S.pool+=r;S.savings+=S.savings*.001/240;gain(CARDS[S.card][2]/4+(a+r)/800);BOTS.forEach(b=>b.w*=1+Math.random()*.00001);shTick();phUpd();bkTick();head();set("cardAmt2",f(S.cash));empU();const l=S.chest+900000-Date.now(),b=$("chb");if(b)b.textContent=l>0?"🎁 "+Math.ceil(l/1000)+"s":"🎁 Coffre prêt !"},250);
 setInterval(()=>{CO.forEach(c=>{const k=c[0];P[k]=c[6]?1+(P[k]-1)*.9+(Math.random()-.5)*.0008:P[k]*(1+(Math.random()-.495)*.03);HI[k].push(P[k]);HI[k].shift()});STK.forEach(s=>{const k=s[0],ch=(Math.random()-.48)*.05;SP[k]*=1+ch;D[k]=ch*100;HI[k].push(SP[k]);HI[k].shift()});R.forEach((r,i)=>{S.pv[i]*=1+(Math.random()-.46)*.012;PH[i].push(S.pv[i]);PH[i].shift()});
 if(tab=="Crypto")cUpd();else if(tab=="Actions")stUpd();else if(tab=="Classement")lb();else if(tab=="Immobilier")reUpd();else if(tab=="Missions")mUpd();tmUpd();shTrend();evTick();if($("stp"))stmU()},2500);
 setInterval(save,10000);
-$("reset").onclick=()=>{if(confirm("Tout remettre à zéro ?")){S=fresh();save();render()}};
+
 /*V10*/
 /* === v14 === */
 UPG.push(["Expert fiscal","Impôts −50 %",2e6,"🧾","tax",.5],["Courtier VIP","Frais de trading ÷2",5e5,"📞","fee",.5],["Coffre-fort","Livret : intérêts ×2",1e6,"🔐","sav",2],["Cabinet d'avocats","Plafond de prêt ×2",4e6,"⚖️","cr",2]);

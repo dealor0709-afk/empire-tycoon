@@ -256,7 +256,7 @@ const fresh=()=>({cash:100,savings:0,xp:0,lvl:1,clicks:0,card:0,pin:"1234",cars:
 let S=fresh(),tab="Bank",sub="Carte",RS="Marché",CP={page:1,q:""},TM={},P=Object.fromEntries(CO.map(c=>[c[0],c[2]])),SP={},D={},T={},HI={};
 function mk(p,v){let a=[1];for(let i=1;i<168;i++)a.push(a[i-1]*(1+(Math.random()-.5)*v));return a.map(x=>x/a[167]*p)}
 STK.forEach(s=>{SP[s[0]]=s[2];D[s[0]]=0;HI[s[0]]=Array(30).fill(s[2])});CO.forEach(c=>{HI[c[0]]=mk(c[2],c[6]?.0006:.03)});
-const BOTS=[["Tony",5e9],["zomb1e",2.1e9],["TheRestartPrincess",8e8],["Bacterian",3e8],["Nic",1.2e8],["Bab",4e7],["Smitty",1.1e7],["Excel",3e6]].map(b=>({n:b[0],w:b[1]}));
+const BOTS=[];/* v16 : plus de bots, classement = vrais joueurs s&box */
 try{const r=localStorage.getItem("tycoon2");if(r){const o=JSON.parse(r);S=Object.assign(fresh(),o);S.stk=Object.assign(fresh().stk,o.stk);S.coins=Object.assign(fresh().coins,o.coins);if(o.biz&&o.biz.length==7){S.biz=BIZ.map(()=>0);[0,1,2,4,6,8,10].forEach((n,i)=>S.biz[n]=o.biz[i])}if(o.re){S.cash+=o.re.reduce((a,n,i)=>a+n*[5e4,4e5,35e5,4e7,6e8][i],0);delete S.re}}}catch(e){}
 const PH=R.map((r,i)=>Array(24).fill(S.pv[i]));
 const $=id=>document.getElementById(id),set=(id,t)=>{const e=$(id);if(e)e.textContent=t};
@@ -503,13 +503,13 @@ function tmGo(){const k=TM.k,u=Math.min(tmAmt(),tmMax());if(!(u>0))return;const 
 /* --- actualités --- */
 const NEWS=[],EVS=[["🐋 Une baleine accumule du BTC","c","BTC",.07],["📜 Régulation crypto plus stricte annoncée","c","*",-.06],["✅ Un ETF crypto est approuvé","c","BTC",.09],["🐕 Un influenceur promeut DOGE","c","DOGE",.14],["💥 Piratage d'une plateforme d'échange","c","*",-.08],["🏦 La banque centrale baisse ses taux","s","*",.04],["📉 Craintes de récession","s","*",-.05],["📈 Les marchés actions s'envolent","s","*",.04],["🏭 Résultats record pour TechNova","s","TECH",.09],["⚖️ Scandale chez FaceNet","s","FACE",-.1],["🌲 Pénurie de bois : WoodCo bondit","s","WOOD",.08],["🚗 VoltMotors dévoile un nouveau modèle","s","AUTO",.08],["🧪 Échec d'un essai clinique chez PharmaPlus","s","PHRM",-.11],["🏠 Le marché immobilier s'envole","r","*",.05],["🏚️ Correction sur l'immobilier","r","*",-.06]];
 function evTick(){if(Math.random()>.035)return;const e=EVS[Math.floor(Math.random()*EVS.length)],t=e[1];if(t=="c")(e[2]=="*"?COINS.filter(c=>!CM[c][6]):[e[2]]).forEach(k=>P[k]*=1+e[3]);else if(t=="s")(e[2]=="*"?STK.map(s=>s[0]):[e[2]]).forEach(k=>SP[k]*=1+e[3]);else S.pv=S.pv.map(v=>v*(1+e[3]));NEWS.unshift({t:Date.now(),x:e[0]+" ("+sg(e[3]*100)+")"});NEWS.length=Math.min(NEWS.length,20);set("tk2","📰 "+NEWS[0].x);toast(e[0])}
-const newsHtml=()=>`<div class="tth"><b onclick="phGo('home')" style="cursor:pointer">‹ Actualités</b></div><div style="padding:10px">`+(NEWS.map(n=>`<div class="vc"><div class="vi">${n.x}<br><small style="color:#888">${new Date(n.t).toLocaleTimeString("fr-FR")}</small></div></div>`).join("")||`<p style="color:var(--mut)">Rien à signaler pour l'instant.</p>`)+`</div>`;
+const newsHtml=()=>`<div class="tth"><b onclick="phGo('home')" style="cursor:pointer">‹ Actualités</b></div><div style="padding:10px">`+(NEWS.map(n=>`<div class="vc"><div class="vi">${n.x}<br><small style="color:#888">${new Date(n.t).toLocaleTimeString(LANGS[LI][2])}</small></div></div>`).join("")||`<p style="color:var(--mut)">Rien à signaler pour l'instant.</p>`)+`</div>`;
 /* --- prêts, impôts, relevé --- */
 const loanMax=()=>Math.max(1000,wealth()*.5)*(hasU("cr")?2:1),taxR=()=>S.tax.acc*.15*(hasU("tax")?.5:1);
 const loanView=()=>`<div class="item gl" style="max-width:480px;margin:auto"><h4><span class="ic">🏦</span>Prêt bancaire</h4><p>Taux : 0,4 % par minute (intérêts composés). Encore empruntable : <b id="lmx"></b></p><div class="big dn" id="lbal"></div><input id="lin" type="number" min="1" placeholder="Montant ($)"><div class="row"><button class="btn g" onclick="loanDo('in')">Emprunter</button><button class="btn r" onclick="loanDo('out')">Rembourser</button></div><p style="font-size:12px">Ta dette réduit ton capital net. Si elle dépasse 3× ton plafond, la banque saisit tes liquidités.</p></div>`;
 function loanDo(m){let v=Math.floor(+$("lin").value);if(!(v>0)){toast("Montant invalide");return}if(m=="in"){v=Math.min(v,Math.floor(loanMax()-S.loan));if(v<1){toast("Plafond atteint");return}S.cash+=v;S.loan+=v;S.st.loans++;log("Prêt",v)}else{v=Math.min(v,Math.ceil(S.loan),Math.floor(S.cash));if(v<1)return;S.cash-=v;S.loan=Math.max(0,S.loan-v);log("Remboursement",-v)}head();save()}
 const taxView=()=>`<div class="item gl" style="max-width:480px;margin:auto"><h4><span class="ic">🧾</span>Impôts</h4><p>Tous les 15 minutes, le fisc prélève 15 % des revenus perçus (entreprises, loyers, boutique). Sans liquidités, la somme s'ajoute à ta dette.</p><p>Prochain prélèvement dans <b id="txn"></b></p><p>Revenus de la période <b id="txa"></b> · Impôt estimé <b class="dn" id="txe"></b></p><p>Total déjà payé <b id="txt"></b></p></div>`;
-const txView=()=>{const s=S.st;return`<div class="sbx" style="margin:0 0 12px"><div>Ordres bourse / crypto<b>${s.tr}</b></div><div>Frais payés<b>${f2(s.fees)}</b></div><div>Impôts payés<b>${f(s.taxes)}</b></div><div>Casino (net)<b class="${s.cnet>=0?"up":"dn"}">${(s.cnet>=0?"+":"−")+f(Math.abs(s.cnet))}</b></div><div>Parties gagnées<b>${s.cw} / ${s.cp}</b></div></div><div class="ct gl">`+(S.tx.map(x=>`<div class="pr" style="grid-template-columns:90px 1fr 130px"><span>${new Date(x.t).toLocaleTimeString("fr-FR")}</span><b>${x.l}</b><b class="${x.a>=0?"up":"dn"}" style="text-align:right">${x.a>=0?"+":"−"}${f2(Math.abs(x.a))}</b></div>`).join("")||`<p style="padding:16px;color:var(--mut)">Aucune transaction.</p>`)+`</div>`};
+const txView=()=>{const s=S.st;return`<div class="sbx" style="margin:0 0 12px"><div>Ordres bourse / crypto<b>${s.tr}</b></div><div>Frais payés<b>${f2(s.fees)}</b></div><div>Impôts payés<b>${f(s.taxes)}</b></div><div>Casino (net)<b class="${s.cnet>=0?"up":"dn"}">${(s.cnet>=0?"+":"−")+f(Math.abs(s.cnet))}</b></div><div>Parties gagnées<b>${s.cw} / ${s.cp}</b></div></div><div class="ct gl">`+(S.tx.map(x=>`<div class="pr" style="grid-template-columns:90px 1fr 130px"><span>${new Date(x.t).toLocaleTimeString(LANGS[LI][2])}</span><b>${x.l}</b><b class="${x.a>=0?"up":"dn"}" style="text-align:right">${x.a>=0?"+":"−"}${f2(Math.abs(x.a))}</b></div>`).join("")||`<p style="padding:16px;color:var(--mut)">Aucune transaction.</p>`)+`</div>`};
 function bkTick(){const n=Date.now();if(S.loan>0)S.loan*=1+.004/240;if(hasU("sav"))S.savings+=S.savings*.001/240;S.tax.acc+=income()/240;if(!S.tax.next)S.tax.next=n+9e5;if(n>=S.tax.next){const d=taxR();S.tax.acc=0;S.tax.next=n+9e5;if(d>=1){const p=Math.min(S.cash,d);S.cash-=p;S.loan+=d-p;S.st.taxes+=d;log("Impôts",-d);toast("🧾 Impôts prélevés : "+f(d))}}if(S.loan>loanMax()*3){const p=Math.min(S.cash,S.loan);S.cash-=p;S.loan-=p;log("Saisie bancaire",-p);toast("🚨 Saisie bancaire : "+f(p))}if(tab=="Bank"){set("lbal",f(S.loan));set("lmx",f(Math.max(0,loanMax()-S.loan)));set("txn",mmss(Math.max(0,Math.ceil((S.tax.next-n)/1000))));set("txa",f(S.tax.acc));set("txe",f(taxR()));set("txt",f(S.st.taxes))}}
 /* --- casino --- */
 let CG="Pile ou face",CB=100;
@@ -1077,6 +1077,103 @@ Tu suis @|You follow @|||||
 Vente de site|Site sale|||||
 Vente voiture|Car sale|||||
 Cashback casino|Casino cashback|||||
+Prêt bancaire|Bank loan|||||
+Taux : 0,4 % par minute (intérêts composés). Encore empruntable : |Rate: 0.4% per minute (compound interest). Still borrowable: |||||
+Montant ($)|Amount ($)|||||
+Emprunter|Borrow|||||
+Rembourser|Repay|||||
+Ta dette réduit ton capital net. Si elle dépasse 3× ton plafond, la banque saisit tes liquidités.|Your debt lowers your net worth. If it exceeds 3× your limit, the bank seizes your cash.|||||
+Tous les 15 minutes, le fisc prélève 15 % des revenus perçus (entreprises, loyers, boutique). Sans liquidités, la somme s'ajoute à ta dette.|Every 15 minutes, the tax office takes 15% of the income earned (businesses, rent, shop). Without cash, the amount is added to your debt.|||||
+Prochain prélèvement dans |Next collection in |||||
+Revenus de la période |Income for the period |||||
+ · Impôt estimé | · Estimated tax |||||
+Total déjà payé |Total already paid |||||
+Ordres bourse / crypto|Stock / crypto orders|||||
+Frais payés|Fees paid|||||
+Impôts payés|Taxes paid|||||
+Parties gagnées|Games won|||||
+Aucune transaction.|No transactions.|||||
+Remboursement client|Customer refund|||||
+Remboursement|Repayment|||||
+Saisie bancaire : |Bank seizure: |||||
+Saisie bancaire|Bank seizure|||||
+Bonus quotidien (jour |Daily bonus (day |||||
+Bonus quotidien|Daily bonus|||||
+Partenariat commercial : +|Business partnership: +|||||
+Partenariat|Partnership|||||
+Achat immobilier|Property purchase|||||
+Vente immobilier|Property sale|||||
+Coffre|Chest|||||
+Pub TokTok|TokTok ad|||||
+Achat |Buy |||||
+Vente |Sell |||||
+Livraison express|Express delivery|||||
+Lancement TokTok Shop|TokTok Shop launch|||||
+Prochain : |Next: |||||
+ à | at |||||
+ misés| wagered|||||
+Niveau maximum|Max level|||||
+Parties|Games|||||
+Victoires|Wins|||||
+Résultat net|Net result|||||
+Meilleur gain|Best win|||||
+Mise totale|Total bet|||||
+Effacer|Clear|||||
+Remiser|Rebet|||||
+TOURNER|SPIN|||||
+1re 12|1st 12|||||
+2e 12|2nd 12|||||
+3e 12|3rd 12|||||
+Impair|Odd|||||
+Pair|Even|||||
+Rouge|Red|||||
+Noir|Black|||||
+Risque faible|Low risk|||||
+Risque moyen|Medium risk|||||
+Lâcher une bille|Drop a ball|||||
+Paie 3:2|Pays 3:2|||||
+Blackjack paie 3:2 · le croupier tire jusqu'à 17|Blackjack pays 3:2 · dealer draws to 17|||||
+Blackjack ! ×2,5|Blackjack! ×2.5|||||
+Égalité (deux blackjacks)|Push (two blackjacks)|||||
+Rejouer|Play again|||||
+Tirer|Hit|||||
+Rester|Stand|||||
+Doubler|Double|||||
+Toi |You |||||
+Retrait automatique (×) — optionnel|Auto cash-out (×) — optional|||||
+💰 Retirer |💰 Cash out |||||
+48 % de chance de doubler ta mise.|48% chance to double your bet.|||||
+🎲 Lancer|🎲 Roll|||||
+🪙 Lancer|🪙 Flip|||||
+ · gain | · payout |||||
+Solde insuffisant pour ce jeton|Insufficient balance for this chip|||||
+VIP Argent|VIP Silver|||||
+VIP Or|VIP Gold|||||
+🥈 Argent|🥈 Silver|||||
+🥇 Or|🥇 Gold|||||
+Platine|Platinum|||||
+Diamant|Diamond|||||
+Paiement au TPE avec ta carte (PIN 1234 par défaut). Chaque voiture rapporte en location.|Pay at the terminal with your card (default PIN 1234). Each car earns rental income.|||||
+Location : |Rental: |||||
+Revendre |Resell |||||
+Capital actuel : |Current capital: |||||
+Licence — |License — |||||
+Construire |Build |||||
+Racheter (déjà construit) |Buy existing |||||
+Occupation : |Occupancy: |||||
+🚧 Construction : |🚧 Under construction: |||||
+Atteins 10 000 $|Reach $10,000|||||
+Atteins 100 000 $ en liquide|Reach $100,000 in cash|||||
+Atteins 1 M$ en liquide|Reach $1M in cash|||||
+Atteins 100 M$ en liquide|Reach $100M in cash|||||
+Atteins 10 Md$ en liquide|Reach $10B in cash|||||
+Achète toutes les améliorations Boutique|Buy all Shop upgrades|||||
+Joue |Play |||||
+ parties au casino| games at the casino|||||
+Passe |Place |||||
+Obtiens la carte Gold|Get the Gold card|||||
+Obtiens la carte Black|Get the Black card|||||
+Obtiens la carte Matrix|Get the Matrix card|||||
 Centre-ville|Downtown|||||
 Vidéo|Video|||||
 Bourse|Stock market|||||
@@ -1157,14 +1254,14 @@ if(S.sh&&S.sh.on&&S.sh.earn>0){if(!S.sh.rv.length)for(let i=0;i<40;i++)rvGen();i
 const NT=[];let NU=0;
 const _toast=toast;toast=function(t){try{NT.unshift([Date.now(),String(t)]);if(NT.length>60)NT.length=60;NU++;bellU()}catch(e){}_toast(t)};
 function bellU(){const b=$("bellN");if(b){b.textContent=NU>99?"99+":NU;b.style.display=NU?"block":"none"}}
-W.bellOpen=function(){NU=0;bellU();modal(`<div class="box" style="max-width:460px"><h3 style="margin-top:0">🔔 Notifications</h3>`+(NT.length?NT.map(n=>`<div class="ntf"><small>${new Date(n[0]).toLocaleTimeString("fr-FR")}</small><span>${n[1].replace(/</g,"&lt;")}</span></div>`).join(""):`<p style="color:var(--mut)">Rien pour l'instant.</p>`)+`<div class="row" style="margin-top:12px"><button class="btn" onclick="shut()">Fermer</button></div></div>`)};
+W.bellOpen=function(){NU=0;bellU();modal(`<div class="box" style="max-width:460px"><h3 style="margin-top:0">🔔 Notifications</h3>`+(NT.length?NT.map(n=>`<div class="ntf"><small>${new Date(n[0]).toLocaleTimeString(LANGS[LI][2])}</small><span>${n[1].replace(/</g,"&lt;")}</span></div>`).join(""):`<p style="color:var(--mut)">Rien pour l'instant.</p>`)+`<div class="row" style="margin-top:12px"><button class="btn" onclick="shut()">Fermer</button></div></div>`)};
 {const g=document.createElement("button");g.className="btn";g.id="bell";g.style.cssText="padding:6px 10px;font-size:14px;position:relative";g.innerHTML='🔔<i id="bellN"></i>';g.onclick=W.bellOpen;$("reset").parentNode.insertBefore(g,$("reset"))}
 document.addEventListener("keydown",e=>{if(e.key=="Escape"){const o=$("ov");if(o&&o.style.display=="flex")shut()}});
 
 /* ---------- contrats à signer ---------- */
 let CT=null;
 function contract(o){const total=o.lines.reduce((a,l)=>a+l[1],0);if(S.cash<total){toast("Fonds insuffisants : il faut "+f(total)+" (frais inclus)");return}
-const nm=(S.sh&&S.sh.pseudo)||"Le Dirigeant",dt=new Date().toLocaleDateString("fr-FR",{day:"numeric",month:"long",year:"numeric"}),ref=(o.ref||"DOC")+"-"+String(Math.random()*9e5+1e5|0);
+const nm=(S.sh&&S.sh.pseudo)||"Le Dirigeant",dt=new Date().toLocaleDateString(LANGS[LI][2],{day:"numeric",month:"long",year:"numeric"}),ref=(o.ref||"DOC")+"-"+String(Math.random()*9e5+1e5|0);
 CT={o,total,len:0,done:0};
 modal(`<div class="paper"><div class="stamp" id="sgs">APPROUVÉ</div><div class="pp-h"><span class="pp-i">${o.ico}</span><div><b>${o.title}</b><small>${o.sub}</small></div><em>N° ${ref}</em></div>
 <p class="pp-t">Entre <b>${nm}</b>, ci-après « le Dirigeant », et <b>${o.party}</b>, il est convenu ce qui suit :</p>
@@ -1307,6 +1404,24 @@ avisView=function(){const h=S.sh,c=[0,0,0,0,0,0];h.rv.forEach(r=>c[r.s]++);const
 return`<div class="item gl rvs"><div class="rv-b"><b>${h.rt.toFixed(1)}</b><span>${stars(Math.round(h.rt))}</span><small>${h.rv.length} avis récents</small></div><div class="rv-d">${[5,4,3,2,1].map(k=>`<div><small>${k}★</small><div class="bar"><i style="width:${c[k]/n*100}%"></i></div><small>${c[k]}</small></div>`).join("")}</div></div><p style="color:var(--mut);font-size:12px;margin:2px 0 10px">Une bonne note attire plus de clients ; un prix trop élevé par rapport au prix conseillé fait baisser les avis.</p>`+(h.rv.length?h.rv.slice(0,60).map(r=>`<div class="item gl rvc"><div class="rv-h"><b class="gold">${stars(r.s)}</b><b>${r.n}</b><small>${PRD[r.p][3]} ${PRD[r.p][0]}</small><small class="rv-t">${ago(r.d)}</small></div><p>${r.x}</p></div>`).join(""):`<p style="color:var(--mut)">Aucun avis pour l'instant : fais tes premières ventes.</p>`)};
 })();
 
+
+/* ===== v16 : classement des vrais joueurs (s&box) ===== */
+(()=>{
+const q=new URLSearchParams(location.search),W=window;
+const ME={name:q.get("player")||q.get("name")||"",id:q.get("steamid")||q.get("id")||"",url:q.get("lb")||W.LB_URL||""};
+let RP=[];
+const mine=()=>({n:ME.name||(S.sh&&S.sh.pseudo)||"Toi",id:ME.id||"local",me:1,w:wealth(),p:(S.pt||0)/3600,l:S.lvl,f:S.sh.fol});
+W.setRealPlayers=function(list){RP=(Array.isArray(list)?list:[]).filter(x=>x&&x.n).map(x=>({n:String(x.n).slice(0,24),id:String(x.id||x.n),w:+x.w||0,p:+x.p||0,l:+x.l||1,f:+x.f||0}));if(tab=="Classement")lb()};
+W.getMyStats=()=>mine();
+addEventListener("message",e=>{const d=e.data;if(d&&d.type=="sbox-players")W.setRealPlayers(d.players)});
+async function sync(){if(!ME.url)return;try{const m=mine(),r=await fetch(ME.url,{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({id:m.id,n:m.n,w:m.w,p:m.p,l:m.l,f:m.f})});W.setRealPlayers(await r.json())}catch(e){}}
+setInterval(sync,15000);setTimeout(sync,2000);
+lb=function(){const e=$("lbl");if(!e)return;
+if(!$("lbb"))e.innerHTML=`<div class="sub" id="lbt">`+LKS.map(k=>`<button id="lk_${k[0]}" onclick="LK='${k[0]}';lb()">${k[1]}</button>`).join("")+`</div><div id="lbb"></div>`;
+LKS.forEach(k=>$("lk_"+k[0]).classList.toggle("on",k[0]==LK));
+const m=mine(),L=[...RP.filter(x=>x.id!=m.id),m].sort((a,b)=>b[LK]-a[LK]),fm={w:f,p:hm,l:v=>"Niv. "+v,f:v=>nf(v)+" 👥"};
+$("lbb").innerHTML=L.map((b,i)=>`<div class="lb gl ${b.me?"me":""}"><b>${["🥇","🥈","🥉"][i]||i+1}</b><b style="flex:1">${esc(b.n)}</b><b class="up">${fm[LK](b[LK])}</b></div>`).join("")+(L.length<2?`<p style="color:var(--mut);text-align:center;margin-top:14px">Aucun autre joueur connecté pour l'instant.</p>`:"")};
+})();
 </script>
 </body>
 </html>

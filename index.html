@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Empire Tycoon v16</title>
+<title>Empire Tycoon v15</title>
 <style>
 :root{color-scheme:dark;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);--tx:#f4f4f8;--mut:#8b8ba0;--line:#ffffff14;--gl:#ffffff0a;--acc:#4f7cff;--acc2:#9b5cff;--grn:#2ee37a;--red:#ff5a6a;--gold:#f5c542}
 html{height:100%;-webkit-user-select:none;user-select:none;-webkit-tap-highlight-color:transparent}input{-webkit-user-select:text;user-select:text}*{box-sizing:border-box}
@@ -232,36 +232,6 @@ input{transition:border-color .2s,box-shadow .2s}input:focus{box-shadow:0 0 0 3p
 
 .rctl .row{flex-wrap:wrap;justify-content:center}.rctl .row .btn{flex:1 0 100%}
 </style>
-<style id="lobbycss">#lobby{position:fixed;inset:0;z-index:100000;display:flex;align-items:center;justify-content:center;padding:18px;overflow-y:auto;font:14px/1.45 Inter,system-ui,-apple-system,sans-serif;color:#f4f4f8;background:radial-gradient(900px 600px at 15% -10%,#2a3f9a66,transparent 60%),radial-gradient(800px 600px at 100% 0,#7a2cff44,transparent 55%),radial-gradient(700px 500px at 50% 120%,#0a7a5a44,transparent 60%),#07090f}
-#lobby *{box-sizing:border-box}
-.lb-box{width:100%;max-width:520px;margin:auto;padding:26px 22px;border-radius:24px;background:linear-gradient(180deg,#ffffff14,#ffffff08);border:1px solid #ffffff1f;box-shadow:0 30px 80px #000a,inset 0 1px 0 #ffffff22;backdrop-filter:blur(18px);animation:lbin .6s cubic-bezier(.2,.8,.2,1)}
-@keyframes lbin{from{opacity:0;transform:translateY(18px) scale(.98)}}
-.lb-logo{font-size:52px;text-align:center;filter:drop-shadow(0 6px 18px #4f7cff88)}
-#lobby h1{margin:4px 0 0;text-align:center;font-size:26px;letter-spacing:.2em;background:linear-gradient(90deg,#fff,#a9c1ff,#c9a6ff);-webkit-background-clip:text;background-clip:text;color:transparent}
-.lb-sub{text-align:center;color:#8b8ba0;margin:4px 0 18px}
-.lb-sec{margin-bottom:16px}.lb-sec h3{display:flex;align-items:center;gap:8px;margin:0 0 8px;font-size:13px;letter-spacing:.1em;text-transform:uppercase;color:#c8cbe0}
-.lb-sec h3 i{font-style:normal;width:22px;height:22px;border-radius:50%;display:grid;place-items:center;font-size:12px;background:linear-gradient(135deg,#4f7cff,#9b5cff);color:#fff}
-.lb-list{display:flex;flex-direction:column;gap:6px;max-height:210px;overflow-y:auto;margin-bottom:8px}
-.lb-p{display:flex;align-items:center;gap:12px;padding:10px 12px;border-radius:14px;border:1px solid #ffffff14;background:#ffffff08;cursor:pointer;transition:.2s}
-.lb-p:hover{background:#ffffff12;transform:translateY(-1px)}.lb-p.on{border-color:#4f7cff;background:#4f7cff22;box-shadow:0 0 0 3px #4f7cff22}
-.lb-av{width:40px;height:40px;border-radius:50%;display:grid;place-items:center;font-size:22px;background:linear-gradient(135deg,#ff3d71,#25f4ee);flex:none}
-.lb-p b{display:block}.lb-p small{color:#8b8ba0;font-size:11px}
-.lb-row{display:flex;gap:8px}.lb-row button,.lb-code button{flex:1;all:unset;box-sizing:border-box;flex:1;text-align:center;cursor:pointer;padding:9px 10px;border-radius:12px;border:1px solid #ffffff22;background:#ffffff0a;color:#e8ecff;font-weight:600;transition:.2s}
-.lb-row button:hover,.lb-code button:hover{background:#ffffff18}
-.lb-form{display:flex;flex-direction:column;gap:8px;margin-top:10px;animation:lbin .3s}
-#lobby input,#lobby textarea{width:100%;background:#00000066;border:1px solid #ffffff22;color:#fff;padding:10px 12px;border-radius:12px;font:inherit;outline:0;resize:none;-webkit-user-select:text;user-select:text}
-#lobby input:focus,#lobby textarea:focus{border-color:#4f7cff;box-shadow:0 0 0 3px #4f7cff33}
-.lb-avs{display:flex;flex-wrap:wrap;gap:6px}.lb-avs span{width:38px;height:38px;border-radius:50%;display:grid;place-items:center;font-size:20px;background:#ffffff12;cursor:pointer;border:2px solid transparent;transition:.2s}.lb-avs span.on{border-color:#25f4ee;transform:scale(1.08)}
-.lb-ok{all:unset;box-sizing:border-box;text-align:center;cursor:pointer;padding:10px;border-radius:12px;background:#1a3d2b;color:#2ee37a;font-weight:700}
-.lb-modes{display:grid;grid-template-columns:1fr 1fr;gap:8px}
-.lb-m{padding:12px;border-radius:14px;border:1px solid #ffffff14;background:#ffffff08;cursor:pointer;transition:.2s}.lb-m:hover{background:#ffffff12}.lb-m.on{border-color:#9b5cff;background:#9b5cff22;box-shadow:0 0 0 3px #9b5cff22}
-.lb-m b{display:block;margin-bottom:2px}.lb-m small{color:#8b8ba0;font-size:11px;line-height:1.3;display:block}
-.lb-code{display:flex;gap:8px;margin-top:8px}.lb-code input{flex:2;letter-spacing:.2em;text-transform:uppercase;font-weight:700}.lb-code button{flex:1}
-.lb-mut{color:#8b8ba0;font-size:12px;margin:6px 0 0}.lb-err{color:#ff5a6a;text-align:center;margin:0 0 10px;font-weight:600}
-.lb-go{all:unset;box-sizing:border-box;display:block;width:100%;text-align:center;cursor:pointer;padding:14px;border-radius:16px;font-size:17px;font-weight:800;letter-spacing:.08em;color:#fff;background:linear-gradient(135deg,#4f7cff,#9b5cff);box-shadow:0 10px 30px #4f7cff66;transition:.2s}
-.lb-go:hover{transform:translateY(-2px);box-shadow:0 14px 40px #4f7cff88}.lb-go:active{transform:scale(.98)}.lb-go.off{opacity:.4}
-.lb-foot{text-align:center;color:#6c6c80;font-size:11px;margin:12px 0 0}
-</style>
 </head>
 <body>
 <div id="ld" style="position:fixed;inset:0;z-index:99999;background:#07090f;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:16px;color:#fff;font-family:system-ui,sans-serif;transition:opacity .5s"><div style="font-size:56px">🏢</div><b style="font-size:24px;letter-spacing:2px">EMPIRE TYCOON</b><div style="width:260px;height:8px;background:#ffffff1f;border-radius:6px;overflow:hidden"><i id="ldb" style="display:block;height:100%;width:0;background:linear-gradient(90deg,#25f4ee,#ff3d71);animation:ldg 1.6s ease-out forwards"></i></div><small id="ldt">Chargement…</small></div><style>@keyframes ldg{to{width:88%}}</style>
@@ -269,18 +239,17 @@ input{transition:border-color .2s,box-shadow .2s}input:focus{box-shadow:0 0 0 3p
 <div><small>Compte courant</small><div id="bal">$0</div><small id="tot" style="text-transform:none;letter-spacing:0;font-size:11px;margin-top:2px"></small></div>
 <div><small>Revenu / minute</small><div class="inc" id="inc">+$0</div></div>
 <div class="xp"><small id="lvl">Niv. 1</small><div class="bar"><i id="xpb"></i></div></div>
-<span id="hdrA"></span>
+<button class="btn r" id="reset" style="padding:6px 10px;font-size:12px">Reset</button>
 </header>
 <div id="tk2">📰 Marchés calmes pour le moment</div>
 <div class="wrap"><nav id="nav"></nav><main id="main"></main></div>
 <div id="toast"></div>
-<script type="text/plain" id="gamecode">
+<script>
 const BIZ=[["Stand de limonade",100,5,"🍋"],["Café",1100,60,"☕"],["Boutique en ligne",12000,700,"🛒"],["Agence web",40000,2400,"💻"],["Restaurant",130000,8000,"🍽️"],["Hôtel",500000,32000,"🏨"],["Usine",1400000,90000,"🏭"],["Mine d'or",5000000,350000,"⛏️"],["Banque privée",20000000,1400000,"🏦"],["Laboratoire pharma",80000000,6000000,"🧪"],["Compagnie spatiale",330000000,25000000,"🚀"],["Centrale à fusion",1500000000,120000000,"⚛️"],["Empire médiatique",8000000000,700000000,"📺"]];
 const R=[["Ruine égéenne","Mykonos, Grèce",50000,2500,"🏚️","#c9b99a,#4a6a8a"],["Ferme coloniale","Minas Gerais, Brésil",150000,8000,"🏡","#4d7a3a,#c2410c"],["Chalet des neiges","Reykjavik, Islande",400000,22000,"🏔️","#9fb7d1,#2c3e55"],["Maison victorienne","Nouvelle-Angleterre, USA",900000,50000,"🏠","#2f6f62,#9db8b0"],["Loft industriel","Brooklyn, New York",2500000,140000,"🏢","#555b66,#b0623a"],["Villa méditerranéenne","Côte d'Azur, France",6000000,340000,"🌴","#38bdf8,#f5d77a"],["Riad de luxe","Marrakech, Maroc",15000000,850000,"🕌","#c2410c,#f5c542"],["Penthouse","Dubaï, EAU",40000000,2400000,"🌇","#1e1b4b,#f97316"],["Château","Vallée de la Loire, France",120000000,7000000,"🏰","#475569,#a3b18a"],["Île privée","Maldives",300000000,18000000,"🏝️","#0ea5e9,#2ee37a"],["Centre commercial","Tokyo, Japon",600000000,38000000,"🛍️","#9b5cff,#ff5a8a"],["Gratte-ciel","Manhattan, USA",1500000000,95000000,"🌆","#0f172a,#4f7cff"]];
 const CO=[["BTC","Bitcoin",80130,20.1e6,"#f7931a","₿"],["ETH","Ethereum",2322.59,122e6,"#627eea","Ξ"],["USDT","Tether",1,182e9,"#26a17b","₮",1],["BNB","BNB",740.76,131e6,"#f3ba2f","B"],["XRP","XRP",1.29,63e9,"#23292f","✕"],["USDC","USDC",1,71e9,"#2775ca","$",1],["SOL","Solana",101.29,590e6,"#9945ff","◎"],["TRX","TRON",.329889,95e9,"#ef0027","T"],["DOGE","Dogecoin",.18,150e9,"#c2a633","Ð"],["ADA","Cardano",.45,36e9,"#0033ad","A"],["AVAX","Avalanche",28,400e6,"#e84142","A"],["LINK","Chainlink",14.2,630e6,"#2a5ada","L"],["TON","Toncoin",3.1,2.5e9,"#0098ea","T"],["DOT","Polkadot",4.2,1.5e9,"#e6007a","●"],["LTC","Litecoin",85,75e6,"#345d9d","Ł"],["XLM","Stellar",.12,30e9,"#14b6e7","*"],["ATOM","Cosmos",5,390e6,"#6f7390","⚛"],["UNI","Uniswap",7,750e6,"#ff007a","U"]],COINS=CO.map(c=>c[0]),CM=Object.fromEntries(CO.map(c=>[c[0],c])),STK=[["SBOX","SkyBox",100],["FACE","FaceNet",250],["WOOD","WoodCo",40],["TECH","TechNova",800],["BANK","Banque Atlas",60],["ENRG","SolarWave",35],["PHRM","PharmaPlus",150],["AUTO","VoltMotors",220],["GAME","PixelForge",75],["FOOD","FreshMart",55]];
 const UPG=[["Gants dorés","Clic ×2",5e3,"👆","clk",2],["Souris laser","Clic ×3",25e4,"🖱️","clk",3],["Comptable","Revenus +10 %",5e4,"🧮","inc",.1],["Directeur financier","Revenus +25 %",3e6,"💼","inc",.25],["Conseil d'administration","Revenus +50 %",15e7,"🏛️","inc",.5],["Mentor","XP ×2",1e6,"🎓","xp",2]];
 const CARDS=[["Classic Blue",1,1,0,"linear-gradient(135deg,#1d4ed8,#3b82f6)","#fff"],["Orange",1.2,2,5e3,"linear-gradient(135deg,#c2410c,#f97316)","#fff"],["Metal",1.8,5,25e3,"linear-gradient(135deg,#334155,#94a3b8)","#fff"],["Gold",2.5,10,1e5,"linear-gradient(135deg,#e9c46a,#d4af37,#fbe98a)","#3a2d00"],["Platinum",4,25,5e5,"linear-gradient(135deg,#d9dfe9,#fff)","#222"],["Black",6,50,2e6,"linear-gradient(135deg,#0a0a0a,#2a2a2a)","#fff"],["Nebula",8,100,1e7,"linear-gradient(135deg,#1e1b4b,#581c87)","#fff"],["Matrix",10,250,5e7,"linear-gradient(135deg,#022c22,#059669)","#fff"]];
-CARDS.push(["Aurora",12,400,2e8,"linear-gradient(135deg,#0f766e,#22d3ee,#a7f3d0)","#04201f"],["Obsidian",15,650,8e8,"linear-gradient(135deg,#050505,#27272a,#3f3f46,#0a0a0a)","#e4e4e7"],["Quantum",20,1000,3e9,"linear-gradient(135deg,#312e81,#6d28d9,#06b6d4)","#fff"],["Eclipse",28,1600,1e10,"linear-gradient(135deg,#111,#7c2d12,#f59e0b,#111)","#fff"],["Titan",40,2500,5e10,"linear-gradient(135deg,#334155,#e2e8f0,#64748b,#f8fafc)","#0f172a"],["Singularity",60,4000,25e10,"linear-gradient(135deg,#000,#4c1d95,#be185d,#000)","#fff"],["Sovereign",100,8000,1e12,"linear-gradient(135deg,#78350f,#fbbf24,#fff7c2,#d97706)","#2a1a00"]);
 const CARS=[["Citadine",15000,"🚗"],["Berline",60000,"🚙"],["SUV",120000,"🚐"],["Sportive",350000,"🏎️"],["Supercar",2e6,"🏁"],["Hypercar",12e6,"⚡"],["Jet privé",6e7,"🛩️"],["Yacht",15e7,"🛥️"]];
 const MIS=[["Clique 50 fois",s=>s.clicks>=50,500],["Atteins 10 000 $",s=>s.cash>=1e4,2000],["Possède 5 entreprises",s=>s.biz.reduce((a,b)=>a+b,0)>=5,15000],["Achète un bien immobilier",s=>s.own.length>0,50000],["Possède 3 biens immobiliers",s=>s.own.length>=3,200000],["Détiens du crypto",s=>Object.values(s.coins).some(x=>x>0),30000],["Détiens des actions",s=>Object.values(s.stk).some(x=>x>0),30000],["1 000 $ sur le livret",s=>s.savings>=1000,5000],["Achète une voiture",s=>s.cars.length>0,40000],["Achète une amélioration Boutique",s=>s.up.length>0,30000],["Atteins le niveau 10",s=>s.lvl>=10,200000]];
 const fresh=()=>({cash:100,savings:0,xp:0,lvl:1,clicks:0,card:0,pin:"1234",cars:[],chest:0,biz:BIZ.map(()=>0),coins:Object.fromEntries(COINS.map(c=>[c,0])),stk:Object.fromEntries(STK.map(s=>[s[0],0])),cb:{},sb:{},loan:0,tx:[],st:{cw:0,cp:0,cbest:0,cnet:0,tr:0,fees:0,loans:0,taxes:0},tax:{acc:0,next:0},done:[],up:[],own:[],bp:{},upl:{},pv:R.map(()=>1),pool:0,sites:[],sh:{on:0,fol:100,items:[null,null],vids:[],last:0,n:0,vid:0,rate:0,earn:0}});
@@ -288,7 +257,7 @@ let S=fresh(),tab="Bank",sub="Carte",RS="Marché",CP={page:1,q:""},TM={},P=Objec
 function mk(p,v){let a=[1];for(let i=1;i<168;i++)a.push(a[i-1]*(1+(Math.random()-.5)*v));return a.map(x=>x/a[167]*p)}
 STK.forEach(s=>{SP[s[0]]=s[2];D[s[0]]=0;HI[s[0]]=Array(30).fill(s[2])});CO.forEach(c=>{HI[c[0]]=mk(c[2],c[6]?.0006:.03)});
 const BOTS=[["Tony",5e9],["zomb1e",2.1e9],["TheRestartPrincess",8e8],["Bacterian",3e8],["Nic",1.2e8],["Bab",4e7],["Smitty",1.1e7],["Excel",3e6]].map(b=>({n:b[0],w:b[1]}));
-try{const r=localStorage.getItem(ET.key);if(r){const o=JSON.parse(r);S=Object.assign(fresh(),o);S.stk=Object.assign(fresh().stk,o.stk);S.coins=Object.assign(fresh().coins,o.coins);if(o.biz&&o.biz.length==7){S.biz=BIZ.map(()=>0);[0,1,2,4,6,8,10].forEach((n,i)=>S.biz[n]=o.biz[i])}if(o.re){S.cash+=o.re.reduce((a,n,i)=>a+n*[5e4,4e5,35e5,4e7,6e8][i],0);delete S.re}}}catch(e){}
+try{const r=localStorage.getItem("tycoon2");if(r){const o=JSON.parse(r);S=Object.assign(fresh(),o);S.stk=Object.assign(fresh().stk,o.stk);S.coins=Object.assign(fresh().coins,o.coins);if(o.biz&&o.biz.length==7){S.biz=BIZ.map(()=>0);[0,1,2,4,6,8,10].forEach((n,i)=>S.biz[n]=o.biz[i])}if(o.re){S.cash+=o.re.reduce((a,n,i)=>a+n*[5e4,4e5,35e5,4e7,6e8][i],0);delete S.re}}}catch(e){}
 const PH=R.map((r,i)=>Array(24).fill(S.pv[i]));
 const $=id=>document.getElementById(id),set=(id,t)=>{const e=$(id);if(e)e.textContent=t};
 const f=n=>{if(n>0&&n<1)return"$"+n.toFixed(2);n=Math.floor(n);if(n>=1e12)return"$"+(n/1e12).toFixed(2)+"T";if(n>=1e9)return"$"+(n/1e9).toFixed(2)+"B";return"$"+n.toLocaleString("en-US")};
@@ -296,11 +265,11 @@ const cost=(b,n)=>Math.ceil(b*Math.pow(1.15,n));
 const divs=()=>STK.reduce((a,s)=>a+S.stk[s[0]]*SP[s[0]]*.0002,0);
 const income=()=>inc2()+reI()+shRate();
 const wealth=()=>S.cash-(S.loan||0)+S.savings+COINS.reduce((a,c)=>a+S.coins[c]*P[c],0)+STK.reduce((a,s)=>a+S.stk[s[0]]*SP[s[0]],0)+S.own.reduce((a,i)=>a+val(i),0)+S.sites.reduce((a,x)=>a+x.inv,0);
-const lvB=l=>.1+.2*(Math.pow(1.5,Math.floor(l/5))-1),cv=()=>+(lvB(S.lvl)*CARDS[S.card][1]*clm()).toFixed(2);
+const cv=()=>+(.1*(1+Math.floor(S.lvl/10))*CARDS[S.card][1]*clm()).toFixed(2);
 const need=()=>Math.floor(100*Math.pow(S.lvl,1.6));
 function gain(x){S.xp+=x*xpm();while(S.xp>=need()){S.xp-=need();S.lvl++;toast("🎉 Niveau "+S.lvl+" ! Clic : "+f(cv()))}}
 function toast(t){const e=$("toast");e.textContent=t;e.style.display="block";clearTimeout(toast.t);toast.t=setTimeout(()=>e.style.display="none",2200)}
-function save(){if(window.ET_NOSAVE)return;try{localStorage.setItem(ET.key,JSON.stringify(S))}catch(e){}if(Date.now()-(window.ET_CT||0)>5000){window.ET_CT=Date.now();try{ET_NET.saveCloud(ET.id,S)}catch(e){}}}
+function save(){try{localStorage.setItem("tycoon2",JSON.stringify(S))}catch(e){}}
 function head(){set("bal",f(S.cash));set("inc","+"+f(income())+"/min");set("lvl","Niv. "+S.lvl+" — "+Math.floor(S.xp)+" / "+need()+" XP");$("xpb").style.width=(S.xp/need()*100)+"%";set("cardAmt",f(S.cash));set("clickV",f(cv()));set("savAmt",f(S.savings));set("wealth",f(wealth()));set("tot","Total avec épargne : "+f(S.cash+S.savings));set("cardCap","Capital : "+f(wealth()));set("pool",f(S.pool));set("tav",f2(S.cash));const dt=$("dot");if(dt)dt.style.display=S.pool>=1?"inline-block":"none";document.querySelectorAll("[data-c]").forEach(b=>b.classList.toggle("off",S.cash<+b.dataset.c))}
 const TABS=[["Bank","🏦"],["Empire","🏢"],["Immobilier","🏠"],["Crypto","₿"],["Actions","📈"],["Classement","🏆"],["Boutique","🛍️"],["Casino","🎰"],["Missions","🎯"]];
 const f2=n=>n>=1e9?f(n):"$"+n.toLocaleString("en-US",{minimumFractionDigits:2,maximumFractionDigits:2}),pf=p=>{const d=p>=100?2:p>=1?4:6;return"$"+p.toLocaleString("en-US",{minimumFractionDigits:d,maximumFractionDigits:d})},sg=n=>(n>=0?"+":"")+n.toFixed(2)+"%",fmtS=n=>n>=1e9?(n/1e9).toFixed(1)+"B":n>=1e6?(n/1e6).toFixed(1)+"M":n.toLocaleString("en-US");
@@ -382,7 +351,7 @@ let d=`M${x-h} ${y+(R()-.5)*h}`;for(let j=1;j<=6;j++)d+=` L${x-h+h*2*j/6} ${y+(R
 s+=`<path d="${d}" fill="none" stroke="#a8d0f0" stroke-width="${h*.07}" stroke-linejoin="round"/>`;
 for(let j=1;j<10;j++){const t=-h+2*h*j/10+(R()-.5)*h*.05,w=j%3?1.2:2.6;s+=`<line x1="${x+t}" y1="${y-h}" x2="${x+t}" y2="${y+h}" stroke="#fff" stroke-width="${w}" ${L}/><line x1="${x-h}" y1="${y+t}" x2="${x+h}" y2="${y+t}" stroke="#fff" stroke-width="${w}" ${L}/>`}
 s+=`<line x1="${x-h}" y1="${y-h*.7}" x2="${x+h}" y2="${y+h*.8}" stroke="#f7d56b" stroke-width="3.5" ${L}/><line x1="${x+h*.8}" y1="${y-h}" x2="${x-h*.6}" y2="${y+h}" stroke="#f7d56b" stroke-width="3.5" ${L}/><circle cx="${x}" cy="${y}" r="${h*.55}" fill="none" stroke="#f7d56b" stroke-width="3" ${L}/>`;
-s+=`<text x="${x-h}" y="${y-h-3*k}" font-size="${13*k}" font-weight="700" fill="#e8ecff" style="pointer-events:none">${c[0]} · ${(c[4]*1000).toLocaleString("fr-FR")} hab.</text></g>`;
+s+=`<text x="${x-h}" y="${y-h-3*k}" font-size="${13*k}" font-weight="700" fill="#e8ecff" style="pointer-events:none">${c[0]} · ${(c[4]*1000).toLocaleString(LANGS[LI][2])} hab.</text></g>`;
 ZZ(MT).forEach((z,j)=>{const p=ZP[MT][j],px=x+p[0]*h*.9,py=y+p[1]*h*.9,mine=o.some(q=>q.c==i&&q.z==j),any=o.some(q=>q.c==i);
 s+=`<g data-city="${i}" data-zone="${j}" style="cursor:pointer"><circle cx="${px}" cy="${py}" r="${9*k}" fill="${mine?"#f5c542":any?"#888":"#2ee37a"}" stroke="#000" stroke-width="${1.5*k}"/><text x="${px+12*k}" y="${py+4*k}" font-size="${11*k}" font-weight="700" fill="#222" stroke="#fff" stroke-width="${3*k}" paint-order="stroke" style="pointer-events:none">${z[0]}</text></g>`});
 return s}
@@ -399,12 +368,12 @@ function mZ(f,fx=.5,fy=.5){const nw=Math.min(360,Math.max(2.5,MV.w*f)),px=MV.x+M
 function mFind(q){q=q.toLowerCase();const i=CI.findIndex(c=>c[0].toLowerCase().includes(q));if(q&&i>=0){MV.w=5;mVB();MV.x=CI[i][3]+180-MV.w/2;MV.y=90-CI[i][2]-MV.h/2;mVB();mDraw()}}
 function mDraw(){const v=$("msv");if(!v)return;const k=MV.w/v.clientWidth,own=S.sites.filter(s=>s.t==MT),zoom=MV.w<14;$("mc").innerHTML=CI.map((c,i)=>{const x=c[3]+180,y=90-c[2],m=zoom?HSZ(c)+3:5;if(x<MV.x-m||x>MV.x+MV.w+m||y<MV.y-m||y>MV.y+MV.h+m)return"";if(zoom)return cityMap(i,own,k);const o=own.some(s=>s.c==i),r=(3+Math.log10(c[4]+1)*1.8)*k,lab=(MV.w<220&&c[4]>3000)||c[4]>12000||MV.w<60;return`<circle data-city="${i}" cx="${x}" cy="${y}" r="${r}" fill="${o?"#f5c542":"#2ee37a"}" stroke="#000a" stroke-width="${k}" style="cursor:pointer"/>`+(lab?`<text x="${x+r*1.3}" y="${y+r*.4}" font-size="${11*k}" fill="#e8ecff" style="pointer-events:none">${c[0]}</text>`:"")}).join("")}
 function zCard(t,i,j){const z=ZZ(t)[j];return`<div class="item gl" style="margin-bottom:8px"><h4>${z[0]} <small style="margin-left:auto;color:var(--mut)">${z[3]}</small></h4><p>${t=="hotel"?"Fréquentation":"Rendement"} ×${z[2]}</p><div class="row"><button class="btn" data-c="${Math.ceil(sCost(t,i,j,0))}" onclick="mkSite('${t}',${i},${j},0)">Construire ${f(sCost(t,i,j,0))} · ${t=="hotel"?60:120}s</button><button class="btn g" data-c="${Math.ceil(sCost(t,i,j,1))}" onclick="mkSite('${t}',${i},${j},1)">Racheter (déjà construit) ${f(sCost(t,i,j,1))}</button></div></div>`}
-function pickCity(i,zj){const c=CI[i],t=MT,Z=ZZ(t),ex=S.sites.find(s=>s.t==t&&s.c==i);modal(`<div class="box" style="max-width:560px"><h3 style="margin:0">${c[0]} <small style="color:var(--mut)">${c[1]}</small></h3><p style="color:var(--mut)">${(c[4]*1000).toLocaleString("fr-FR")} habitants · ${t=="hotel"?"un seul hôtel par ville":"une seule usine par ville"}</p>`+(ex?`<p class="up">✅ Tu as déjà ${t=="hotel"?"un hôtel":"une usine"} ici (${Z[ex.z][0]}).</p>`:(zj>=0?zCard(t,i,zj):Z.map((z,j)=>zCard(t,i,j)).join("")))+`<div class="row" style="margin-top:10px"><button class="btn" onclick="mapOpen('${t}')">← Carte</button><button class="btn r" onclick="shut()">Fermer</button></div></div>`);head()}
+function pickCity(i,zj){const c=CI[i],t=MT,Z=ZZ(t),ex=S.sites.find(s=>s.t==t&&s.c==i);modal(`<div class="box" style="max-width:560px"><h3 style="margin:0">${c[0]} <small style="color:var(--mut)">${c[1]}</small></h3><p style="color:var(--mut)">${(c[4]*1000).toLocaleString(LANGS[LI][2])} habitants · ${t=="hotel"?"un seul hôtel par ville":"une seule usine par ville"}</p>`+(ex?`<p class="up">✅ Tu as déjà ${t=="hotel"?"un hôtel":"une usine"} ici (${Z[ex.z][0]}).</p>`:(zj>=0?zCard(t,i,zj):Z.map((z,j)=>zCard(t,i,j)).join("")))+`<div class="row" style="margin-top:10px"><button class="btn" onclick="mapOpen('${t}')">← Carte</button><button class="btn r" onclick="shut()">Fermer</button></div></div>`);head()}
 /* --- boutique en ligne + TokTok --- */
 const PRD=[["Gourde isotherme",4,19,"💧"],["Mini ventilateur",3,15,"🌀"],["Lampe LED lune",6,29,"🌙"],["Coque de téléphone",2,12,"📱"],["Masque LED visage",14,59,"🎭"],["Écouteurs sans fil",12,45,"🎧"],["Tapis de massage",9,39,"🧘"],["Peluche virale",5,24,"🧸"]];
 const VT=[{n:"Danse",e:"💃",g:"#ff3d71,#7a2cff",m:1,vir:.15,fol:1,conv:1},{n:"Démo produit",e:"📦",g:"#00c2ff,#2e5bff",m:.8,vir:.04,fol:1,conv:1.5},{n:"Avis client",e:"⭐",g:"#ffb703,#fb5607",m:.6,vir:.03,fol:3,conv:1.3},{n:"En plein air",e:"🌳",g:"#2ee37a,#0a7a5a",m:.9,vir:.08,fol:1.5,conv:1.1}];
-const BOOST=[250,2500,25000,250000,2500000],SHIP=[[100,1,45],[500,.92,90],[2000,.82,180]],COOL=180000,SLOTS=[0,1];
-const mmss=n=>Math.floor(n/60)+":"+String(n%60).padStart(2,"0"),nf=n=>Math.round(n).toLocaleString("fr-FR");
+const BOOST=[[150,2],[600,4],[2500,8]],SHIP=[[100,1,45],[500,.92,90],[2000,.82,180]],COOL=180000,SLOTS=[0,1];
+const mmss=n=>Math.floor(n/60)+":"+String(n%60).padStart(2,"0"),nf=n=>Math.round(n).toLocaleString(LANGS[LI][2]);
 let TRD=PRD.map(()=>.4+Math.random()*.5),HOT=Math.random()*PRD.length|0,HT=0,PH_S="home",PH_SEL={p:-1,k:-1};TRD[HOT]=1.7;
 {const o=S.sh||{};if(!Array.isArray(o.items)){const it=[null,null];if(o.p>=0)it[0]={p:o.p,stock:o.stock||0,price:o.price||PRD[o.p][2],inc:[],fr:0,earn:0};S.sh=Object.assign(fresh().sh,{on:o.on||0,fol:o.fol||100,earn:o.earn||0,items:it})}S.sh.vids=S.sh.vids||[]}
 function shTrend(){if(++HT>=36){HT=0;HOT=Math.random()*PRD.length|0;TRD[HOT]=1.7}TRD=TRD.map((v,i)=>i==HOT?Math.max(.4,v*.985):Math.max(.15,Math.min(1,v+(Math.random()-.5)*.1)))}
@@ -417,7 +386,7 @@ const shRate=()=>S.sh.on?S.sh.rate:0;
 function slotView(s){const it=S.sh.items[s];if(!it)return`<div class="item gl" style="border-style:dashed"><h4>Emplacement ${s+1} libre</h4><p>Choisis un produit dans le catalogue ci-dessous.</p></div>`;const p=PRD[it.p];
 return`<div class="item gl" style="border-color:var(--grn)"><h4><span class="ic">${p[3]}</span>${p[0]}<span id="sti_${s}" style="margin-left:auto"></span></h4><p>Coût d'achat ${f2(p[1])} · prix conseillé ${f2(p[2])}</p><p>📦 En stock : <b id="sk_${s}"></b></p><p id="sinc_${s}" style="color:var(--gold)"></p>${[0,1,2].map(j=>`<button class="btn g" id="sa_${s}_${j}" style="display:none;margin:2px 0" onclick="shAcc(${s},${j})"></button>`).join("")}<p id="ssl_${s}" style="color:var(--grn)"></p><p>Prix de vente <b id="spr_${s}"></b> <button class="pg" onclick="shPrice(${s},-.1)">−10%</button> <button class="pg" onclick="shPrice(${s},.1)">+10%</button> <button class="pg" onclick="shSale(${s})">🏷️ Soldes −20 %</button></p><div style="display:flex;flex-direction:column;gap:5px">`+SHIP.map(o=>`<button class="btn g" data-c="${Math.ceil(o[0]*p[1]*o[1])}" onclick="shOrder(${s},${SHIP.indexOf(o)})">Commander ${o[0]} · ${f(o[0]*p[1]*o[1])} · livraison ${o[2]}s${o[1]<1?" (−"+Math.round((1-o[1])*100)+"%)":""}</button>`).join("")+`</div><p>Gagné avec ce produit : <b class="up" id="sge_${s}"></b></p><button class="btn r" onclick="shDrop(${s})">Abandonner ce produit</button></div>`}
 function shView(){const h=S.sh;if(!h.on)return`<div class="item gl" style="max-width:480px"><h4><span class="ic">🛒</span>Ouvrir ta boutique en ligne</h4><p>1) Choisis jusqu'à 2 produits · 2) Commande du stock (livraison avec délai) · 3) Poste des vidéos TokTok depuis ton téléphone 📱 (menu Bank) : sans vues, pas de clients.</p><button class="btn" data-c="12000" onclick="shOpen()">Licence — ${f(12000)}</button></div>`;
-return`<div class="item gl" style="margin-bottom:12px"><h4>📖 Comment ça marche</h4><div class="steps"><div><b>1</b>Choisis jusqu'à 2 produits</div><div><b>2</b>Commande du stock : il arrive après un délai</div><div><b>3</b>Poste sur TokTok (📱, 1 vidéo / 3 min), tu peux payer une pub</div><div><b>4</b>Plus d'abonnés = plus de vues = plus de ventes</div></div><p>👥 Abonnés <b id="sfo"></b> · 🎬 Vidéos <b id="svd"></b> · Revenu estimé <b class="up" id="srt"></b>/min · Total gagné <b class="up" id="sea"></b></p><button class="btn" onclick="phOpen();phGo('tt')">📱 Ouvrir TokTok</button></div><div class="item gl" style="margin-bottom:12px"><p>🏭 Entrepôt niv. <b id="swl"></b>/${WH.length} : capacité <b id="swc"></b> par produit · max ${MAXO} livraisons en route par produit</p><div class="bar"><i id="swbar"></i></div><button class="btn" id="swb" onclick="shWh()"></button></div><h4 style="margin:0 0 8px">Mes produits (2 max)</h4><div class="grid">`+SLOTS.map(slotView).join("")+`</div><h4 style="margin:16px 0 8px">🔥 Catalogue — le produit du moment change toutes les ~90 s</h4><div class="grid">`+PRD.map((p,i)=>`<div class="item gl" id="pc_${i}"><h4><span class="ic">${p[3]}</span>${p[0]} <span id="ph_${i}" style="margin-left:auto"></span></h4><p>Coût <span id="pcu_${i}"></span> · prix conseillé ${f2(p[2])}<span id="pcb_${i}" class="up"></span></p><div class="bar"><i id="pt_${i}"></i></div><button class="btn" id="pb_${i}" onclick="shPick(${i})">Vendre ce produit</button></div>`).join("")+`</div>`}
+return`<div class="item gl" style="margin-bottom:12px"><h4>📖 Comment ça marche</h4><div class="steps"><div><b>1</b>Choisis jusqu'à 2 produits</div><div><b>2</b>Commande du stock : il arrive après un délai</div><div><b>3</b>Poste sur TokTok (📱, 1 vidéo / 3 min), tu peux payer une pub</div><div><b>4</b>Plus d'abonnés = plus de vues = plus de ventes</div></div><p>👥 Abonnés <b id="sfo"></b> · 🎬 Vidéos <b id="svd"></b> · Revenu estimé <b class="up" id="srt"></b>/min · Total gagné <b class="up" id="sea"></b></p><button class="btn" onclick="phOpen();phGo('tt')">📱 Ouvrir TokTok</button></div><div class="item gl" style="margin-bottom:12px"><p>🏭 Entrepôt niv. <b id="swl"></b> : capacité <b id="swc"></b> par produit · max ${MAXO} livraisons en route par produit</p><button class="btn" id="swb" onclick="shWh()"></button></div><h4 style="margin:0 0 8px">Mes produits (2 max)</h4><div class="grid">`+SLOTS.map(slotView).join("")+`</div><h4 style="margin:16px 0 8px">🔥 Catalogue — le produit du moment change toutes les ~90 s</h4><div class="grid">`+PRD.map((p,i)=>`<div class="item gl" id="pc_${i}"><h4><span class="ic">${p[3]}</span>${p[0]} <span id="ph_${i}" style="margin-left:auto"></span></h4><p>Coût <span id="pcu_${i}"></span> · prix conseillé ${f2(p[2])}<span id="pcb_${i}" class="up"></span></p><div class="bar"><i id="pt_${i}"></i></div><button class="btn" id="pb_${i}" onclick="shPick(${i})">Vendre ce produit</button></div>`).join("")+`</div>`}
 function shUpd(){const h=S.sh;if(!h.on||!$("sfo"))return;const n=Date.now();set("sfo",nf(h.fol));set("svd",h.vids.length);set("srt",f(h.rate));set("sea",f(h.earn));
 PRD.forEach((p,i)=>{const w=$("pt_"+i);if(!w)return;set("pcu_"+i,f2(uc(i)));set("pcb_"+i," (bénéfice "+f2(p[2]*.95-uc(i))+"/u)");w.style.width=Math.min(100,TRD[i]/1.7*100)+"%";set("ph_"+i,HOT==i?"🔥 Tendance":TRD[i]>.7?"📈":TRD[i]<.3?"📉":"➖");const on=h.items.some(t=>t&&t.p==i);$("pc_"+i).style.borderColor=on?"var(--grn)":"";set("pb_"+i,on?"✅ En vente":"Vendre ce produit");$("pb_"+i).classList.toggle("off",on)});
 SLOTS.forEach(s=>{const it=h.items[s];if(!it||!$("sk_"+s))return;set("sk_"+s,Math.floor(it.stock));set("spr_"+s,f2(it.price));set("sge_"+s,f(it.earn||0));set("suc_"+s,f2(uc(it.p)));set("spb_"+s," (bénéfice "+f2(it.price*.95-uc(it.p))+"/u)");if(it.shop)set("ssb_"+s," (bénéfice "+f2(it.sp*(1-comm())-uc(it.p))+"/u)");set("sti_"+s,HOT==it.p?"🔥":TRD[it.p]>.7?"📈":TRD[it.p]<.3?"📉":"➖");set("sinc_"+s,it.inc.length?"🚚 En route : "+it.inc.map(o=>o.n+" (dans "+mmss(Math.max(0,Math.ceil((o.t-n)/1000)))+")").join(" · "):"")})}
@@ -430,25 +399,15 @@ function shDropGo(s){const h=S.sh,it=h.items[s];if(!it)return;S.cash+=it.stock*P
 /* --- téléphone + TokTok --- */
 const phOn=()=>{const o=$("ov");return o&&o.style.display!="none"&&$("phs")},cdw=()=>Math.max(0,Math.ceil((S.sh.last+COOL-Date.now())/1000));
 function phOpen(){modal(`<div style="display:flex;flex-direction:column;align-items:center;gap:8px"><div class="phone"><div class="pst"><span id="phclk"></span><span>📶 🔋</span></div><div class="phs" id="phs"></div><div class="phbar" onclick="phGo('home')"></div></div><button class="pg" onclick="shut()">✕ Fermer</button></div>`);phGo("home")}
-function vCard(v){const t=VT[v.k],p=PRD[v.p]||["?",0,0,"?"],age=Date.now()-v.t;return`<div class="vc" id="vc_${v.id}"><div class="vt" style="background:linear-gradient(160deg,${t.g})"><span>${t.e}</span><i>${p[3]}</i><small>${t.n}</small></div><div class="vi"><b>${p[0]}</b><div>👁️ <b id="vv_${v.id}">${nf(v.v)}</b> vues ${v.vir?"🔥 VIRAL":""}</div><div>❤️ <span id="vl_${v.id}">${nf(v.v*.09)}</span> ${v.ad?" · 📢 Boost "+(v.bs?f(v.bs):"×"+v.ad):""}</div>`+(age<18e5?`<div style="margin-top:4px"><button class="pg" style="font-size:11px;padding:4px 9px" onclick="boOpen(${v.id})">📢 Booster</button></div>`:"")+`</div></div>`}
+function vCard(v){const t=VT[v.k],p=PRD[v.p]||["?",0,0,"?"],age=Date.now()-v.t;return`<div class="vc" id="vc_${v.id}"><div class="vt" style="background:linear-gradient(160deg,${t.g})"><span>${t.e}</span><i>${p[3]}</i><small>${t.n}</small></div><div class="vi"><b>${p[0]}</b><div>👁️ <b id="vv_${v.id}">${nf(v.v)}</b> vues ${v.vir?"🔥 VIRAL":""}</div><div>❤️ <span id="vl_${v.id}">${nf(v.v*.09)}</span> ${v.ad?" · 📢 Boost ×"+v.ad:""}</div>`+(!v.ad&&age<6e5?`<div style="display:flex;gap:4px;flex-wrap:wrap;margin-top:4px">`+BOOST.map((b,j)=>`<button class="pg" style="font-size:11px;padding:4px 7px" data-c="${b[0]}" onclick="shBoost(${v.id},${j})">📢 ${f(b[0])} ×${b[1]}</button>`).join("")+`</div>`:"")+`</div></div>`}
 function phGo(s){PH_S=s;const h=S.sh,e=$("phs");if(!e)return;let x="";
 if(s=="home")x=`<div class="wp"><div class="apps">`+[["TokTok","🎵","linear-gradient(135deg,#111,#25f4ee)","tt"],["Maps","🗺️","#2e7d32"],["Bourse","📈","#1565c0"],["Actus","📰","#ef4444","nw"],["Banque","🏦","#6a1b9a"],["Photos","🖼️","#e65100"]].map(a=>`<div class="app" onclick="${a[3]?"phGo('"+a[3]+"')":"toast('Bientôt disponible')"}"><span style="background:${a[2]}">${a[1]}</span>${a[0]}${a[3]?"":"<small>bientôt</small>"}</div>`).join("")+`</div></div>`;
 else if(s=="nw")x=newsHtml();else if(!h.on)x=`<div class="tth"><b>TokTok</b></div><p style="padding:16px">Ouvre d'abord ta boutique en ligne (Empire → Boutique en ligne) pour vendre des produits.</p>`;
 else if(s=="tt")x=`<div class="tth"><b>TokTok</b><span id="ttf">👥 ${nf(h.fol)} abonnés</span></div><div style="padding:10px"><button class="btn ${cdw()?"off":""}" id="ttpost" style="display:block" onclick="phGo('mk')">${cdw()?"⏳ Prochaine vidéo dans "+mmss(cdw()):"＋ Nouvelle vidéo"}</button></div><div id="ttfeed" style="padding:0 10px 14px">`+(h.vids.map(vCard).join("")||`<p style="color:var(--mut)">Aucune vidéo pour l'instant. Poste la première !</p>`)+`</div>`;
 else{const its=h.items.filter(Boolean);x=`<div class="tth"><b onclick="phGo('tt')" style="cursor:pointer">‹ Nouvelle vidéo</b></div><div style="padding:12px"><p style="margin:0 0 6px"><b>1. Produit</b></p>`+(its.length?its.map(i=>`<button class="pg ${PH_SEL.p==i.p?"on":""}" style="margin:0 6px 6px 0" onclick="PH_SEL.p=${i.p};phGo('mk')">${PRD[i.p][3]} ${PRD[i.p][0]}</button>`).join(""):`<p style="color:var(--mut)">Aucun produit en vente.</p>`)+`<p style="margin:10px 0 6px"><b>2. Type de vidéo</b></p><div class="vts">`+VT.map((t,k)=>`<div class="${PH_SEL.k==k?"sel":""}" style="background:linear-gradient(160deg,${t.g})" onclick="PH_SEL.k=${k};phGo('mk')"><span>${t.e}</span>${t.n}</div>`).join("")+`</div><button class="btn ${cdw()?"off":""}" id="ttgo" style="display:block;margin-top:12px" onclick="shPostGo()">${cdw()?"⏳ "+mmss(cdw()):"🎬 Poster"}</button><p style="color:var(--mut);font-size:11px">1 vidéo toutes les 3 minutes. Plus d'abonnés = plus de vues.</p></div>`}
-e.innerHTML=x;if(s=="bo")boUpd();head()}
+e.innerHTML=x;head()}
 function shPostGo(){const h=S.sh,n=Date.now(),{p,k}=PH_SEL;if(!h.items.some(i=>i&&i.p==p)||k<0){toast("Choisis un produit et un type de vidéo");return}if(n<h.last+COOL)return;const t=VT[k],ramp=Math.min(1,.4+.6*h.n/10),vir=Math.random()<t.vir;let g=(80+h.fol*1.2)*t.m*(.5+TRD[p])*ramp*(.6+Math.random()*.8);if(vir)g*=8+Math.random()*20;g=Math.round(g)+10;h.vid=(h.vid||0)+1;h.vids.unshift({id:h.vid,k,p,t:n,tgt:g,v:0,vir:vir?1:0,ad:0});h.vids=h.vids.slice(0,25);h.last=n;h.n++;toast(vir?"🔥 Ta vidéo devient virale !":"🎬 Vidéo postée !");PH_SEL={p:-1,k:-1};phGo("tt");save()}
-let PH_BO={id:0,amt:2500};
-const boMax=()=>Math.max(1000,Math.floor(wealth()*.1)),boMin=100,
-boViews=c=>Math.round(c*1.4*Math.pow(Math.max(c,1)/2500,-.06)),
-boBuy=(v,c)=>Math.round(boViews(c)*.12*.3*(.5+TRD[v.p])*VT[v.k].conv*(S.sh.fol>=1e5?1.25:1)*(.5+S.sh.rt/10)),
-boCap=()=>Math.floor(Math.min(S.cash,boMax()));
-function boOpen(id){PH_BO={id,amt:Math.max(boMin,Math.min(2500,boCap()))};phGo("bo")}
-function boHtml(){const v=S.sh.vids.find(x=>x.id==PH_BO.id);if(!v)return`<div class="tth"><b onclick="phGo('tt')" style="cursor:pointer">‹ Retour</b></div><p style="padding:16px">Vidéo introuvable.</p>`;const p=PRD[v.p],cap=boCap(),mx=boMax();
-return`<div class="tth"><b onclick="phGo('tt')" style="cursor:pointer">‹ Booster la vidéo</b></div><div style="padding:12px"><p style="margin:0 0 6px"><b>${p[3]} ${p[0]}</b> · 👁️ ${nf(v.v)} vues</p><p style="margin:10px 0 6px"><b>Offres</b></p><div style="display:flex;flex-direction:column;gap:5px">`+BOOST.map(c=>`<button class="pg ${PH_BO.amt==c?"on":""}" ${c>cap?'style="opacity:.4"':""} onclick="boSet(${c})">📢 ${f(c)} → ≈ ${nf(boViews(c))} vues · ≈ ${nf(boBuy(v,c))} acheteurs</button>`).join("")+`</div><p style="margin:12px 0 4px"><b>Montant personnalisé</b></p><input class="ti" id="boin" type="number" inputmode="numeric" min="${boMin}" max="${cap}" value="${PH_BO.amt}" oninput="boSet(this.value,1)"><div style="display:flex;gap:5px;flex-wrap:wrap"><button class="pg" onclick="boSet(${boMin})">Min</button><button class="pg" onclick="boSet(${Math.floor(cap/4)})">25 %</button><button class="pg" onclick="boSet(${Math.floor(cap/2)})">50 %</button><button class="pg" onclick="boSet(${cap})">Max</button></div><p style="color:#9aa;font-size:11px;margin:4px 0">Maximum autorisé : <b>${f(cap)}</b> (10 % de ton capital = ${f(mx)}, limité par ton liquide). Plus tu investis, moins chaque dollar rapporte de vues.</p><div class="item gl" style="margin:8px 0"><p style="margin:2px 0">👁️ Vues estimées : <b id="bov"></b></p><p style="margin:2px 0">🛒 Acheteurs potentiels : <b id="bob"></b></p><p style="margin:2px 0">👥 Nouveaux abonnés : <b id="bof"></b></p></div><button class="btn" id="bogo" style="display:block" onclick="shBoost(${v.id},PH_BO.amt)"></button></div>`}
-function boUpd(){const v=S.sh.vids.find(x=>x.id==PH_BO.id);if(!v||!$("bov"))return;const c=Math.floor(Math.max(0,+PH_BO.amt||0)),ok=c>=boMin&&c<=boCap();set("bov","≈ "+nf(boViews(c)));set("bob","≈ "+nf(boBuy(v,c)));set("bof","≈ +"+nf(boViews(c)*.05*VT[v.k].fol));const b=$("bogo");if(b){b.textContent=ok?"📢 Lancer la pub — "+f(c):c<boMin?"Minimum "+f(boMin):"Dépasse ton maximum ("+f(boCap())+")";b.classList.toggle("off",!ok)}}
-function boSet(c,keep){PH_BO.amt=Math.floor(Math.max(0,+c||0));if(!keep){const i=$("boin");if(i)i.value=PH_BO.amt;phGo("bo");return}boUpd()}
-function shBoost(id,amt){const h=S.sh,v=h.vids.find(x=>x.id==id);if(!v)return;const c=Math.floor(+amt||0);if(c<boMin){toast("Minimum "+f(boMin));return}if(c>S.cash){toast("Fonds insuffisants");return}if(c>boMax()){toast("Maximum autorisé : "+f(boMax()));return}const n=boViews(c);S.cash-=c;v.tgt+=n;v.pv=(v.pv||0)+n;v.ad=(v.ad||0)+1;v.bs=(v.bs||0)+c;toast("📢 Pub lancée : ≈ "+nf(n)+" vues en route");head();save();phGo("tt")}
+function shBoost(id,j){const v=S.sh.vids.find(x=>x.id==id),b=BOOST[j];if(!v||v.ad)return;if(S.cash<b[0]){toast("Fonds insuffisants");return}S.cash-=b[0];v.ad=b[1];v.tgt*=b[1];toast("📢 Pub lancée ×"+b[1]);const c=$("vc_"+id);if(c)c.outerHTML=vCard(v);head();save()}
 function phUpd(){if(!phOn())return;const h=S.sh,d=new Date();set("phclk",d.getHours()+":"+String(d.getMinutes()).padStart(2,"0"));if(PH_S=="tt"){set("ttf","👥 "+nf(h.fol)+" abonnés");const b=$("ttpost");if(b){b.textContent=cdw()?"⏳ Prochaine vidéo dans "+mmss(cdw()):"＋ Nouvelle vidéo";b.classList.toggle("off",!!cdw())}h.vids.forEach(v=>{set("vv_"+v.id,nf(v.v));set("vl_"+v.id,nf(v.v*.09))})}else if(PH_S=="mk"){const b=$("ttgo");if(b){b.textContent=cdw()?"⏳ "+mmss(cdw()):"🎬 Poster";b.classList.toggle("off",!!cdw())}}}
 
 function nav(){$("nav").innerHTML=TABS.map(t=>`<button class="${t[0]==tab?"on":""}" onclick="go('${t[0]}')">${t[1]} ${t[0]}</button>`).join("")}
@@ -459,9 +418,8 @@ function buy(i){const c=cost(BIZ[i][1],S.biz[i]);if(S.cash<c)return;S.cash-=c;S.
 function bUpd(i){set("bn_"+i,"×"+S.biz[i]);const b=$("bb_"+i);if(b){const x=cost(BIZ[i][1],S.biz[i]);b.dataset.c=x;b.textContent="Acheter — "+f(x)}}
 function tr(t,k,m){const a=m=="buy"?S.cash*.25:S.stk[k]*.25;if(m=="buy"){if(a<1)return;S.stk[k]+=a/SP[k];S.cash-=a}else{if(a*SP[k]<.01)return;S.stk[k]-=a;S.cash+=a*SP[k]}head();stUpd();save()}
 function bet(){const v=Math.floor(+$("bet").value);if(!(v>0)||v>S.cash){toast("Mise invalide");return}if(Math.random()<.48){S.cash+=v;toast("🎉 Gagné +"+f(v))}else{S.cash-=v;toast("💸 Perdu −"+f(v))}head();save()}
-function claim(i){const m=MIS[i];if(S.done.includes(i)||!m[1](S))return;S.done.push(i);S.cash+=m[2];gain((m[5]||m[2])/20);head();mUpd();save();toast("Mission +"+f(m[2]))}
-const CHEST_CD=9e5;S.chest=Date.now();
-function chest(){const l=S.chest+CHEST_CD-Date.now();if(l>0)return;const g=Math.max(500,Math.floor(income()*1.5));S.cash+=g;S.chest=Date.now();gain(g/30);head();save();toast("🎁 Coffre : +"+f(g))}
+function claim(i){const m=MIS[i];if(S.done.includes(i)||!m[1](S))return;S.done.push(i);S.cash+=m[2];gain(m[2]/20);head();mUpd();save();toast("Mission +"+f(m[2]))}
+function chest(){const l=S.chest+120000-Date.now();if(l>0)return;const g=Math.max(1000,income()*5);S.cash+=g;S.chest=Date.now();gain(g/30);head();save();toast("🎁 Coffre : +"+f(g))}
 function pickCard(i){if(wealth()<CARDS[i][3]){toast("Capital requis : "+f(CARDS[i][3]));return}S.card=i;save();shut();head();render()}
 function cardsModal(){modal(`<div class="box"><h3 style="margin-top:0">Choisir une carte</h3><p style="color:var(--mut)">Capital actuel : ${f(wealth())}</p><div class="cg">`+CARDS.map((c,i)=>`<div class="c ${S.card==i?"sel":""} ${wealth()<c[3]?"lock":""}" onclick="pickCard(${i})"><i style="background:${c[4]};color:${c[5]}">Dealor</i><b>${c[0]}</b><br><span class="up">x${c[1]} clic + ${c[2]} XP/s</span><br>${wealth()<c[3]?"🔒":"✅"} Capital : ${f(c[3])}</div>`).join("")+`</div><button class="btn" style="margin-top:12px" onclick="shut()">Fermer</button></div>`)}
 const HAND=`<svg viewBox="0 0 120 240" width="120" height="240"><defs><linearGradient id="sk" x1="0" x2="1"><stop offset="0" stop-color="#f3cfae"/><stop offset="1" stop-color="#d49b72"/></linearGradient></defs><rect x="26" y="160" width="76" height="90" rx="10" fill="#1d2433"/><path d="M34 165 L40 100 Q42 85 60 85 L88 90 Q100 96 97 118 L93 165Z" fill="url(#sk)"/><rect x="30" y="8" width="17" height="100" rx="8.5" fill="url(#sk)" transform="rotate(-8 38 100)"/><rect x="50" y="62" width="16" height="48" rx="8" fill="url(#sk)"/><rect x="68" y="68" width="15" height="42" rx="7.5" fill="url(#sk)"/><rect x="84" y="76" width="13" height="36" rx="6.5" fill="url(#sk)"/><ellipse cx="97" cy="120" rx="9" ry="22" fill="url(#sk)" transform="rotate(-28 97 120)"/></svg>`;
@@ -472,7 +430,7 @@ try{speechSynthesis.getVoices()}catch(e){}
 function thanks(){try{const u=new SpeechSynthesisUtterance("Merci pour votre achat"),V=speechSynthesis.getVoices(),F=V.filter(v=>/^fr/i.test(v.lang)),L=F.length?F:V;if(L.length)u.voice=L[Math.random()*L.length|0];u.lang="fr-FR";u.pitch=[.6,.9,1.2,1.5][Math.random()*4|0];u.rate=.95;speechSynthesis.cancel();speechSynthesis.speak(u)}catch(e){}}
 function eject(){const c=$("ic");if(c){c.classList.remove("in");c.classList.add("out")}}
 function pay(amt,label,cb){T={e:"",tries:0,amt,label,cb,busy:1};const c=CARDS[S.card];
-modal(`<div class="scene"><div class="tpe3" id="tpe"><div class="tk" id="tk"><b>DEALOR BANK</b><br>${label}<br>- - - - - - - - - -<br>TOTAL <b>${f(amt)}</b><br>CARTE **** 1847<br>${new Date().toLocaleString("fr-FR")}<br>- - - - - - - - - -<br><b>MERCI POUR VOTRE ACHAT !</b></div><div class="icard" id="ic" style="background:${c[4]}"></div><div class="face"><div class="scr"><small>${label}</small><b>${f(amt)}</b><div id="msg">Présentez la carte</div><div id="dots">&nbsp;</div></div><div class="pad">`+[1,2,3,4,5,6,7,8,9,"C",0,"OK"].map(k=>`<button class="btn ${k=="OK"?"g":k=="C"?"r":""}" data-k="${k}" onclick="key('${k}')">${k}</button>`).join("")+`</div><div class="slit"></div></div></div><div class="hand" id="hand">${HAND}<div class="hcard" id="hc" style="background:${c[4]}"></div></div><button class="btn r" id="cbtn" style="position:absolute;top:14px;right:14px;z-index:5" onclick="shut()">Annuler</button></div>`);
+modal(`<div class="scene"><div class="tpe3" id="tpe"><div class="tk" id="tk"><b>DEALOR BANK</b><br>${label}<br>- - - - - - - - - -<br>TOTAL <b>${f(amt)}</b><br>CARTE **** 1847<br>${new Date().toLocaleString(LANGS[LI][2])}<br>- - - - - - - - - -<br><b>MERCI POUR VOTRE ACHAT !</b></div><div class="icard" id="ic" style="background:${c[4]}"></div><div class="face"><div class="scr"><small>${label}</small><b>${f(amt)}</b><div id="msg">Présentez la carte</div><div id="dots">&nbsp;</div></div><div class="pad">`+[1,2,3,4,5,6,7,8,9,"C",0,"OK"].map(k=>`<button class="btn ${k=="OK"?"g":k=="C"?"r":""}" data-k="${k}" onclick="key('${k}')">${k}</button>`).join("")+`</div><div class="slit"></div></div></div><div class="hand" id="hand">${HAND}<div class="hcard" id="hc" style="background:${c[4]}"></div></div><button class="btn r" id="cbtn" style="position:absolute;top:14px;right:14px;z-index:5" onclick="shut()">Annuler</button></div>`);
 const h=$("hand");h.style.left=innerWidth*.72+"px";h.style.top=innerHeight+30+"px";
 setTimeout(()=>{if(!T.dead)hp($("tpe"),.5,1.15)},150);
 setTimeout(()=>{if(T.dead)return;$("hc").style.display="none";const m=$("ic");m.classList.add("pre");setTimeout(()=>m.classList.add("in"),60);h.style.left=innerWidth*.75+"px";h.style.top=innerHeight+30+"px";set("msg","Entrez votre code PIN");T.busy=0},1100)}
@@ -511,11 +469,11 @@ head()}
 // Clic n'importe où tant qu'on est sur Bank > Carte (sauf boutons, champs, carte, menus)
 document.addEventListener("click",e=>{if(tab!="Bank"||sub!="Carte"||e.target.closest("button,input,.card,.ov"))return;const v=cv();S.cash+=v;S.clicks++;gain(1);head();const d=document.createElement("div");d.className="float";d.textContent="+"+f(v);d.style.left=e.clientX-20+"px";d.style.top=e.clientY-20+"px";document.body.appendChild(d);setTimeout(()=>d.remove(),900);if(S.clicks%10==0)save()});
 // Revenus par minute réelle, appliqués 4 fois par seconde
-setInterval(()=>{const a=inc2()/240,r=reI()/240;S.cash+=a;S.pool+=r;S.savings+=S.savings*.001/240;gain(CARDS[S.card][2]/4+(a+r)/800);BOTS.forEach(b=>b.w*=1+Math.random()*.00001);shTick();phUpd();bkTick();head();set("cardAmt2",f(S.cash));empU();const l=S.chest+CHEST_CD-Date.now(),b=$("chb");if(b){const q=Math.ceil(l/1000);b.textContent=l>0?"🎁 "+Math.floor(q/60)+":"+String(q%60).padStart(2,"0"):"🎁 Coffre prêt !";b.classList.toggle("off",l>0)}},250);
+setInterval(()=>{const a=inc2()/240,r=reI()/240;S.cash+=a;S.pool+=r;S.savings+=S.savings*.001/240;gain(CARDS[S.card][2]/4+(a+r)/800);BOTS.forEach(b=>b.w*=1+Math.random()*.00001);shTick();phUpd();bkTick();head();set("cardAmt2",f(S.cash));empU();const l=S.chest+120000-Date.now(),b=$("chb");if(b)b.textContent=l>0?"🎁 "+Math.ceil(l/1000)+"s":"🎁 Coffre prêt !"},250);
 setInterval(()=>{CO.forEach(c=>{const k=c[0];P[k]=c[6]?1+(P[k]-1)*.9+(Math.random()-.5)*.0008:P[k]*(1+(Math.random()-.495)*.03);HI[k].push(P[k]);HI[k].shift()});STK.forEach(s=>{const k=s[0],ch=(Math.random()-.48)*.05;SP[k]*=1+ch;D[k]=ch*100;HI[k].push(SP[k]);HI[k].shift()});R.forEach((r,i)=>{S.pv[i]*=1+(Math.random()-.46)*.012;PH[i].push(S.pv[i]);PH[i].shift()});
 if(tab=="Crypto")cUpd();else if(tab=="Actions")stUpd();else if(tab=="Classement")lb();else if(tab=="Immobilier")reUpd();else if(tab=="Missions")mUpd();tmUpd();shTrend();evTick();if($("stp"))stmU()},2500);
-setInterval(()=>save(),10000);
-
+setInterval(save,10000);
+$("reset").onclick=()=>{if(confirm("Tout remettre à zéro ?")){S=fresh();save();render()}};
 /*V10*/
 /* === v14 === */
 UPG.push(["Expert fiscal","Impôts −50 %",2e6,"🧾","tax",.5],["Courtier VIP","Frais de trading ÷2",5e5,"📞","fee",.5],["Coffre-fort","Livret : intérêts ×2",1e6,"🔐","sav",2],["Cabinet d'avocats","Plafond de prêt ×2",4e6,"⚖️","cr",2]);
@@ -595,14 +553,14 @@ nav();render();
 S.sh=Object.assign({pseudo:"",av:0,bio:"",bioT:0,pseT:0,fl:[],fb:{},lk:0,wl:0,sEarn:0,rt:5,rv:[],cl:[],cn:0},S.sh);
 document.head.insertAdjacentHTML("beforeend","<style>.tbar{position:sticky;bottom:0;display:flex;background:#000;border-top:1px solid #ffffff22}.tbar b{flex:1;text-align:center;padding:8px 0;font-size:18px;cursor:pointer;opacity:.55}.tbar b.on{opacity:1}.tbar small{display:block;font-size:9px}.pfh{text-align:center;padding:14px 10px}.pfa{width:78px;height:78px;border-radius:50%;display:grid;place-items:center;font-size:40px;margin:auto;background:linear-gradient(135deg,#ff3d71,#25f4ee)}.pfs{display:flex;justify-content:space-around;margin:10px 0;font-size:12px}.pfs b{display:block;font-size:16px}.gr{display:grid;grid-template-columns:repeat(3,1fr);gap:3px;padding:3px}.gr div{height:90px;display:grid;place-items:center;font-size:26px;position:relative;border-radius:4px}.gr small{position:absolute;bottom:2px;left:4px;font-size:10px}.avs{display:flex;flex-wrap:wrap;gap:6px;justify-content:center}.avs span{width:40px;height:40px;border-radius:50%;display:grid;place-items:center;font-size:22px;background:#ffffff14;cursor:pointer;border:2px solid transparent}.avs .sel{border-color:#25f4ee}.ti{width:100%;box-sizing:border-box;background:#16161c;color:#fff;border:1px solid #ffffff33;border-radius:8px;padding:8px;margin:4px 0;font:inherit}.ac{display:flex;gap:10px;align-items:center;padding:10px;border-bottom:1px solid #ffffff14}.ac .pfa{width:46px;height:46px;font-size:24px;margin:0;flex:none}.oq{width:90px;background:#16161c;color:#fff;border:1px solid #ffffff33;border-radius:8px;padding:6px}</style>");
 const AV=["😎","🦊","🐼","🔥","👑","🚀","🎮","🌈","🐯","💎"],ACC=[["Tony",3.2e6,"Le patron 👑 business & luxe"],["zomb1e",1.8e6,"Gaming et chaos"],["TheRestartPrincess",64e4,"Je recommence toujours plus fort"],["Bacterian",21e4,"Science et bonne humeur"],["Nic",85e3,"Astuces dropshipping"],["Bab",31e3,"Je débute, abonne-toi !"],["Smitty",9400,"Lifestyle et café"],["Excel",2100,"Tableaux, tableaux, tableaux"]].map((a,i)=>({n:a[0],fol:a[1],bio:a[2],av:i}));
-const COM=.15,SHOPFEE=2000,WH=[2e3,5e3,2e4,6e4,15e4,4e5,1e6,3e6,1e7,5e7],WHC=[5e3,4e4,3e5,2e6,12e6,6e7,3e8,15e8,8e9],MAXO=3;
+const COM=.15,SHOPFEE=2000,WH=[2e3,5e3,2e4,6e4,15e4],WHC=[5e3,4e4,3e5,2e6],MAXO=3;
 const dsc=n=>n<500?1:n<2e3?.92:n<1e4?.82:n<5e4?.72:.62,dly=n=>Math.round(15+3*Math.sqrt(n)),cap=()=>WH[S.sh.wl],comm=()=>S.sh.fol>=1e5?.1:COM,used=it=>it.stock+it.inc.reduce((a,o)=>a+o.n,0),bdg=n=>n>=1e5?" <span style=\"color:#25f4ee\">✔</span>":"",av=i=>AV[i%AV.length],esc=s=>String(s).replace(/[<>&"]/g,c=>"&#"+c.charCodeAt(0)+";"),rf=()=>{if(tab=="Empire"&&ES=="Boutique en ligne"&&$("eb"))empBody();if(phOn())phGo(PH_S)};
 let PH_AV=0,PH_P="",PH_B="",CERT=S.sh.fol>=1e5;
 function shTick(){const h=S.sh;if(!h.on)return;const now=Date.now();let rev=0;
 h.items.forEach(it=>{if(it)it.inc=it.inc.filter(o=>{if(now>=o.t){it.stock+=o.n;toast("📦 Livraison reçue : +"+nf(o.n)+" "+PRD[it.p][0]);return false}return true})});
 const cm=(h.fol>=1e5?1.25:1)*(.5+h.rt/10);
 h.vids.forEach(v=>{let dv;if(v.v<v.tgt)dv=Math.min(v.tgt-v.v,(v.tgt-v.v)*.04+.2);else{v.tl=v.tl||0;const lim=v.tgt*.3;if(v.tl>=lim)return;dv=Math.min(lim-v.tl,v.tgt*.00003+.01);v.tl+=dv}
-v.v+=dv;h.lk+=dv*.09;h.fol+=dv*.05*VT[v.k].fol;const it=h.items.find(i=>i&&i.p==v.p);if(it){const b=dv*.12*(1-.7*Math.min(1,(v.pv||0)/v.tgt))*(.5+TRD[v.p])*VT[v.k].conv*cm;it.fr+=b*Math.min(3,Math.pow(PRD[v.p][2]/it.price,1.5));if(it.shop)it.fs=(it.fs||0)+b*.8*Math.min(3,Math.pow(PRD[v.p][2]/it.sp,1.5))}});
+v.v+=dv;h.lk+=dv*.09;h.fol+=dv*.05*VT[v.k].fol;const it=h.items.find(i=>i&&i.p==v.p);if(it){const b=dv*.12*(.5+TRD[v.p])*VT[v.k].conv*cm;it.fr+=b*Math.min(3,Math.pow(PRD[v.p][2]/it.price,1.5));if(it.shop)it.fs=(it.fs||0)+b*.8*Math.min(3,Math.pow(PRD[v.p][2]/it.sp,1.5))}});
 h.items.forEach(it=>{if(!it)return;it.fr+=h.fol*.00002*(it.sale>now?1.6:1);S.cash=Math.max(0,S.cash-it.stock*PRD[it.p][1]*.0005/240);if(it.shop)it.fs=(it.fs||0)+h.fol*.000012;
 const n=Math.min(it.stock,Math.floor(it.fr));if(n>0){it.fr-=n;it.stock-=n;const r=n*it.price*(it.sale>now?.8:1)*.95;rev+=r;it.earn=(it.earn||0)+r}else if(it.stock<=0)it.fr=Math.min(it.fr,1);
 if(it.shop){const m=Math.min(it.stock,Math.floor(it.fs||0));if(m>0){it.fs-=m;it.stock-=m;const r=m*it.sp*(1-comm());rev+=r;it.earn=(it.earn||0)+r;h.sEarn+=r}else if(it.stock<=0)it.fs=Math.min(it.fs||0,1)}});
@@ -614,13 +572,13 @@ function slotView(s){const it=S.sh.items[s];if(!it)return`<div class="item gl" s
 return`<div class="item gl" style="border-color:var(--grn)"><h4><span class="ic">${p[3]}</span>${p[0]}<span id="sti_${s}" style="margin-left:auto"></span></h4><p>Coût d'achat <b id="suc_${s}"></b> · prix conseillé ${f2(p[2])}</p><p>📦 Stock <b id="sk_${s}"></b> / <span id="skc_${s}"></span></p><p id="sinc_${s}" style="color:var(--gold)"></p><p>Prix en direct <b id="spr_${s}"></b><span id="spb_${s}" class="up"></span> <button class="pg" onclick="shPrice(${s},-.1)">−10%</button> <button class="pg" onclick="shPrice(${s},.1)">+10%</button></p>
 <div style="border:1px solid var(--line);border-radius:10px;padding:8px;margin:6px 0"><b>🚚 Commander du stock</b><p style="margin:4px 0">Plus c'est gros, moins c'est cher… mais plus c'est long.</p><div style="display:flex;gap:4px;flex-wrap:wrap;margin-bottom:6px">`+[100,500,2e3,1e4,5e4].map(n=>`<button class="pg" onclick="qb(${s},${n})">${nf(n)}</button>`).join("")+`<input class="oq" id="oq_${s}" type="number" min="1" value="100" oninput="shPrev(${s})"></div><p id="opv_${s}" style="margin:4px 0"></p><button class="btn g" onclick="shOrder(${s})">Commander</button></div>`+
 (it.shop?`<p>🛍️ TokTok Shop : <b id="ssp_${s}"></b><span id="ssb_${s}" class="up"></span> <button class="pg" onclick="shSP(${s},-.1)">−10%</button> <button class="pg" onclick="shSP(${s},.1)">+10%</button><br>Commission <b id="scm_${s}"></b> → tu reçois <b id="sne_${s}"></b> / vente <button class="pg" onclick="shUnlist(${s})">Retirer</button></p>`:`<button class="btn" data-c="${SHOPFEE}" onclick="shLaunch(${s})">🛍️ Lancer sur TokTok Shop — ${f(SHOPFEE)}</button>`)+`<p>Gagné avec ce produit : <b class="up" id="sge_${s}"></b></p><button class="btn r" onclick="shDrop(${s})">Abandonner ce produit</button></div>`}
-function shUpd(){const h=S.sh;if(!h.on||!$("sfo"))return;const n=Date.now();set("sfo",nf(h.fol));set("svd",h.vids.length);set("srt",f(h.rate));set("sea",f(h.earn));set("swl",h.wl+1);set("swc",nf(cap()));const wb=$("swb");if(wb){wb.textContent=h.wl>=WH.length-1?"Niveau max":"Agrandir → "+nf(WH[h.wl+1])+" · "+f(WHC[h.wl]);wb.dataset.c=h.wl>=WH.length-1?1e18:WHC[h.wl]}
+function shUpd(){const h=S.sh;if(!h.on||!$("sfo"))return;const n=Date.now();set("sfo",nf(h.fol));set("svd",h.vids.length);set("srt",f(h.rate));set("sea",f(h.earn));set("swl",h.wl+1);set("swc",nf(cap()));const wb=$("swb");if(wb){wb.textContent=h.wl>=4?"Niveau max":"Agrandir → "+nf(WH[h.wl+1])+" · "+f(WHC[h.wl]);wb.dataset.c=h.wl>=4?1e18:WHC[h.wl]}
 PRD.forEach((p,i)=>{const w=$("pt_"+i);if(!w)return;set("pcu_"+i,f2(uc(i)));set("pcb_"+i," (bénéfice "+f2(p[2]*.95-uc(i))+"/u)");w.style.width=Math.min(100,TRD[i]/1.7*100)+"%";set("ph_"+i,HOT==i?"🔥 Tendance":TRD[i]>.7?"📈":TRD[i]<.3?"📉":"➖");const on=h.items.some(t=>t&&t.p==i);$("pc_"+i).style.borderColor=on?"var(--grn)":"";set("pb_"+i,on?"✅ En vente":"Vendre ce produit");$("pb_"+i).classList.toggle("off",on)});
 SLOTS.forEach(s=>{const it=h.items[s];if(!it||!$("sk_"+s))return;set("sk_"+s,nf(Math.floor(it.stock)));set("skc_"+s,nf(cap()));set("spr_"+s,f2(it.price));set("sge_"+s,f(it.earn||0));set("suc_"+s,f2(uc(it.p)));set("spb_"+s," (bénéfice "+f2(it.price*.95-uc(it.p))+"/u)");if(it.shop)set("ssb_"+s," (bénéfice "+f2(it.sp*(1-comm())-uc(it.p))+"/u)");set("ssl_"+s,it.sale>n?"🏷️ Soldes en cours ("+mmss(Math.ceil((it.sale-n)/1e3))+")":"");for(let j=0;j<MAXO;j++){const b=$("sa_"+s+"_"+j),o=it.inc[j];if(b){b.style.display=o?"block":"none";if(o){const c=accC(o,(o.t-n)/1e3);b.dataset.c=c;b.textContent="⚡ Livrer "+nf(o.n)+" maintenant — "+f(c)}}}set("sti_"+s,HOT==it.p?"🔥":TRD[it.p]>.7?"📈":TRD[it.p]<.3?"📉":"➖");set("sinc_"+s,it.inc.length?"🚚 En route ("+it.inc.length+"/"+MAXO+") : "+it.inc.map(o=>nf(o.n)+" (dans "+mmss(Math.max(0,Math.ceil((o.t-n)/1000)))+")").join(" · "):"");if(it.shop){set("ssp_"+s,f2(it.sp));set("scm_"+s,Math.round(comm()*100)+" %");set("sne_"+s,f2(it.sp*(1-comm())))}})}
 function qb(s,n){const e=$("oq_"+s);if(e){e.value=n;shPrev(s)}}
 function shPrev(s){const it=S.sh.items[s],e=$("oq_"+s);if(!it||!e)return;const n=Math.floor(+e.value)||0,p=PRD[it.p];set("opv_"+s,n<1?"Quantité invalide":nf(n)+" unités · "+f(n*uc(it.p)*dsc(n))+(dsc(n)<1?" (−"+Math.round((1-dsc(n))*100)+" %)":"")+" · livraison "+mmss(dly(n))+" · place restante "+nf(Math.max(0,cap()-used(it))))}
 function shOrder(s){const it=S.sh.items[s],e=$("oq_"+s);if(!it||!e)return;const n=Math.floor(+e.value)||0,p=PRD[it.p];if(n<1){toast("Quantité invalide");return}if(it.inc.length>=MAXO){toast("🚫 "+MAXO+" livraisons max en route pour ce produit");return}if(used(it)+n>cap()){toast("🏭 Entrepôt trop petit (capacité "+nf(cap())+")");return}const c=n*uc(it.p)*dsc(n);if(S.cash<c){toast("Fonds insuffisants");return}S.cash-=c;DM[it.p]=Math.min(2,DM[it.p]*(1+Math.min(.3,n/8e4)));it.inc.push({n,t:Date.now()+dly(n)*1e3});toast("🚚 Commande en route ("+mmss(dly(n))+")");head();shUpd();save()}
-function shWh(){const h=S.sh;if(h.wl>=WH.length-1||S.cash<WHC[h.wl])return;S.cash-=WHC[h.wl];h.wl++;toast("🏭 Entrepôt agrandi : "+nf(cap())+" par produit");head();save();shUpd()}
+function shWh(){const h=S.sh;if(h.wl>=4||S.cash<WHC[h.wl])return;S.cash-=WHC[h.wl];h.wl++;toast("🏭 Entrepôt agrandi : "+nf(cap())+" par produit");head();save();shUpd()}
 function shLaunch(s){const it=S.sh.items[s];if(!it||it.shop||S.cash<SHOPFEE)return;S.cash-=SHOPFEE;it.shop=1;it.sp=+(PRD[it.p][2]*1.15).toFixed(2);it.fs=0;toast("🛍️ Produit lancé sur TokTok Shop");head();save();rf()}
 function shUnlist(s){const it=S.sh.items[s];if(!it)return;it.shop=0;toast("Retiré de TokTok Shop");save();rf()}
 function shSP(s,d){const it=S.sh.items[s];if(!it||!it.shop)return;it.sp=Math.max(.5,+(it.sp*(1+d)).toFixed(2));shUpd()}
@@ -636,14 +594,14 @@ function phGo(s){const h=S.sh,e=$("phs");if(!e)return;if(s!="home"&&s!="nw"&&h.o
 if(s=="home")x=`<div class="wp"><div class="apps">`+[["TokTok","🎵","linear-gradient(135deg,#111,#25f4ee)","tt"],["Maps","🗺️","#2e7d32"],["Bourse","📈","#1565c0"],["Actus","📰","#ef4444","nw"],["Banque","🏦","#6a1b9a"],["Photos","🖼️","#e65100"]].map(a=>`<div class="app" onclick="${a[3]?"phGo('"+a[3]+"')":"toast('Bientôt disponible')"}"><span style="background:${a[2]}">${a[1]}</span>${a[0]}${a[3]?"":"<small>bientôt</small>"}</div>`).join("")+`</div></div>`;
 else if(s=="nw")x=newsHtml();
 else if(!h.on)x=`<div class="tth"><b>TokTok</b></div><p style="padding:16px">Ouvre d'abord ta boutique en ligne (Empire → Boutique en ligne).</p>`;
-else if(s=="bo")x=boHtml()+tb("tt");else if(s=="su")x=formH(1);else if(s=="ed")x=formH(0);
+else if(s=="su")x=formH(1);else if(s=="ed")x=formH(0);
 else if(s=="tt")x=`<div class="tth"><b>TokTok</b><span id="ttf">👥 ${nf(h.fol)} abonnés</span></div><div style="padding:10px"><button class="btn ${cdw()?"off":""}" id="ttpost" style="display:block" onclick="phGo('mk')">${cdw()?"⏳ Prochaine vidéo dans "+mmss(cdw()):"＋ Nouvelle vidéo"}</button></div><div id="ttfeed" style="padding:0 10px 14px">`+(h.vids.map(vCard).join("")||`<p style="color:var(--mut)">Aucune vidéo pour l'instant. Poste la première !</p>`)+`</div>`+tb("tt");
 else if(s=="dc")x=`<div class="tth"><b>Découvrir</b><span>${h.fl.length} suivi(s)</span></div>`+ACC.map((a,i)=>{const on=h.fl.includes(a.n);return`<div class="ac"><div class="pfa">${av(a.av)}</div><div style="flex:1"><b>@${a.n}${bdg(a.fol)}</b><br><small style="color:#9aa">${nf(a.fol)} abonnés · ${a.bio}</small></div><button class="pg ${on?"on":""}" onclick="ttFollow(${i})">${on?"Suivi ✓":"Suivre"}</button></div>`}).join("")+tb("dc");
 else if(s=="sp")x=`<div class="tth"><b>🛍️ TokTok Shop</b><span>Commission ${Math.round(comm()*100)} %</span></div><div style="padding:10px">`+(h.items.some(Boolean)?h.items.map((it,i)=>it?`<div class="vc" style="display:block"><b>${PRD[it.p][3]} ${PRD[it.p][0]}</b><br>${it.shop?`En vente à <b>${f2(it.sp)}</b> · tu reçois ${f2(it.sp*(1-comm()))} par vente<br><button class="pg" onclick="shUnlist(${i})">Retirer</button> <small>(prix à régler dans Empire → Boutique en ligne)</small>`:`<button class="btn" style="display:block;margin-top:6px" onclick="shLaunch(${i})">Lancer sur TokTok Shop — ${f(SHOPFEE)}</button>`}</div>`:"").join(""):`<p style="color:var(--mut)">Aucun produit en vente.</p>`)+`<p style="color:#9aa;font-size:11px">Gagné sur TokTok Shop : ${f(h.sEarn)}. Le stock est partagé avec ta boutique.</p></div>`+tb("sp");
 else if(s=="pf")x=`<div class="tth"><b>@${esc(h.pseudo)}${bdg(h.fol)}</b></div><div class="pfh"><div class="pfa">${av(h.av)}</div><b>@${esc(h.pseudo)}</b>${bdg(h.fol)}<div class="pfs"><div><b>${h.fl.length}</b>Suivis</div><div><b id="pff">${nf(h.fol)}</b>Abonnés</div><div><b id="pfl">${nf(h.lk)}</b>J'aime</div></div><p style="margin:4px 0;font-size:13px">${h.bio?esc(h.bio):"<i>Pas de bio</i>"}</p><p style="font-size:11px;color:#9aa">${h.fol>=1e5?"✔ Compte certifié":"Certification à 100 000 abonnés"}</p><button class="btn" onclick="ttEd()">Modifier le profil</button></div><div class="gr">`+h.vids.map(v=>`<div style="background:linear-gradient(160deg,${VT[v.k].g})">${VT[v.k].e}<small>👁 ${nf(v.v)}</small></div>`).join("")+`</div>`+tb("pf");
 else{const its=h.items.filter(Boolean);x=`<div class="tth"><b>Nouvelle vidéo</b></div><div style="padding:12px"><p style="margin:0 0 6px"><b>1. Produit</b></p>`+(its.length?its.map(i=>`<button class="pg ${PH_SEL.p==i.p?"on":""}" style="margin:0 6px 6px 0" onclick="PH_SEL.p=${i.p};phGo('mk')">${PRD[i.p][3]} ${PRD[i.p][0]}</button>`).join(""):`<p style="color:var(--mut)">Aucun produit en vente.</p>`)+`<p style="margin:10px 0 6px"><b>2. Type de vidéo</b></p><div class="vts">`+VT.map((t,k)=>`<div class="${PH_SEL.k==k?"sel":""}" style="background:linear-gradient(160deg,${t.g})" onclick="PH_SEL.k=${k};phGo('mk')"><span>${t.e}</span>${t.n}</div>`).join("")+`</div><button class="btn ${cdw()?"off":""}" id="ttgo" style="display:block;margin-top:12px" onclick="shPostGo()">${cdw()?"⏳ "+mmss(cdw()):"🎬 Poster"}</button><p style="color:var(--mut);font-size:11px">1 vidéo toutes les 3 minutes. Plus d'abonnés = plus de vues.</p></div>`+tb("mk")}
-e.innerHTML=x;if(s=="bo")boUpd();head()}
-function phUpd(){if(!phOn())return;const h=S.sh,d=new Date();set("phclk",d.getHours()+":"+String(d.getMinutes()).padStart(2,"0"));set("ttf","👥 "+nf(h.fol)+" abonnés");if(PH_S=="tt"){const b=$("ttpost");if(b){b.textContent=cdw()?"⏳ Prochaine vidéo dans "+mmss(cdw()):"＋ Nouvelle vidéo";b.classList.toggle("off",!!cdw())}h.vids.forEach(v=>{set("vv_"+v.id,nf(v.v));set("vl_"+v.id,nf(v.v*.09))})}else if(PH_S=="mk"){const b=$("ttgo");if(b){b.textContent=cdw()?"⏳ "+mmss(cdw()):"🎬 Poster";b.classList.toggle("off",!!cdw())}}else if(PH_S=="pf"){set("pff",nf(h.fol));set("pfl",nf(h.lk))}else if(PH_S=="bo")boUpd()}
+e.innerHTML=x;head()}
+function phUpd(){if(!phOn())return;const h=S.sh,d=new Date();set("phclk",d.getHours()+":"+String(d.getMinutes()).padStart(2,"0"));set("ttf","👥 "+nf(h.fol)+" abonnés");if(PH_S=="tt"){const b=$("ttpost");if(b){b.textContent=cdw()?"⏳ Prochaine vidéo dans "+mmss(cdw()):"＋ Nouvelle vidéo";b.classList.toggle("off",!!cdw())}h.vids.forEach(v=>{set("vv_"+v.id,nf(v.v));set("vl_"+v.id,nf(v.v*.09))})}else if(PH_S=="mk"){const b=$("ttgo");if(b){b.textContent=cdw()?"⏳ "+mmss(cdw()):"🎬 Poster";b.classList.toggle("off",!!cdw())}}else if(PH_S=="pf"){set("pff",nf(h.fol));set("pfl",nf(h.lk))}}
 [["Crée ton compte TokTok",s=>s.sh.pseudo?1:0,1,3e4],["Suis 5 comptes sur TokTok",s=>s.sh.fl.length,5,5e4],["Lance un produit sur TokTok Shop",s=>s.sh.items.some(i=>i&&i.shop)?1:0,1,1e5],["Gagne 100 000 $ sur TokTok Shop",s=>s.sh.sEarn,1e5,2e6],["Obtiens la certification TokTok (100k abonnés)",s=>s.sh.fol,1e5,5e6],["Reçois 1 000 000 de J'aime",s=>s.sh.lk,1e6,1e7],["Agrandis ton entrepôt au maximum",s=>s.sh.wl,4,2e7]].forEach(m=>M2(...m));
 /* ===== v14 : avis, problèmes, globe, onglets Empire, coûts selon la demande ===== */
 const DM=PRD.map(()=>1),uc=p=>PRD[p][1]*(.65+.45*TRD[p])*DM[p],stars=n=>"★".repeat(n)+"☆".repeat(5-n);
@@ -764,11 +722,199 @@ Son activé|Sound on|Звук включён|Ton an|Sonido activado|Suono attivo
 Son coupé|Sound off|Звук выключен|Ton aus|Sonido apagado|Suono spento|الصوت مكتوم
 Tester la voix|Test the voice|Проверить голос|Stimme testen|Probar la voz|Prova la voce|جرّب الصوت
 Chargement…|Loading…|Загрузка…|Wird geladen…|Cargando…|Caricamento…|جارٍ التحميل…
-Marchés calmes pour le moment|Markets are calm for now|Рынки пока спокойны|Märkte sind derzeit ruhig|Mercados tranquilos por ahora|Mercati calmi per ora|الأسواق هادئة حاليًا`.split("\n").map(r=>r.split("|")).sort((a,b)=>b[0].length-a[0].length);
-const DMAP={},DRX=new RegExp(DICT.map(r=>(DMAP[r[0]]=r[LI],r[0].replace(/[.*+?^${}()|[\]\\]/g,"\\$&"))).join("|"),"g"),DONE=new WeakMap();
+Marchés calmes pour le moment|Markets are calm for now|Рынки пока спокойны|Märkte sind derzeit ruhig|Mercados tranquilos por ahora|Mercati calmi per ora|الأسواق هادئة حاليًا
+Possède |Own 
+Détiens |Hold 
+Atteins |Reach 
+Obtiens |Get 
+Achète |Buy 
+Paie |Pay 
+Poste |Post 
+le niveau |level 
+biens immobiliers|properties
+entreprises|businesses
+voitures|cars
+hôtels|hotels
+usines|factories
+un hôtel|a hotel
+une usine|a factory
+une voiture|a car
+un bien immobilier|a property
+cryptos différentes|different cryptos
+actions différentes|different stocks
+des actions|stocks
+du crypto|crypto
+ordres de bourse ou crypto|stock or crypto orders
+d'impôts|in taxes
+vidéos TokTok|TokTok videos
+amélioration Boutique|Shop upgrade
+améliorations Boutique|Shop upgrades
+Gagne 100 000 $ avec ta boutique|Earn $100,000 with your shop
+Lance un produit sur TokTok Shop|Launch a product on TokTok Shop
+Ouvre ta boutique en ligne|Open your online shop
+Reçois 1 000 000 de J'aime|Get 1,000,000 likes
+Obtiens la certification TokTok (100k abonnés)|Get TokTok certified (100k followers)
+Agrandis ton entrepôt au maximum|Max out your warehouse
+Contracte un prêt|Take out a loan
+Aucune mise précédente|No previous bet
+Solde insuffisant|Insufficient balance
+Choisis ta chance|Choose your luck
+Pose des jetons sur le tapis|Place chips on the table
+Retire avant le crash|Cash out before the crash
+Multiplie une mise par |Multiply a bet by 
+Chance de gagner|Win chance
+Machine à sous|Slot machine
+Fusée|Rocket
+Dés|Dice
+Décoller|Take off
+Retirer|Withdraw
+Déposer|Deposit
+Distribuer|Deal
+Lancer|Flip
+Pile ou face|Heads or tails
+Pile|Heads
+Face|Tails
+Dernières mains|Recent hands
+Le croupier gagne|Dealer wins
+Le croupier a blackjack|Dealer has blackjack
+Tu as dépassé 21|You went over 21
+Égalité|Push
+À toi de jouer|Your turn
+Roulette européenne (0 à 36). Mise sur :|European roulette (0 to 36). Bet on:
+Livret d'épargne|Savings account
+Intérêts : +0,1 % par minute|Interest: +0.1% per minute
+Compte courant : |Checking account: 
+Capital total : |Total capital: 
+Loyers à collecter|Rent to collect
+Revenus locatifs : |Rental income: 
+Collecter|Collect
+Aucun bien pour l'instant. Va dans Marché.|No property yet. Go to Market.
+Tu possèdes tous les biens du marché 🎉|You own every property on the market 🎉
+Le bien est loué : les loyers se collectent dans l'onglet Immobilier.|The property is rented: collect rent in the Real estate tab.
+Prix de vente|Sale price
+Prix du bien|Property price
+Acte de vente|Deed of sale
+Marché|Market
+Prix en direct et trading|Live prices and trading
+Ton portfolio est vide. Achète depuis l'onglet Marché.|Your portfolio is empty. Buy from the Market tab.
+Ton portfolio|Your portfolio
+Valeur totale|Total value
+Investi|Invested
+Profit / perte|Profit / loss
+Rendement|Return
+ACTIF|ASSET
+QUANTITÉ|QUANTITY
+PRIX MOYEN|AVG PRICE
+VALEUR|VALUE
+PRIX|PRICE
+CAP. BOURSIÈRE|MARKET CAP
+7 JOURS|7 DAYS
+Confirmer l'achat|Confirm purchase
+Confirmer la vente|Confirm sale
+Solde|Balance
+Actions possédées|Shares owned
+Prix de revient moyen|Average cost
+Total estimé|Estimated total
+Quantité invalide|Invalid quantity
+Transaction annulée : le prix a changé, réessaie|Transaction cancelled: the price changed, try again
+Gérer →|Manage →
+Gérer|Manage
+Profit estimé |Estimated profit 
+Améliorer — |Upgrade — 
+Niveau max|Max level
+Acheté ✔|Bought ✔
+Acheter — |Buy — 
+Améliorations permanentes|Permanent upgrades
+Concession|Dealership
+Chalet des neiges|Snow chalet
+Villa méditerranéenne|Mediterranean villa
+Jet privé|Private jet
+Île privée|Private island
+Aéroport|Airport
+Banque privée|Private bank
+Empire médiatique|Media empire
+Centrale à fusion|Fusion plant
+Café|Coffee shop
+Stand de limonade|Lemonade stand
+Entrepôt|Warehouse
+Hôtel|Hotel
+Récompense : |Reward: 
+Capital net de 1 M$|Net worth of $1M
+Capital net de 1 Md$|Net worth of $1B
+Revenu de 1 M$ / min|Income of $1M / min
+Revenu de 10 000 $ / min|Income of $10,000 / min
+Paie tes premiers impôts|Pay your first taxes
+Aucun problème signalé.|No issues reported.
+Aucun avis pour l'instant : fais tes premières ventes.|No reviews yet: make your first sales.
+Aucun résultat|No results
+Rien pour l'instant.|Nothing yet.
+Rien à signaler pour l'instant.|Nothing to report yet.
+Aucune vidéo pour l'instant. Poste la première !|No videos yet. Post the first one!
+Aucun site pour l'instant. Ouvre la carte, zoome et choisis une ville.|No site yet. Open the map, zoom in and pick a city.
+Ces activités doivent d'abord être ouvertes, puis elles se gèrent dans leur sous-onglet.|These activities must be opened first, then managed in their sub-tab.
+Déjà ouvert|Already open
+Pas encore ouvert|Not open yet
+Nouveau problème signalé (Empire → Problèmes)|New issue reported (Empire → Issues)
+Ouvre d'abord ta boutique en ligne (Empire → Boutique en ligne) pour vendre des produits.|Open your online shop first (Empire → Online shop) to sell products.
+Ouvre d'abord ta boutique en ligne (Empire → Boutique en ligne).|Open your online shop first (Empire → Online shop).
+Choisis un produit et un type de vidéo|Pick a product and a video type
+Produit ajouté : |Product added: 
+Produit abandonné — abonnés perdus|Product dropped — followers lost
+Abandonner ce produit|Drop this product
+Vendre ce produit|Sell this product
+Vidéo postée !|Video posted!
+Ta vidéo devient virale !|Your video went viral!
+Prochaine vidéo dans |Next video in 
+Crée ton compte TokTok|Create your TokTok account
+Compte créé !|Account created!
+Profil mis à jour|Profile updated
+Pseudo déjà pris|Username already taken
+Tout remettre à zéro ?|Reset everything?
+Coffre prêt !|Chest ready!
+Mission|Mission
+Gagné +|Won +
+Livraison reçue : +|Delivery received: +
+Impôts prélevés : |Taxes collected: 
+Contrôle fiscal : amende de |Tax audit: fine of 
+Cashback récupéré : +|Cashback claimed: +
+Entrepôt agrandi : |Warehouse expanded: 
+Les marchés actions s'envolent|Stock markets soar
+Craintes de récession|Recession fears
+La banque centrale baisse ses taux|Central bank cuts rates
+Le marché immobilier s'envole|Housing market soars
+Une baleine accumule du BTC|A whale is accumulating BTC
+Un influenceur promeut DOGE|An influencer promotes DOGE
+Un ETF crypto est approuvé|A crypto ETF is approved
+Piratage d'une plateforme d'échange|Exchange platform hacked
+Régulation crypto plus stricte annoncée|Stricter crypto regulation announced
+Pénurie de bois : WoodCo bondit|Wood shortage: WoodCo jumps
+Résultats record pour TechNova|Record results for TechNova
+VoltMotors dévoile un nouveau modèle|VoltMotors unveils a new model
+Échec d'un essai clinique chez PharmaPlus|Clinical trial fails at PharmaPlus
+Grève des transports : livraisons retardées de 90 s|Transport strike: deliveries delayed by 90 s
+Paiement accepté|Payment accepted
+Numéro invalide|Invalid number
+PIN modifié|PIN changed
+Changer le PIN|Change PIN
+Choisir une carte|Choose a card
+Style de carte|Card style
+Actualités|News
+Découvrir|Discover
+Abandonner|Drop
+Valider|Confirm
+à l'instant|just now
+Nouvelle vidéo|New video
+Temps de jeu|Playtime
+Écouteurs sans fil|Wireless earbuds
+Coque de téléphone|Phone case
+Tapis de massage|Massage mat
+Merci pour votre achat|Thank you for your purchase`.split("\n").map(r=>r.split("|")).sort((a,b)=>b[0].length-a[0].length);
+const DMAP={},DRX=new RegExp(DICT.map(r=>(DMAP[r[0]]=r[LI]||r[1],r[0].replace(/[.*+?^${}()|[\]\\]/g,"\\$&"))).join("|"),"g"),DONE=new WeakMap();
 function trl(t){return LI?t.replace(DRX,m=>DMAP[m]):t}
-function trNode(n){if(n.nodeType==3){const v=n.nodeValue;if(v.trim()&&DONE.get(n)!==v){const t=trl(v);DONE.set(n,t);if(t!==v)n.nodeValue=t}}else if(n.nodeType==1&&!/SCRIPT|STYLE|TEXTAREA|INPUT/.test(n.tagName))n.childNodes.forEach(trNode)}
-if(LI){new MutationObserver(ms=>ms.forEach(m=>{if(m.type=="characterData")trNode(m.target);else m.addedNodes.forEach(trNode)})).observe(document.body,{childList:true,subtree:true,characterData:true});document.documentElement.lang=SET.lang;if(SET.lang=="ar")document.body.dir="rtl";trNode(document.body)}
+const TA=["placeholder","title","aria-label"];
+function trAt(e){TA.forEach(a=>{const v=e.getAttribute&&e.getAttribute(a);if(v){const t=trl(v);if(t!==v)e.setAttribute(a,t)}})}
+function trNode(n){if(n.nodeType==3){const v=n.nodeValue;if(v.trim()&&DONE.get(n)!==v){const t=trl(v);DONE.set(n,t);if(t!==v)n.nodeValue=t}}else if(n.nodeType==1){trAt(n);if(n.querySelectorAll)n.querySelectorAll("[placeholder],[title],[aria-label]").forEach(trAt);if(!/SCRIPT|STYLE|TEXTAREA|INPUT/.test(n.tagName))n.childNodes.forEach(trNode)}}
+if(LI){["alert","confirm","prompt"].forEach(k=>{const o=window[k];window[k]=function(m,...a){return o.call(window,trl(String(m)),...a)}});new MutationObserver(ms=>ms.forEach(m=>{if(m.type=="characterData")trNode(m.target);else m.addedNodes.forEach(trNode)})).observe(document.body,{childList:true,subtree:true,characterData:true});document.documentElement.lang=SET.lang;if(SET.lang=="ar")document.body.dir="rtl";trNode(document.body)}
 function beep(fr,d){if(!SET.on||SET.vol<=0)return;try{AC=AC||new(window.AudioContext||window.webkitAudioContext)();const o=AC.createOscillator(),g=AC.createGain();o.type="square";o.frequency.value=fr;g.gain.value=.06*SET.vol;o.connect(g);g.connect(AC.destination);o.start();o.stop(AC.currentTime+d)}catch(e){}}
 function thanks(){if(!SET.on||SET.vol<=0)return;try{const u=new SpeechSynthesisUtterance(THX[LI]),V=speechSynthesis.getVoices(),lc=LANGS[LI][2],ex=V.filter(v=>v.lang.replace("_","-")==lc),px=V.filter(v=>v.lang.slice(0,2)==lc.slice(0,2)),L=ex.length?ex:px;if(L.length)u.voice=L[Math.random()*L.length|0];u.lang=lc;u.volume=SET.vol;u.pitch=[.8,1,1.2][Math.random()*3|0];u.rate=.95;speechSynthesis.cancel();speechSynthesis.speak(u)}catch(e){}}
 document.addEventListener("click",e=>{if(e.target.closest&&e.target.closest("button"))beep(560,.025)},true);
@@ -776,7 +922,7 @@ function setLang(l){SET.lang=l;stSave();save();location.reload()}
 function setSnd(){SET.on=SET.on?0:1;stSave();setOpen()}
 function setVol(v){SET.vol=v/100;stSave();beep(700,.08)}
 function setOpen(){modal(`<div class="box" style="max-width:420px"><h3 style="margin-top:0">⚙️ Paramètres</h3><p><b>Langue</b></p><div style="display:flex;flex-wrap:wrap;gap:6px">`+LANGS.map(l=>`<button class="pg ${l[0]==SET.lang?"on":""}" onclick="setLang('${l[0]}')">${l[1]}</button>`).join("")+`</div><p><b>Son</b> <button class="pg" onclick="setSnd()">${SET.on?"🔊 Son activé":"🔇 Son coupé"}</button></p><p><b>Volume</b> <input type="range" min="0" max="100" value="${Math.round(SET.vol*100)}" oninput="setVol(this.value)" style="vertical-align:middle"></p><button class="pg" onclick="thanks()">🗣️ Tester la voix</button><div class="row" style="margin-top:12px"><button class="btn" onclick="shut()">Fermer</button></div></div>`)}
-{const g=document.createElement("button");g.className="btn";g.style.cssText="padding:6px 10px;font-size:14px";g.textContent="⚙️";g.onclick=()=>setOpen();const r=$("hdrA");r.parentNode.insertBefore(g,r)}
+{const g=document.createElement("button");g.className="btn";g.style.cssText="padding:6px 10px;font-size:14px";g.textContent="⚙️";g.onclick=setOpen;const r=$("reset");r.parentNode.insertBefore(g,r)}
 {const t0=Date.now(),fin=()=>{const b=$("ldb"),l=$("ld");if(!l)return;b.style.animation="none";b.style.transition="width .3s";b.style.width="100%";setTimeout(()=>{l.style.opacity=0;setTimeout(()=>l.remove(),500)},350)},go=()=>Promise.all([document.fonts?document.fonts.ready:0,new Promise(r=>setTimeout(r,Math.max(0,1100-(Date.now()-t0))))]).then(fin);document.readyState=="complete"?go():addEventListener("load",go)}
 /* ===== v15 : avis réparés, contrats à signer, casino refait, notifications, finitions premium ===== */
 (()=>{
@@ -807,7 +953,7 @@ const NT=[];let NU=0;
 const _toast=toast;toast=function(t){try{NT.unshift([Date.now(),String(t)]);if(NT.length>60)NT.length=60;NU++;bellU()}catch(e){}_toast(t)};
 function bellU(){const b=$("bellN");if(b){b.textContent=NU>99?"99+":NU;b.style.display=NU?"block":"none"}}
 W.bellOpen=function(){NU=0;bellU();modal(`<div class="box" style="max-width:460px"><h3 style="margin-top:0">🔔 Notifications</h3>`+(NT.length?NT.map(n=>`<div class="ntf"><small>${new Date(n[0]).toLocaleTimeString("fr-FR")}</small><span>${n[1].replace(/</g,"&lt;")}</span></div>`).join(""):`<p style="color:var(--mut)">Rien pour l'instant.</p>`)+`<div class="row" style="margin-top:12px"><button class="btn" onclick="shut()">Fermer</button></div></div>`)};
-{const g=document.createElement("button");g.className="btn";g.id="bell";g.style.cssText="padding:6px 10px;font-size:14px;position:relative";g.innerHTML='🔔<i id="bellN"></i>';g.onclick=W.bellOpen;$("hdrA").parentNode.insertBefore(g,$("hdrA"))}
+{const g=document.createElement("button");g.className="btn";g.id="bell";g.style.cssText="padding:6px 10px;font-size:14px;position:relative";g.innerHTML='🔔<i id="bellN"></i>';g.onclick=W.bellOpen;$("reset").parentNode.insertBefore(g,$("reset"))}
 document.addEventListener("keydown",e=>{if(e.key=="Escape"){const o=$("ov");if(o&&o.style.display=="flex")shut()}});
 
 /* ---------- contrats à signer ---------- */
@@ -956,259 +1102,6 @@ avisView=function(){const h=S.sh,c=[0,0,0,0,0,0];h.rv.forEach(r=>c[r.s]++);const
 return`<div class="item gl rvs"><div class="rv-b"><b>${h.rt.toFixed(1)}</b><span>${stars(Math.round(h.rt))}</span><small>${h.rv.length} avis récents</small></div><div class="rv-d">${[5,4,3,2,1].map(k=>`<div><small>${k}★</small><div class="bar"><i style="width:${c[k]/n*100}%"></i></div><small>${c[k]}</small></div>`).join("")}</div></div><p style="color:var(--mut);font-size:12px;margin:2px 0 10px">Une bonne note attire plus de clients ; un prix trop élevé par rapport au prix conseillé fait baisser les avis.</p>`+(h.rv.length?h.rv.slice(0,60).map(r=>`<div class="item gl rvc"><div class="rv-h"><b class="gold">${stars(r.s)}</b><b>${r.n}</b><small>${PRD[r.p][3]} ${PRD[r.p][0]}</small><small class="rv-t">${ago(r.d)}</small></div><p>${r.x}</p></div>`).join(""):`<p style="color:var(--mut)">Aucun avis pour l'instant : fais tes premières ventes.</p>`)};
 })();
 
-/* ===== v16 : profils par ID, chat, classement par partie, cartes, entrepôt, usines -> boutique, style premium ===== */
-(()=>{
-const W=window,esc2=s=>String(s).replace(/[<>&"']/g,c=>"&#"+c.charCodeAt(0)+";");
-const NET=W.ET_NET;
-SET.botchat=SET.botchat==null?1:SET.botchat;
-/* --- style --- */
-{const st=document.createElement("style");st.id="v16css";st.textContent=String.raw`:root{--ease:cubic-bezier(.2,.8,.2,1);--r:18px}
-html{scroll-behavior:smooth}
-::selection{background:#4f7cff66}
-*{scrollbar-width:thin;scrollbar-color:#ffffff30 transparent}
-::-webkit-scrollbar{width:8px;height:8px}::-webkit-scrollbar-thumb{background:#ffffff2a;border-radius:8px}::-webkit-scrollbar-thumb:hover{background:#ffffff48}
-body{font-feature-settings:"tnum" 1,"cv11" 1;-webkit-font-smoothing:antialiased;background:radial-gradient(1000px 640px at 12% -12%,#2b44a666,transparent 60%),radial-gradient(900px 620px at 100% 0,#6a24b055,transparent 58%),radial-gradient(800px 560px at 50% 118%,#0a7a5a38,transparent 62%),#07090f!important}
-body:before{content:"";position:fixed;inset:-20%;z-index:-1;pointer-events:none;background:radial-gradient(420px 420px at 25% 30%,#4f7cff22,transparent 70%),radial-gradient(520px 520px at 80% 70%,#9b5cff1c,transparent 70%);animation:aur 28s ease-in-out infinite alternate;will-change:transform}
-@keyframes aur{to{transform:translate3d(6%,-4%,0) scale(1.12)}}
-header{position:relative;z-index:5;background:linear-gradient(180deg,#10111bee,#0a0b12dd)!important;border-bottom:1px solid #ffffff12!important;box-shadow:0 10px 40px #0007}
-header:after{content:"";position:absolute;left:0;right:0;bottom:-1px;height:1px;background:linear-gradient(90deg,transparent,#4f7cffaa,#9b5cffaa,transparent);opacity:.7}
-#bal{font-size:26px!important;letter-spacing:-.01em;filter:drop-shadow(0 2px 14px #4f7cff55)}
-.inc{text-shadow:0 0 18px #2ee37a55}
-.bar{height:9px!important;background:#ffffff10!important;box-shadow:inset 0 1px 2px #0008}
-.bar i{background:linear-gradient(90deg,var(--acc),var(--acc2),#25f4ee)!important;background-size:200% 100%;animation:barflow 4s linear infinite;transition:width .6s var(--ease)!important;border-radius:6px}
-@keyframes barflow{to{background-position:200% 0}}
-.gl{background:linear-gradient(180deg,#ffffff12,#ffffff06)!important;border:1px solid #ffffff17!important;box-shadow:inset 0 1px 0 #ffffff14,0 10px 30px #0005;backdrop-filter:blur(18px) saturate(1.2)!important;-webkit-backdrop-filter:blur(18px) saturate(1.2)!important}
-nav{background:linear-gradient(180deg,#0d0e17cc,#08090ecc);border-right:1px solid #ffffff10!important}
-nav button,.sub button{transition:all .25s var(--ease)!important;position:relative}
-nav button:hover,.sub button:hover{transform:translateX(2px)}
-nav button.on,.sub button.on{box-shadow:0 6px 22px #4f7cff66,inset 0 1px 0 #ffffff33!important}
-main{animation:fi .5s var(--ease)!important}
-@keyframes fi{from{opacity:0;transform:translateY(12px) scale(.995)}}
-h2{letter-spacing:-.01em}
-.item{border-radius:var(--r)!important;transition:transform .3s var(--ease),border-color .3s,box-shadow .3s!important}
-.item:hover{transform:translateY(-4px)!important;border-color:#6f8fff88!important;box-shadow:0 16px 40px #000a,0 0 0 1px #4f7cff33,0 0 36px #4f7cff22!important}
-.ic{background:linear-gradient(135deg,#4f7cff44,#9b5cff44)!important;box-shadow:inset 0 1px 0 #ffffff33,0 4px 14px #4f7cff33}
-.btn{box-shadow:0 4px 16px #4f7cff44,inset 0 1px 0 #ffffff33;transition:transform .2s var(--ease),filter .2s,box-shadow .2s!important}
-.btn:hover{transform:translateY(-1px);filter:brightness(1.12)!important;box-shadow:0 8px 24px #4f7cff66,inset 0 1px 0 #ffffff44}
-.btn:active{transform:scale(.97)!important}
-.btn.g{box-shadow:inset 0 1px 0 #2ee37a22;background:linear-gradient(180deg,#1d4531,#163425)!important}.btn.r{box-shadow:inset 0 1px 0 #ff5a6a22;background:linear-gradient(180deg,#4d2430,#3a1b24)!important}
-.btn.off{box-shadow:none;transform:none!important}
-.pg{transition:all .2s var(--ease)}.pg:hover{transform:translateY(-1px)}.pg.on{background:linear-gradient(135deg,var(--acc),var(--acc2))!important;color:#fff!important}
-input,textarea{transition:border-color .2s,box-shadow .2s!important}input:focus,textarea:focus{box-shadow:0 0 0 3px #4f7cff33!important}
-.card{box-shadow:0 24px 60px #000b,0 0 50px #4f7cff2a,inset 0 1px 0 #ffffff33!important;border:1px solid #ffffff22}
-.card:hover{transform:perspective(900px) rotateX(2deg) rotateY(-3deg) scale(1.025)!important}
-.card.hi{background-size:240% 240%!important;animation:cardflow 9s ease infinite;box-shadow:0 24px 70px #000b,0 0 70px #9b5cff55,inset 0 1px 0 #ffffff55!important}
-@keyframes cardflow{0%,100%{background-position:0 50%}50%{background-position:100% 50%}}
-.ov{animation:ovin .25s ease;background:radial-gradient(circle at 50% 30%,#10142a99,#000c)!important}
-@keyframes ovin{from{opacity:0}}
-.box{background:linear-gradient(180deg,#1a1b26,#12131b)!important;border:1px solid #ffffff1c!important;border-radius:22px!important;box-shadow:0 30px 90px #000d,inset 0 1px 0 #ffffff1a;animation:boxin .35s var(--ease)}
-@keyframes boxin{from{opacity:0;transform:translateY(16px) scale(.96)}}
-#toast{background:linear-gradient(180deg,#1b1d2cf2,#12131ff2)!important;border:1px solid #4f7cff88!important;border-radius:14px!important;box-shadow:0 14px 40px #000c,0 0 30px #4f7cff33;animation:tin .35s var(--ease)}
-@keyframes tin{from{opacity:0;transform:translate(-50%,14px)}}
-.lb{border-radius:14px;transition:transform .25s var(--ease)}.lb:hover{transform:translateX(4px)}
-.lb.me{box-shadow:0 0 0 1px #4f7cff,0 0 24px #4f7cff44!important}
-@media(prefers-reduced-motion:reduce){*,*:before,*:after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}}
-/* profil dans l'en-tête */
-#who{all:unset;display:flex;align-items:center;gap:8px;cursor:pointer;padding:4px 10px 4px 4px;border-radius:30px;background:#ffffff0c;border:1px solid #ffffff18;transition:.25s var(--ease)}
-#who:hover{background:#ffffff18;transform:translateY(-1px)}
-#who .wa{width:30px;height:30px;border-radius:50%;display:grid;place-items:center;font-size:17px;background:linear-gradient(135deg,#ff3d71,#25f4ee)}
-#who b{display:block;font-size:12px;line-height:1.1}#who small{display:block!important;font-size:9px!important;letter-spacing:.06em!important;text-transform:none!important;color:var(--mut)}
-/* chat */
-#chat{width:290px;flex:none;display:flex;flex-direction:column;min-height:0;background:linear-gradient(180deg,#0e0f19dd,#090a11dd);border-left:1px solid #ffffff12;transition:margin .35s var(--ease),opacity .3s}
-#chat.hide{margin-right:-290px;opacity:0;pointer-events:none}
-.ch-h{display:flex;align-items:center;gap:8px;padding:12px 12px 10px;border-bottom:1px solid #ffffff10}
-.ch-h>div{flex:1;min-width:0}.ch-h b{display:block;font-size:13px}.ch-h small{color:var(--mut);font-size:11px}
-.ch-h button,#chFab{all:unset;cursor:pointer;width:28px;height:28px;display:grid;place-items:center;border-radius:9px;color:var(--mut);transition:.2s}.ch-h button:hover{background:#ffffff14;color:#fff}
-#chL{flex:1;overflow-y:auto;padding:10px;display:flex;flex-direction:column;gap:8px;-webkit-user-select:text;user-select:text}
-.cm{display:flex;gap:8px;align-items:flex-start;animation:fi .3s var(--ease)}
-.cm .cav{width:28px;height:28px;border-radius:50%;display:grid;place-items:center;font-size:15px;background:#ffffff14;flex:none}
-.cm>div{min-width:0}.cm b{font-size:12px}.cm small{color:var(--mut);font-size:10px;margin-left:4px}
-.cm p{margin:1px 0 0;font-size:13px;color:#e6e8f5;word-break:break-word;background:#ffffff0c;padding:6px 10px;border-radius:4px 12px 12px 12px;display:inline-block;max-width:100%}
-.cm.me{flex-direction:row-reverse}.cm.me>div{text-align:right}.cm.me p{background:linear-gradient(135deg,#4f7cffcc,#9b5cffcc);color:#fff;border-radius:12px 4px 12px 12px}
-.cm.sys{justify-content:center}.cm.sys p{background:none;color:var(--mut);font-size:11px;padding:0}
-.cbot{font-style:normal;font-size:8px;background:#ffffff1c;border-radius:5px;padding:1px 4px;margin-left:4px;color:var(--mut);vertical-align:middle}
-.ch-f{display:flex;gap:6px;padding:10px;border-top:1px solid #ffffff10}
-.ch-f input{flex:1;border-radius:20px;padding:9px 14px}.ch-f button{all:unset;cursor:pointer;width:38px;height:38px;border-radius:50%;display:grid;place-items:center;background:linear-gradient(135deg,var(--acc),var(--acc2));box-shadow:0 4px 14px #4f7cff55;transition:.2s}.ch-f button:hover{transform:scale(1.08)}
-#chFab{position:fixed;right:14px;bottom:14px;z-index:40;width:48px;height:48px;border-radius:50%;font-size:22px;color:#fff;background:linear-gradient(135deg,var(--acc),var(--acc2));box-shadow:0 8px 26px #4f7cff88;display:none;transition:transform .25s var(--ease)}
-#chFab:hover{transform:scale(1.1)}#chFab i{position:absolute;top:-4px;right:-4px;min-width:18px;height:18px;border-radius:9px;background:var(--red);font-size:10px;font-style:normal;display:none;place-items:center;font-weight:700;padding:0 4px}
-body.chh #chFab{display:grid}
-@media(max-width:900px){#chat{position:fixed;right:0;top:0;bottom:0;z-index:60;background:#0b0c14!important;width:min(88vw,330px);box-shadow:-20px 0 60px #000c;margin-right:0}#chat.hide{margin-right:0;transform:translateX(105%)}#chFab{display:grid}nav{width:130px!important}}
-/* usine -> boutique */
-.fpick{display:flex;flex-wrap:wrap;gap:5px}.fpick .pg{font-size:18px;padding:6px 10px}
-.fxb{border:1px solid #2ee37a55;background:linear-gradient(180deg,#2ee37a12,#2ee37a06);border-radius:12px;padding:9px;margin:6px 0;display:flex;flex-direction:column;gap:6px}
-.fxr{display:flex;gap:5px;flex-wrap:wrap}
-`;document.head.appendChild(st);document.title="Empire Tycoon v16"}
-/* --- cartes au-delà de 50M --- */
-{const _r=render;render=function(){_r.apply(this,arguments);const c=document.querySelector("#main .card");if(c&&S.card>=8)c.classList.add("hi")}}
-/* --- entrepôt --- (tableaux WH/WHC étendus dans le source) */
-/* --- usines : production pour la boutique en ligne --- */
-const FAC_MAT=.4,FAC_DLY=.2;
-const facRate=s=>30*s.lv*ZU[s.z][2],facCap=s=>Math.round(facRate(s)*30);
-const facOn=p=>S.sites.filter(s=>s.t=="usine"&&s.prod===p&&Date.now()>=s.rdy);
-const facStock=p=>facOn(p).reduce((a,s)=>a+(s.buf||0),0);
-function facTick(){const n=Date.now();S.sites.forEach(s=>{if(s.t!="usine"||n<s.rdy)return;if(s.pt==null)s.pt=n;const dt=Math.min(n-s.pt,6*36e5)/6e4;s.pt=n;if(s.prod>=0)s.buf=Math.min(facCap(s),(s.buf||0)+facRate(s)*dt)})}
-setInterval(facTick,1000);facTick();
-{const _si=sInc;sInc=function(s){return _si(s)*(s.t=="usine"&&s.prod>=0?.6:1)}}
-W.facSet=function(j,p){const s=S.sites[j];if(!s||s.t!="usine"||Date.now()<s.rdy)return;if(s.prod===p)return;s.prod=p;s.buf=0;s.pt=Date.now();toast(p>=0?"🏭 Production : "+PRD[p][0]:"🏭 Production arrêtée");save();empBody()};
-W.facShip=function(s,n){const it=S.sh.items[s];if(!it)return;const p=it.p,av=Math.floor(facStock(p));if(av<1){toast("Aucune production disponible pour ce produit");return}
- n=n<0?av:Math.min(n,av);const room=cap()-used(it);n=Math.min(n,Math.floor(room));if(n<1){toast("🏭 Entrepôt plein (capacité "+nf(cap())+")");return}
- const c=n*PRD[p][1]*FAC_MAT;if(S.cash<c){toast("Fonds insuffisants ("+f(c)+")");return}
- S.cash-=c;let r=n;facOn(p).forEach(x=>{const t=Math.min(x.buf||0,r);x.buf-=t;r-=t});
- const d=Math.max(3,Math.round(dly(n)*FAC_DLY));it.inc.push({n,t:Date.now()+d*1e3,fac:1});log("Livraison usine",-c);toast("🚚 Livraison usine en route ("+mmss(d)+")");head();shUpd();save()};
-{const _sv=sitesView;sitesView=function(t){const h=_sv(t);if(t!="usine")return h;const L=S.sites.map((s,j)=>[s,j]).filter(a=>a[0].t=="usine");if(!L.length)return h;
- return h+`<h3 style="margin:18px 0 4px">🏭 Production pour ta boutique en ligne</h3><p style="color:var(--mut);margin:0 0 10px;font-size:12px">Assigne un produit à chaque usine : elle le fabrique en continu (matières −60 % vs fournisseur) et le livre à ta boutique ~5× plus vite. Une usine qui produit pour ta boutique rapporte 40 % de revenu passif en moins.</p><div class="grid">`+L.map(([s,j])=>{const c=CI[s.c],pr=s.prod>=0?PRD[s.prod]:null,ok=Date.now()>=s.rdy;
- return`<div class="item gl"><h4><span class="ic">🏭</span>${c[0]} <small style="color:var(--mut)">${ZU[s.z][0]} · ${"★".repeat(s.lv)}</small></h4>`+(!ok?`<p>🚧 En construction…</p>`:`<p>Produit fabriqué : <b>${pr?pr[3]+" "+pr[0]:"aucun"}</b></p><div class="fpick">`+PRD.map((p,i)=>`<button class="pg ${s.prod===i?"on":""}" title="${p[0]}" onclick="facSet(${j},${i})">${p[3]}</button>`).join("")+`<button class="pg" title="Arrêter" onclick="facSet(${j},-1)">⏹</button></div>`+(pr?`<p>Cadence <b>${nf(facRate(s))}</b> unités/min · matières <b>${f2(pr[1]*FAC_MAT)}</b>/u</p><div class="bar"><i id="fb_${j}"></i></div><p id="ft_${j}"></p>`:`<p>Choisis un produit à fabriquer.</p>`))+`</div>`}).join("")+`</div>`}}
-{const _sl=slotView;slotView=function(s){const h=_sl(s),it=S.sh.items[s];if(!it)return h;const k=h.lastIndexOf("</div>");
- return h.slice(0,k)+`<div class="fxb"><b>🏭 Production de tes usines</b><p id="fxi_${s}"></p><div class="fxr">`+[100,500,2000,5e4].map(n=>`<button class="pg" onclick="facShip(${s},${n})">${nf(n)}</button>`).join("")+`<button class="pg" onclick="facShip(${s},-1)">Tout</button></div></div>`+h.slice(k)}}
-function facUi(){S.sites.forEach((s,j)=>{if(s.t!="usine"||s.prod==null||s.prod<0)return;const b=$("fb_"+j);if(b){const cp=facCap(s);b.style.width=Math.min(100,(s.buf||0)/cp*100)+"%";set("ft_"+j,"Stock usine : "+nf(Math.floor(s.buf||0))+" / "+nf(cp))}});
- const h=S.sh;if(!h.on)return;let mx=0;SLOTS.forEach(s=>{const it=h.items[s];if(!it)return;mx=Math.max(mx,used(it)/cap());const e=$("fxi_"+s);if(!e)return;const n=facOn(it.p).length;
-  if(!n)e.textContent="Aucune usine ne fabrique ce produit : assigne-le dans Empire › Usines.";else{const av=Math.floor(facStock(it.p)),u=uc(it.p),m=PRD[it.p][1]*FAC_MAT;e.textContent=nf(av)+" unités prêtes · "+f2(m)+"/u au lieu de "+f2(u)+"/u (−"+Math.max(0,Math.round((1-m/u)*100))+" %) · livraison ≈ "+mmss(Math.max(3,Math.round(dly(Math.max(1,Math.min(av,cap())))*FAC_DLY)))}});
- const bar=$("swbar");if(bar)bar.style.width=Math.min(100,mx*100)+"%"}
-{const _eu=empU;empU=function(){_eu();facUi()}}
-{const _su=shUpd;shUpd=function(){_su();facUi()}}
-/* --- profil : en-tête, sauvegarde par ID, export/import --- */
-const prof=()=>{const a=J2("et_profiles",[]),p=a.find(x=>x.id==ET.id);return{a,p}};
-function J2(k,d){try{const v=JSON.parse(localStorage.getItem(k));return v==null?d:v}catch(e){return d}}
-function profSave(){const{a,p}=prof();if(p){p.w=wealth();p.l=S.lvl;p.seen=Date.now();try{localStorage.setItem("et_profiles",JSON.stringify(a))}catch(e){}}}
-{const who=document.createElement("button");who.id="who";who.innerHTML=`<span class="wa">${ET_AV[ET.av%ET_AV.length]}</span><span><b>${esc2(ET.name)}</b></span>`;who.onclick=()=>setOpen();const xp=document.querySelector("header .xp");xp.after(who)}
-const stm=n=>new Date(n).toLocaleTimeString("fr-FR",{hour:"2-digit",minute:"2-digit"});
-W.etCopy=t=>{try{navigator.clipboard.writeText(t);toast("📋 Copié")}catch(e){const a=document.createElement("textarea");a.value=t;document.body.appendChild(a);a.select();try{document.execCommand("copy");toast("📋 Copié")}catch(x){}a.remove()}};
-const roomLabel=()=>ET.mode=="public"?"🌍 Partie publique":"🔒 Partie privée";
-const roomCode=()=>ET.mode=="public"?"":ET.room.slice(2);
-setOpen=function(){modal(`<div class="box" style="max-width:440px"><h3 style="margin-top:0">⚙️ Paramètres</h3>
-<div class="item gl" style="margin-bottom:12px"><h4><span class="ic">${ET_AV[ET.av%ET_AV.length]}</span>${esc2(ET.name)}</h4><p style="color:var(--mut);font-size:12px">🔒 Ton ID de sauvegarde est secret et n'est affiché nulle part. Ne le partage jamais : quelqu'un pourrait accéder à ta session.</p><p>${roomLabel()}${roomCode()?" · code <b style='font-family:monospace;color:#fff'>"+esc2(roomCode())+"</b> <button class='pg' onclick='etCopy(\""+esc2(roomCode())+"\")'>📋</button>":""}</p>
-<div class="row"><button class="pg" onclick="etExport()">📤 Exporter</button><button class="pg" onclick="etImport()">📥 Importer</button><button class="pg" onclick="etQuit()">🔁 Changer de profil / partie</button></div></div>
-<p><b>Langue</b></p><div style="display:flex;flex-wrap:wrap;gap:6px">`+LANGS.map(l=>`<button class="pg ${l[0]==SET.lang?"on":""}" onclick="setLang('${l[0]}')">${l[1]}</button>`).join("")+`</div><p><b>Son</b> <button class="pg" onclick="setSnd()">${SET.on?"🔊 Son activé":"🔇 Son coupé"}</button></p><p><b>Volume</b> <input type="range" min="0" max="100" value="${Math.round(SET.vol*100)}" oninput="setVol(this.value)" style="vertical-align:middle;width:55%"></p>${ET.mode=="public"?`<p><b>Bots dans le chat</b> <button class="pg" onclick="SET.botchat=SET.botchat?0:1;stSave();setOpen()">${SET.botchat?"🤖 Activés":"🤖 Désactivés"}</button></p>`:""}<button class="pg" onclick="thanks()">🗣️ Tester la voix</button><div class="row" style="margin-top:12px"><button class="btn" onclick="shut()">Fermer</button></div></div>`)};
-W.etQuit=function(){if(!confirm("Retourner à l'écran de lancement ? Ta partie est sauvegardée sous ton ID."))return;save();ET_switch()};
-W.etExport=function(){const code=ET_encode({v:16,id:ET.id,name:ET.name,s:S});modal(`<div class="box" style="max-width:460px"><h3 style="margin-top:0">📤 Exporter la sauvegarde</h3><p style="color:var(--mut)">Ce code contient toute ta progression et ton ID secret. Ne le partage avec personne : il donnerait accès à ta session. Garde-le pour la restaurer ou la déplacer sur un autre appareil.</p><textarea id="expc" readonly rows="5" style="width:100%;background:#00000066;border:1px solid var(--line);color:#fff;border-radius:10px;padding:8px;font:11px monospace;-webkit-user-select:text;user-select:text">${code}</textarea><div class="row" style="margin-top:10px"><button class="btn g" onclick="etCopy(document.getElementById('expc').value)">📋 Copier</button><button class="btn" onclick="etDl()">⬇️ Télécharger</button><button class="btn r" onclick="setOpen()">Retour</button></div></div>`)};
-W.etDl=function(){const b=new Blob([document.getElementById("expc").value],{type:"text/plain"}),a=document.createElement("a");a.href=URL.createObjectURL(b);a.download="empire-tycoon-sauvegarde.txt";document.body.appendChild(a);a.click();setTimeout(()=>{URL.revokeObjectURL(a.href);a.remove()},500)};
-W.etImport=function(){modal(`<div class="box" style="max-width:460px"><h3 style="margin-top:0">📥 Importer une sauvegarde</h3><p style="color:var(--mut)">Colle un code exporté. Il remplacera la progression de ton profil actuel.</p><textarea id="impc" rows="5" placeholder="Code de sauvegarde…" style="width:100%;background:#00000066;border:1px solid var(--line);color:#fff;border-radius:10px;padding:8px;font:11px monospace;-webkit-user-select:text;user-select:text"></textarea><div class="row" style="margin-top:10px"><button class="btn g" onclick="etImportGo()">Importer</button><button class="btn r" onclick="setOpen()">Retour</button></div></div>`)};
-W.etImportGo=function(){const o=ET_decode(document.getElementById("impc").value);if(!o){toast("Code invalide");return}if(!confirm("Remplacer la sauvegarde de ce profil par ce code ?"))return;W.ET_NOSAVE=1;try{localStorage.setItem(ET.key,JSON.stringify(o.s))}catch(e){}location.reload()};
-addEventListener("pagehide",()=>save());
-/* --- chat à gauche --- */
-const RM=ET.room;let CU=0,lastSend=0;
-const aside=document.createElement("aside");aside.id="chat";
-aside.innerHTML=`<div class="ch-h"><div><b>💬 ${roomLabel()}${roomCode()?" · "+esc2(roomCode()):""}</b><small id="chS"></small></div>${roomCode()?`<button title="Copier le code" onclick="etCopy('${esc2(roomCode())}')">📋</button>`:""}<button title="Réduire" onclick="chTog()">✕</button></div><div id="chL"></div><div class="ch-f"><input id="chI" maxlength="200" placeholder="Écris un message…" autocomplete="off"><button title="Envoyer" onclick="chSend()">➤</button></div>`;
-document.querySelector(".wrap").appendChild(aside);
-const fab=document.createElement("button");fab.id="chFab";fab.innerHTML='💬<i id="chU"></i>';fab.onclick=()=>chTog();document.body.appendChild(fab);
-const isSm=()=>innerWidth<=900;
-let open=localStorage.getItem("et_chat")==null?!isSm():localStorage.getItem("et_chat")=="1";
-function chApply(){aside.classList.toggle("hide",!open);document.body.classList.toggle("chh",!open);if(open){CU=0;chBadge();const l=$("chL");l.scrollTop=l.scrollHeight}}
-W.chTog=function(){open=!open;try{localStorage.setItem("et_chat",open?"1":"0")}catch(e){}chApply()};
-function chBadge(){const b=$("chU");if(b){b.textContent=CU>99?"99+":CU;b.style.display=CU&&!open?"grid":"none"}}
-function chAdd(m,fromMe){const l=$("chL"),near=l.scrollHeight-l.scrollTop-l.clientHeight<80,d=document.createElement("div");
- if(m.sys){d.className="cm sys";d.innerHTML=`<p>${esc2(m.x)}</p>`}else{d.className="cm"+(m.id==ET.pid?" me":"");d.innerHTML=`<span class="cav">${ET_AV[(m.av||0)%ET_AV.length]}</span><div><b>${esc2(m.n)}</b>${m.bot?'<i class="cbot">BOT</i>':""}<small>${stm(m.t)}</small><br><p>${esc2(m.x)}</p></div>`}
- l.appendChild(d);while(l.children.length>120)l.removeChild(l.firstChild);if(near||fromMe)l.scrollTop=l.scrollHeight;if(!fromMe&&m.id!=ET.pid&&!open){CU++;chBadge()}}
-W.chSend=function(){const i=$("chI"),x=i.value.trim().slice(0,200);if(!x)return;const n=Date.now();if(n-lastSend<1200){toast("Doucement 😉");return}lastSend=n;i.value="";
- const m={t:n,id:ET.pid,n:ET.name,av:ET.av,x};chAdd(m,1);try{NET.send(RM,m)}catch(e){}if(ET.mode=="public"&&SET.botchat&&Math.random()<.4)botSay(2500+Math.random()*3500,1)};
-$("chI").addEventListener("keydown",e=>{if(e.key=="Enter")chSend()});
-$("chI").addEventListener("keydown",e=>e.stopPropagation());
-try{NET.history(RM).slice(-40).forEach(m=>chAdd(m,0))}catch(e){}CU=0;
-chAdd({sys:1,x:ET.mode=="public"?"Bienvenue dans la partie publique. Sois sympa !":"Partie privée : partage le code "+roomCode()+" à tes amis pour qu'ils te rejoignent."},0);
-NET.onMsg((room,m)=>{if(room==RM&&m&&m.id!=ET.pid)chAdd(m,0)});
-const BL=["Quelqu'un a testé les usines pour la boutique ? Les coûts baissent bien 🏭","Je viens de passer la carte Aurora, ça claque","Le casino m'a pris 50k... plus jamais 😅","Conseil : l'entrepôt niveau 5+ change tout pour le stock","Qui est chaud pour un hôtel à Tokyo ?","Mes vidéos TokTok décollent enfin 📈","GG au top du classement !","Le produit tendance vient de changer, regardez","Les soldes −20 % marchent bien en fin de stock","Je vise les 50M de capital pour la prochaine carte","Bon courage à tous 💪","Les avis 5 étoiles arrivent plus vite avec un bon prix"],RP=["Bien vu !","Haha oui je confirme","Pareil de mon côté 👍","Intéressant, je vais tester","Merci pour l'info !","Courage 🚀"];
-function botSay(delay,rep){setTimeout(()=>{if(!SET.botchat)return;const b=BOTS[Math.random()*BOTS.length|0],L=rep?RP:BL;chAdd({t:Date.now(),id:"bot:"+b.n,n:b.n,av:BOTS.indexOf(b)+1,x:L[Math.random()*L.length|0],bot:1},0)},delay)}
-if(ET.mode=="public")(function loop(){botSay(0);setTimeout(loop,30000+Math.random()*50000)})();
-function online(){const n=Date.now();return NET.board(RM).filter(r=>r.id!=ET.pid&&n-r.t<12e4).length+1}
-function chStat(){set("chS",online()+" joueur"+(online()>1?"s":"")+" en ligne"+(ET.mode=="public"&&SET.botchat?" · 8 bots":""))}
-chApply();chStat();
-/* --- classement par partie --- */
-function pushScore(){try{NET.push({id:ET.pid,n:ET.name,av:ET.av,room:RM,w:wealth(),p:(S.pt||0)/3600,l:S.lvl,f:S.sh.fol,t:Date.now()})}catch(e){}profSave();chStat()}
-pushScore();setInterval(pushScore,5000);
-lb=function(){const e=$("lbl");if(!e)return;const h2=document.querySelector("#main h2");if(h2)h2.textContent=ET.mode=="public"?"Classement · partie publique":"Classement · partie privée "+roomCode();
- if(!$("lbb"))e.innerHTML=`<div class="sub" id="lbt">`+LKS.map(k=>`<button id="lk_${k[0]}" onclick="LK='${k[0]}';lb()">${k[1]}</button>`).join("")+`</div><div id="lbb"></div>`;
- LKS.forEach(k=>$("lk_"+k[0]).classList.toggle("on",k[0]==LK));
- let others=[];try{others=NET.board(RM).filter(r=>r.id!=ET.pid).map(r=>({n:r.n,w:r.w,p:r.p,l:r.l,f:r.f,id:r.id,av:r.av}))}catch(x){}
- const bots=ET.mode=="public"?BOTS.map(b=>({n:b.n,w:b.w,p:b.p||0,l:blv(b.w),f:(ACC.find(a=>a.n==b.n)||{fol:0}).fol,bot:1})):[];
- const L=[...bots,...others,{n:ET.name,me:1,w:wealth(),p:(S.pt||0)/3600,l:S.lvl,f:S.sh.fol,id:ET.pid,av:ET.av}].sort((a,b)=>b[LK]-a[LK]),fm={w:f,p:hm,l:v=>"Niv. "+v,f:v=>nf(v)+" 👥"};
- $("lbb").innerHTML=L.map((b,i)=>`<div class="lb gl ${b.me?"me":""}"><b>${["🥇","🥈","🥉"][i]||i+1}</b><b style="flex:1">${b.av!=null?ET_AV[b.av%ET_AV.length]+" ":""}${esc2(b.n)}${b.bot?' <i class="cbot">BOT</i>':""}</b><b class="up">${fm[LK](b[LK])}</b></div>`).join("")+(ET.mode=="private"&&!others.length?`<p style="color:var(--mut);font-size:12px;text-align:center;margin-top:12px">Pour l'instant tu es seul dans cette partie. Partage le code <b>${esc2(roomCode())}</b> à tes amis.</p>`:"")};
-if(typeof tab!="undefined"&&tab=="Classement")lb();
-})();
-
-</script>
-<script>(function(){
-const LS=localStorage,W=window;
-const J=(k,d)=>{try{const v=JSON.parse(LS.getItem(k));return v==null?d:v}catch(e){return d}};
-const SJ=(k,v)=>{try{LS.setItem(k,JSON.stringify(v))}catch(e){}};
-const AL="ABCDEFGHJKLMNPQRSTUVWXYZ23456789",rid=n=>{let s="";for(let i=0;i<n;i++)s+=AL[Math.random()*AL.length|0];return s};
-const newId=()=>"ET-"+rid(6),okId=s=>/^[A-Za-z0-9_.:\-]{3,40}$/.test(s);
-const esc=s=>String(s).replace(/[<>&"']/g,c=>"&#"+c.charCodeAt(0)+";");
-const AV=["😎","🦊","🐼","🔥","👑","🚀","🎮","🌈","🐯","💎"];
-W.ET_AV=AV;
-/* ---- Adaptateur réseau : remplaçable par l'API de la plateforme (window.ET_NET défini avant ce script) ---- */
-W.ET_NET=W.ET_NET||{
- kind:"local",
- board(room){return Object.values(J("et_board",{})).filter(r=>r.room==room)},
- push(rec){const b=J("et_board",{});b[rec.id]=rec;SJ("et_board",b)},
- history(room){return J("et_chat:"+room,[])},
- send(room,m){const h=J("et_chat:"+room,[]);h.push(m);if(h.length>80)h.splice(0,h.length-80);SJ("et_chat:"+room,h);SJ("et_msg",{k:Math.random(),room,m})},
- onMsg(fn){addEventListener("storage",e=>{if(e.key=="et_msg"&&e.newValue){try{const o=JSON.parse(e.newValue);fn(o.room,o.m)}catch(x){}}})},
- saveCloud(id,state){},
- loadCloud(id){return null}
-};
-W.ET_encode=o=>btoa(unescape(encodeURIComponent(JSON.stringify(o))));
-W.ET_decode=c=>{try{const o=JSON.parse(decodeURIComponent(escape(atob(String(c).trim().replace(/\s+/g,"")))));const s=o&&o.s;return s&&typeof s=="object"&&typeof s.cash=="number"?o:null}catch(e){return null}};
-const profs=()=>J("et_profiles",[]),setProfs=a=>SJ("et_profiles",a);
-function ensureProfile(id,name,av){const a=profs();let p=a.find(x=>x.id==id);if(!p){p={id,name:name||("Joueur "+rid(4)),av:av==null?Math.random()*AV.length|0:av,created:Date.now()};a.push(p);setProfs(a);
- if(LS.getItem("tycoon2")&&!LS.getItem("et_legacy_done")&&!LS.getItem("tycoon2:"+id)){LS.setItem("tycoon2:"+id,LS.getItem("tycoon2"));LS.setItem("et_legacy_done","1");p.legacy=1;setProfs(a)}}
- return p}
-function start(cur){
- sessionStorage.setItem("et_cur",JSON.stringify(cur));LS.setItem("et_last",cur.id);
- const _pa=profs(),_pp=_pa.find(x=>x.id==cur.id);if(_pp&&!_pp.pub){_pp.pub="P"+rid(8);setProfs(_pa)}
- W.ET={id:cur.id,pid:_pp?_pp.pub:"P"+rid(8),name:cur.name,av:cur.av,room:cur.room,mode:cur.mode,key:"tycoon2:"+cur.id};
- const l=document.getElementById("lobby");if(l)l.remove();
- const ld=document.getElementById("ld");if(ld)ld.style.display="flex";
- const s=document.createElement("script");s.textContent=document.getElementById("gamecode").textContent;document.body.appendChild(s)}
-W.ET_switch=function(){sessionStorage.removeItem("et_cur");LS.setItem("et_force","1");location.reload()};
-const cur0=(()=>{try{return JSON.parse(sessionStorage.getItem("et_cur"))}catch(e){return null}})();
-if(cur0&&cur0.id){start(cur0);return}
-/* URL : ?id=...&name=...&room=CODE (la plateforme peut lancer le jeu directement) */
-const q=new URLSearchParams(location.search),qid=q.get("id");
-if(qid&&okId(qid)){const p=ensureProfile(qid,(q.get("name")||"").slice(0,16));try{history.replaceState(null,"",location.pathname)}catch(e){}const rc=(q.get("room")||"").toUpperCase().replace(/[^A-Z0-9]/g,"");
- start({id:p.id,name:p.name,av:p.av,mode:rc?"private":"public",room:rc?"p-"+rc:"public"});return}
-const pref=J("et_pref",{mode:"public",code:rid(6)});
-/* Écran de lancement : uniquement à la toute première connexion (ou si on demande « Changer de profil ») */
-{const lp=LS.getItem("et_last"),p=profs().find(x=>x.id==lp);
- if(p&&!LS.getItem("et_force")){const pr=pref.mode=="private"&&pref.code;start({id:p.id,name:p.name,av:p.av,mode:pr?"private":"public",room:pr?"p-"+pref.code:"public"});return}}
-const ld=document.getElementById("ld");if(ld)ld.style.display="none";
-let sel=LS.getItem("et_last"),form=null,mode=pref.mode||"public",code=pref.code||rid(6),av=Math.random()*AV.length|0,err="";
-if(!profs().some(p=>p.id==sel))sel=profs()[0]?profs()[0].id:null;
-const root=document.createElement("div");root.id="lobby";document.body.appendChild(root);
-const fm=n=>n>=1e12?(n/1e12).toFixed(2)+"T":n>=1e9?(n/1e9).toFixed(2)+"B":n>=1e6?(n/1e6).toFixed(1)+"M":n>=1e3?(n/1e3).toFixed(1)+"k":Math.floor(n);
-function draw(){
- const P=profs();
- root.innerHTML=`<div class="lb-box"><div class="lb-logo">🏢</div><h1>EMPIRE TYCOON</h1><p class="lb-sub">Choisis ton profil, puis ta partie</p>
- <div class="lb-sec"><h3><i>1</i>Profil</h3>
- <div class="lb-list">${P.length?P.map(p=>`<div class="lb-p ${p.id==sel?"on":""}" data-a="pick" data-id="${esc(p.id)}"><span class="lb-av">${AV[p.av%AV.length]}</span><div><b>${esc(p.name)}</b><small>${p.w?fm(p.w)+" $ · niv. "+(p.l||1):"nouveau"}</small></div></div>`).join(""):`<p class="lb-mut">Aucun profil sur cet appareil. Crée-en un pour commencer.</p>`}</div>
- <div class="lb-row"><button data-a="new">＋ Nouveau profil</button><button data-a="id">🔑 Entrer un ID</button></div>
- <div id="lbf">${form=="new"?`<div class="lb-form"><input id="fn" maxlength="16" placeholder="Ton pseudo (2–16 caractères)"><div class="lb-avs">${AV.map((a,i)=>`<span class="${i==av?"on":""}" data-a="av" data-i="${i}">${a}</span>`).join("")}</div><button class="lb-ok" data-a="mknew">Créer le profil</button></div>`:form=="id"?`<div class="lb-form"><input id="fi" type="password" autocomplete="off" maxlength="40" placeholder="Ton ID secret"><p class="lb-mut">🔒 Ton ID est personnel : ne le partage jamais.</p><textarea id="fc" rows="2" placeholder="Code de sauvegarde (optionnel) pour récupérer une progression"></textarea><button class="lb-ok" data-a="mkid">Valider</button></div>`:""}</div></div>
- <div class="lb-sec"><h3><i>2</i>Partie</h3><div class="lb-modes">
- <div class="lb-m ${mode=="public"?"on":""}" data-a="mode" data-m="public"><b>🌍 Publique</b><small>Classement et chat ouverts à tous les joueurs</small></div>
- <div class="lb-m ${mode=="private"?"on":""}" data-a="mode" data-m="private"><b>🔒 Privée</b><small>Classement et chat réservés à ceux qui ont ton code</small></div></div>
- ${mode=="private"?`<div class="lb-code"><input id="rc" maxlength="12" value="${esc(code)}" placeholder="Code de la partie"><button data-a="gen">🎲 Générer</button></div><p class="lb-mut">Partage ce code à tes amis : ils choisissent « Privée » et le saisissent.</p>`:""}</div>
- ${err?`<p class="lb-err">${esc(err)}</p>`:""}
- <button class="lb-go ${sel?"":"off"}" data-a="go">▶ Jouer</button>
- <p class="lb-foot">Ta progression est liée à un ID secret : ne le partage jamais, sinon quelqu'un pourrait accéder à ta session.</p></div>`}
-root.addEventListener("click",e=>{const t=e.target.closest("[data-a]");if(!t)return;const a=t.dataset.a;err="";
- if(a=="pick"){sel=t.dataset.id;form=null}
- else if(a=="new"){form=form=="new"?null:"new"}
- else if(a=="id"){form=form=="id"?null:"id"}
- else if(a=="av"){av=+t.dataset.i;const n=document.getElementById("fn").value;draw();document.getElementById("fn").value=n;return}
- else if(a=="mknew"){const n=document.getElementById("fn").value.trim();if(n.length<2){err="Pseudo trop court (2 caractères minimum)";draw();return}const p=ensureProfile(newId(),n,av);sel=p.id;form=null}
- else if(a=="mkid"){const id=document.getElementById("fi").value.trim(),c=document.getElementById("fc").value.trim();if(!okId(id)){err="ID invalide (3 à 40 caractères : lettres, chiffres, - _ . :)";draw();return}
-  if(c){const o=ET_decode(c);if(!o){err="Code de sauvegarde invalide";draw();return}LS.setItem("tycoon2:"+id,JSON.stringify(o.s))}
-  const p=ensureProfile(id,"");sel=p.id;form=null}
- else if(a=="mode"){mode=t.dataset.m}
- else if(a=="gen"){code=rid(6)}
- else if(a=="go"){if(!sel){err="Crée ou choisis un profil d'abord";draw();return}
-  let room="public";if(mode=="private"){const c=(document.getElementById("rc").value||"").toUpperCase().replace(/[^A-Z0-9]/g,"");if(c.length<4){err="Le code de la partie privée doit faire au moins 4 caractères";draw();return}code=c;room="p-"+c}
-  SJ("et_pref",{mode,code});LS.removeItem("et_force");const p=profs().find(x=>x.id==sel);start({id:p.id,name:p.name,av:p.av,mode,room});return}
- draw()});
-draw();
-})();
-
-/* Missions : récompenses réduites (surtout en début de partie) */
-MIS.forEach(m=>{if(m[5])return;m[5]=m[2];const r=m[2],v=r*Math.pow(Math.min(1,r/1e9),.25),d=Math.pow(10,Math.max(0,Math.floor(Math.log10(Math.max(v,1)))-1));m[2]=Math.max(5,Math.round(v/d)*d)});
 </script>
 </body>
 </html>

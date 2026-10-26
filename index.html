@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="en">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
@@ -607,7 +607,7 @@ function phUpd(){if(!phOn())return;const h=S.sh,d=new Date();set("phclk",d.getHo
 const DM=PRD.map(()=>1),uc=p=>PRD[p][1]*(.65+.45*TRD[p])*DM[p],stars=n=>"★".repeat(n)+"☆".repeat(5-n);
 const PF=["l'isolation","le ventilateur","la lumière","la solidité","l'effet LED","le son","le confort","la douceur"],RN=["Léa","Hugo","Emma","Lucas","Chloé","Nathan","Inès","Tom","Manon","Louis","Jade","Enzo","Camille","Noah","Sarah","Yanis","Zoé","Adam","Lola","Maël"],
 RT={5:["Incroyable, {f} est au top avec {p} !","Meilleur achat du mois : {p} est parfait.","Je recommande {p} les yeux fermés.","{F} dépasse mes attentes, merci !","Livraison rapide et {p} conforme, 5 étoiles.","Mon enfant adore {p}, {f} est génial.","Rapport qualité/prix imbattable pour {p}.","Déjà le deuxième {p} que je commande !"],4:["Très bien, {f} pourrait être un peu mieux.","Bon produit, {p} correspond à la description.","Content de mon {p}, emballage un peu abîmé.","{p} fait le job, livraison un peu longue.","Presque parfait, {f} est correct.","Bon rapport qualité/prix pour {p}."],3:["Moyen : {f} est décevant.","{p} est correct sans plus.","Pas mal, mais {p} ne m'a pas totalement convaincu.","{F} est juste passable pour le prix.","Produit moyen, je ne rachèterai pas {p}."],2:["Déçu, {f} ne fonctionne pas bien.","{p} a mal vieilli après une semaine.","Trop cher pour ce que c'est, surtout {p}.","Qualité en dessous de la photo pour {f}."],1:["Arnaque, {p} est tombé en panne direct.","{F} ne marche pas du tout, à fuir.","Je n'ai jamais reçu mon {p} !","Produit totalement différent de la vidéo TokTok : {p}."]};
-function rvGen(){const h=S.sh,its=h.items.filter(i=>i&&i.earn);if(!its.length)return;const it=its[Math.random()*its.length|0],r=PRD[it.p][2]/it.price,q=Math.max(.05,Math.min(.95,.3+.3*Math.min(1.5,r)+(h.rt-3)*.08));let s;if(Math.random()<q)s=Math.random()<.6?5:4;else{const w=Math.random();s=w<.35?3:w<.7?2:1}const L=RT[s],f=PF[it.p];let x=L[Math.random()*L.length|0].replace(/{p}/g,PRD[it.p][0].toLowerCase()).replace(/{f}/g,f).replace(/{F}/g,f[0].toUpperCase()+f.slice(1));x=x[0].toUpperCase()+x.slice(1);h.rv.unshift({p:it.p,s,n:RN[Math.random()*RN.length|0]+" "+String.fromCharCode(65+Math.random()*26|0)+".",x,d:Date.now()});h.rv.length=Math.min(h.rv.length,200);h.rt=Math.max(1,Math.min(5,h.rt+(s-h.rt)*.03))}
+function rvGen(){const h=S.sh,its=h.items.filter(i=>i&&i.earn);if(!its.length)return;const it=its[Math.random()*its.length|0],r=PRD[it.p][2]/it.price,q=Math.max(.05,Math.min(.95,.3+.3*Math.min(1.5,r)+(h.rt-3)*.08));let s;if(Math.random()<q)s=Math.random()<.6?5:4;else{const w=Math.random();s=w<.35?3:w<.7?2:1}const L=RT[s],f=PF[it.p];let x=trl(L[Math.random()*L.length|0]).replace(/{p}/g,PRD[it.p][0].toLowerCase()).replace(/{f}/g,f).replace(/{F}/g,f[0].toUpperCase()+f.slice(1));x=x[0].toUpperCase()+x.slice(1);h.rv.unshift({p:it.p,s,n:RN[Math.random()*RN.length|0]+" "+String.fromCharCode(65+Math.random()*26|0)+".",x,d:Date.now()});h.rv.length=Math.min(h.rv.length,200);h.rt=Math.max(1,Math.min(5,h.rt+(s-h.rt)*.03))}
 function pen(){const h=S.sh;h.rt=Math.max(1,h.rt-1);h.fol=Math.round(h.fol*.9);toast("⭐ −1 étoile et des clients perdus…")}
 function clNew(){const h=S.sh,its=h.items.filter(i=>i&&i.earn);if(!its.length)return;const it=its[Math.random()*its.length|0],real=Math.random()<.55,d=new Date(Date.now()-864e5*(2+Math.random()*3)),n=RN[Math.random()*RN.length|0];h.cl.push({id:++h.cn,p:it.p,n,amt:+(it.price*(1+(Math.random()*3|0))).toFixed(2),trk:"TT"+(Math.random()*9e8+1e8|0)+"FR",real,ck:0,t:Date.now(),m:["Colis jamais reçu, je veux un remboursement.","Je n'ai jamais reçu ma commande !","Toujours rien dans ma boîte aux lettres, remboursez-moi."][Math.random()*3|0],sv:real?"Colis bloqué au centre de tri depuis "+(3+Math.random()*6|0)+" jours — jamais livré":"Livré le "+d.toLocaleDateString("fr-FR")+" à "+d.getHours()+":"+String(d.getMinutes()).padStart(2,"0")+", remis au destinataire"});toast("🚨 Nouveau problème signalé (Empire → Problèmes)")}
 function clCk(id){const c=S.sh.cl.find(x=>x.id==id);if(c){c.ck=1;CLS="";empU()}}
@@ -665,7 +665,7 @@ const L=[...BOTS.map(b=>({n:b.n,w:b.w,p:b.p,l:blv(b.w),f:(ACC.find(a=>a.n==b.n)|
 $("lbb").innerHTML=L.map((b,i)=>`<div class="lb gl ${b.me?"me":""}"><b>${["🥇","🥈","🥉"][i]||i+1}</b><b style="flex:1">${b.n}</b><b class="up">${fm[LK](b[LK])}</b></div>`).join("")}
 /* ===== v14 : chargement, paramètres, langues, voix ===== */
 const LANGS=[["fr","🇫🇷 Français","fr-FR"],["en","🇬🇧 English","en-US"],["ru","🇷🇺 Русский","ru-RU"],["de","🇩🇪 Deutsch","de-DE"],["es","🇪🇸 Español","es-ES"],["it","🇮🇹 Italiano","it-IT"],["ar","🇸🇦 العربية","ar-SA"]];
-let SET={lang:"fr",on:1,vol:.7};try{SET=Object.assign(SET,JSON.parse(localStorage.getItem("tycoonSet")||"{}"))}catch(e){}
+let SET={lang:"en",on:1,vol:.7};try{SET=Object.assign(SET,JSON.parse(localStorage.getItem("tycoonSet")||"{}"))}catch(e){}
 const LI=Math.max(0,LANGS.findIndex(l=>l[0]==SET.lang)),stSave=()=>{try{localStorage.setItem("tycoonSet",JSON.stringify(SET))}catch(e){}};
 const THX=["Merci pour votre achat","Thank you for your purchase","Спасибо за покупку","Vielen Dank für Ihren Einkauf","Gracias por su compra","Grazie per il tuo acquisto","شكراً لشرائك"];
 const DICT=`Compte courant|Checking account|Текущий счёт|Girokonto|Cuenta corriente|Conto corrente|الحساب الجاري
@@ -723,480 +723,397 @@ Son coupé|Sound off|Звук выключен|Ton aus|Sonido apagado|Suono spen
 Tester la voix|Test the voice|Проверить голос|Stimme testen|Probar la voz|Prova la voce|جرّب الصوت
 Chargement…|Loading…|Загрузка…|Wird geladen…|Cargando…|Caricamento…|جارٍ التحميل…
 Marchés calmes pour le moment|Markets are calm for now|Рынки пока спокойны|Märkte sind derzeit ruhig|Mercados tranquilos por ahora|Mercati calmi per ora|الأسواق هادئة حاليًا
-Possède |Own 
-Détiens |Hold 
-Atteins |Reach 
-Obtiens |Get 
-Achète |Buy 
-Paie |Pay 
-Poste |Post 
-le niveau |level 
-biens immobiliers|properties
-entreprises|businesses
-voitures|cars
-hôtels|hotels
-usines|factories
-un hôtel|a hotel
-une usine|a factory
-une voiture|a car
-un bien immobilier|a property
-cryptos différentes|different cryptos
-actions différentes|different stocks
-des actions|stocks
-du crypto|crypto
-ordres de bourse ou crypto|stock or crypto orders
-d'impôts|in taxes
-vidéos TokTok|TokTok videos
-amélioration Boutique|Shop upgrade
-améliorations Boutique|Shop upgrades
-Gagne 100 000 $ avec ta boutique|Earn $100,000 with your shop
-Lance un produit sur TokTok Shop|Launch a product on TokTok Shop
-Ouvre ta boutique en ligne|Open your online shop
-Reçois 1 000 000 de J'aime|Get 1,000,000 likes
-Obtiens la certification TokTok (100k abonnés)|Get TokTok certified (100k followers)
-Agrandis ton entrepôt au maximum|Max out your warehouse
-Contracte un prêt|Take out a loan
-Aucune mise précédente|No previous bet
-Solde insuffisant|Insufficient balance
-Choisis ta chance|Choose your luck
-Pose des jetons sur le tapis|Place chips on the table
-Retire avant le crash|Cash out before the crash
-Multiplie une mise par |Multiply a bet by 
-Chance de gagner|Win chance
-Machine à sous|Slot machine
-Fusée|Rocket
-Dés|Dice
-Décoller|Take off
-Retirer|Withdraw
-Déposer|Deposit
-Distribuer|Deal
-Lancer|Flip
-Pile ou face|Heads or tails
-Pile|Heads
-Face|Tails
-Dernières mains|Recent hands
-Le croupier gagne|Dealer wins
-Le croupier a blackjack|Dealer has blackjack
-Tu as dépassé 21|You went over 21
-Égalité|Push
-À toi de jouer|Your turn
-Roulette européenne (0 à 36). Mise sur :|European roulette (0 to 36). Bet on:
-Livret d'épargne|Savings account
-Intérêts : +0,1 % par minute|Interest: +0.1% per minute
-Compte courant : |Checking account: 
-Capital total : |Total capital: 
-Loyers à collecter|Rent to collect
-Revenus locatifs : |Rental income: 
-Collecter|Collect
-Aucun bien pour l'instant. Va dans Marché.|No property yet. Go to Market.
-Tu possèdes tous les biens du marché 🎉|You own every property on the market 🎉
-Le bien est loué : les loyers se collectent dans l'onglet Immobilier.|The property is rented: collect rent in the Real estate tab.
-Prix de vente|Sale price
-Prix du bien|Property price
-Acte de vente|Deed of sale
-Marché|Market
-Prix en direct et trading|Live prices and trading
-Ton portfolio est vide. Achète depuis l'onglet Marché.|Your portfolio is empty. Buy from the Market tab.
-Ton portfolio|Your portfolio
-Valeur totale|Total value
-Investi|Invested
-Profit / perte|Profit / loss
-Rendement|Return
-ACTIF|ASSET
-QUANTITÉ|QUANTITY
-PRIX MOYEN|AVG PRICE
-VALEUR|VALUE
-PRIX|PRICE
-CAP. BOURSIÈRE|MARKET CAP
-7 JOURS|7 DAYS
-Confirmer l'achat|Confirm purchase
-Confirmer la vente|Confirm sale
-Solde|Balance
-Actions possédées|Shares owned
-Prix de revient moyen|Average cost
-Total estimé|Estimated total
-Quantité invalide|Invalid quantity
-Transaction annulée : le prix a changé, réessaie|Transaction cancelled: the price changed, try again
-Gérer →|Manage →
-Gérer|Manage
-Profit estimé |Estimated profit 
-Améliorer — |Upgrade — 
-Niveau max|Max level
-Acheté ✔|Bought ✔
-Acheter — |Buy — 
-Améliorations permanentes|Permanent upgrades
-Concession|Dealership
-Chalet des neiges|Snow chalet
-Villa méditerranéenne|Mediterranean villa
-Jet privé|Private jet
-Île privée|Private island
-Aéroport|Airport
-Banque privée|Private bank
-Empire médiatique|Media empire
-Centrale à fusion|Fusion plant
-Café|Coffee shop
-Stand de limonade|Lemonade stand
-Entrepôt|Warehouse
-Hôtel|Hotel
-Récompense : |Reward: 
-Capital net de 1 M$|Net worth of $1M
-Capital net de 1 Md$|Net worth of $1B
-Revenu de 1 M$ / min|Income of $1M / min
-Revenu de 10 000 $ / min|Income of $10,000 / min
-Paie tes premiers impôts|Pay your first taxes
-Aucun problème signalé.|No issues reported.
-Aucun avis pour l'instant : fais tes premières ventes.|No reviews yet: make your first sales.
-Aucun résultat|No results
-Rien pour l'instant.|Nothing yet.
-Rien à signaler pour l'instant.|Nothing to report yet.
-Aucune vidéo pour l'instant. Poste la première !|No videos yet. Post the first one!
-Aucun site pour l'instant. Ouvre la carte, zoome et choisis une ville.|No site yet. Open the map, zoom in and pick a city.
-Ces activités doivent d'abord être ouvertes, puis elles se gèrent dans leur sous-onglet.|These activities must be opened first, then managed in their sub-tab.
-Déjà ouvert|Already open
-Pas encore ouvert|Not open yet
-Nouveau problème signalé (Empire → Problèmes)|New issue reported (Empire → Issues)
-Ouvre d'abord ta boutique en ligne (Empire → Boutique en ligne) pour vendre des produits.|Open your online shop first (Empire → Online shop) to sell products.
-Ouvre d'abord ta boutique en ligne (Empire → Boutique en ligne).|Open your online shop first (Empire → Online shop).
-Choisis un produit et un type de vidéo|Pick a product and a video type
-Produit ajouté : |Product added: 
-Produit abandonné — abonnés perdus|Product dropped — followers lost
-Abandonner ce produit|Drop this product
-Vendre ce produit|Sell this product
-Vidéo postée !|Video posted!
-Ta vidéo devient virale !|Your video went viral!
-Prochaine vidéo dans |Next video in 
-Crée ton compte TokTok|Create your TokTok account
-Compte créé !|Account created!
-Profil mis à jour|Profile updated
-Pseudo déjà pris|Username already taken
-Tout remettre à zéro ?|Reset everything?
-Coffre prêt !|Chest ready!
-Mission|Mission
-Gagné +|Won +
-Livraison reçue : +|Delivery received: +
-Impôts prélevés : |Taxes collected: 
-Contrôle fiscal : amende de |Tax audit: fine of 
-Cashback récupéré : +|Cashback claimed: +
-Entrepôt agrandi : |Warehouse expanded: 
-Les marchés actions s'envolent|Stock markets soar
-Craintes de récession|Recession fears
-La banque centrale baisse ses taux|Central bank cuts rates
-Le marché immobilier s'envole|Housing market soars
-Une baleine accumule du BTC|A whale is accumulating BTC
-Un influenceur promeut DOGE|An influencer promotes DOGE
-Un ETF crypto est approuvé|A crypto ETF is approved
-Piratage d'une plateforme d'échange|Exchange platform hacked
-Régulation crypto plus stricte annoncée|Stricter crypto regulation announced
-Pénurie de bois : WoodCo bondit|Wood shortage: WoodCo jumps
-Résultats record pour TechNova|Record results for TechNova
-VoltMotors dévoile un nouveau modèle|VoltMotors unveils a new model
-Échec d'un essai clinique chez PharmaPlus|Clinical trial fails at PharmaPlus
-Grève des transports : livraisons retardées de 90 s|Transport strike: deliveries delayed by 90 s
-Paiement accepté|Payment accepted
-Numéro invalide|Invalid number
-PIN modifié|PIN changed
-Changer le PIN|Change PIN
-Choisir une carte|Choose a card
-Style de carte|Card style
-Actualités|News
-Découvrir|Discover
-Abandonner|Drop
-Valider|Confirm
-à l'instant|just now
-Nouvelle vidéo|New video
-Temps de jeu|Playtime
-Écouteurs sans fil|Wireless earbuds
-Coque de téléphone|Phone case
-Tapis de massage|Massage mat
-Merci pour votre achat|Thank you for your purchase
-(bénéfice|(profit
-(frais inclus)|(fees included)
-(prix à régler dans Empire → Boutique en ligne)|(set the price in Empire → Online shop)
- · mise| · bet
-, ci-après « le Dirigeant », et|, hereinafter “the Manager”, and
-. Le stock est partagé avec ta boutique.|. Stock is shared with your shop.
-/min · Total gagné|/min · Total earned
-/min · frais|/min · fees
-1 000 $ sur le livret|$1,000 in savings
-10 M$ sur le livret|$10M in savings
-100 000 $ sur le livret|$100,000 in savings
-1 vidéo toutes les 3 minutes. Plus d'abonnés = plus de vues.|1 video every 3 minutes. More followers = more views.
-1) Choisis jusqu'à 2 produits · 2) Commande du stock (livraison avec délai) · 3) Poste des vidéos TokTok depuis ton téléphone 📱 (menu Bank) : sans vues, pas de clients.|1) Choose up to 2 products · 2) Order stock (delivery takes time) · 3) Post TokTok videos from your phone 📱 (Bank menu): no views, no customers.
-1. Produit|1. Product
-2. Type de vidéo|2. Video type
-2 produits max : abandonnes-en un d'abord|2 products max: drop one first
-48 % de chance de doubler ta mise.|48% chance to double your bet.
-Pile ou face : 48 % de chance de doubler ta mise.|Heads or tails: 48% chance to double your bet.
-: capacité|: capacity
-Aucun produit en vente.|No products for sale.
-Doubler|Double
-Gagné sur TokTok Shop :|Earned on TokTok Shop:
-Lancer sur TokTok Shop —|Launch on TokTok Shop —
-Mes produits (2 max)|My products (2 max)
-Ouvrir →|Open →
-Rejouer|Play again
-Rester|Stand
-Tirer|Hit
-Une bonne note attire plus de clients ; un prix trop élevé par rapport au prix conseillé fait baisser les avis.|A good rating attracts more customers; a price too high compared to the recommended price lowers reviews.
-modifiable dans|editable in
-Ouvrir TokTok|Open TokTok
-Catalogue — le produit du moment change toutes les ~90 s|Catalog — the trending product changes every ~90 s
-APPROUVÉ|APPROVED
-Achat immobilier|Property purchase
-Acheté :|Bought:
-Acheté|Bought
-Achète pour augmenter ton revenu par minute.|Buy to increase your income per minute.
-Achète toutes les améliorations Boutique|Buy all Shop upgrades
-Achète une amélioration Boutique|Buy a Shop upgrade
-Achète 3 améliorations Boutique|Buy 3 Shop upgrades
-Amélioration de site|Site upgrade
-Améliorer —|Upgrade —
-Arnaque, |Scam, 
- est tombé en panne direct.| broke down right away.
-Assurance responsabilité civile professionnelle|Professional liability insurance
-Blackjack paie 3:2 · le croupier tire jusqu'à 17|Blackjack pays 3:2 · the dealer draws to 17
-Blackjack paie 3:2. Le croupier tire jusqu'à 17.|Blackjack pays 3:2. The dealer draws to 17.
-Bon produit, |Good product, 
- correspond à la description.| matches the description.
-Bon rapport qualité/prix pour |Good value for money for 
-Bourse|Stocks
-CARTE ****|CARD ****
-Cap. boursière|Market cap
-Certification à 100 000 abonnés|Certification at 100,000 followers
-Chercher une ville…|Search a city…
-Choisis jusqu'à 2 produits|Choose up to 2 products
-Choisis un produit dans le catalogue ci-dessous.|Pick a product from the catalog below.
-Château|Castle
-Clique n'importe où sur l'écran pour gagner · Ce clic :|Click anywhere on the screen to earn · This click:
-Colis bloqué au centre de tri depuis|Parcel stuck at the sorting center for
-Commande de stock|Stock order
-Commande du stock : il arrive après un délai|Stock order: it arrives after a delay
-Content de mon |Happy with my 
-, emballage un peu abîmé.|, packaging a bit damaged.
-Contrôle fiscal : amende de|Tax audit: fine of
-Contrôle fiscal|Tax audit
-Coût d'achat|Purchase cost
-Coût de construction|Construction cost
-Coût|Cost
-Côte d'Azur, France|French Riviera, France
-Des clients disent ne jamais avoir reçu leur colis. Vérifie le numéro de suivi, puis rembourse ou refuse. Une erreur te coûte 1 étoile et des clients. Sans réponse en 10 min, la demande est refusée.|Customers say they never received their parcel. Check the tracking number, then refund or refuse. A mistake costs you 1 star and customers. With no answer in 10 min, the request is refused.
-Déjà le deuxième | Already the second 
- que je commande !| I'm ordering!
-Déçu, |Disappointed, 
- ne fonctionne pas bien.| doesn't work well.
-Européenne · ×36|European · ×36
-Expert fiscal|Tax expert
-Fonds insuffisants au moment de la signature|Insufficient funds at the time of signing
-Frais de greffe et d'immatriculation (RCS)|Registry and registration fees
-Frais de trading ÷2|Trading fees ÷2
-Frais payés|Fees paid
-Frais ·|Fees ·
-Fréquentation forte toute l'année|Strong foot traffic all year
-Gagne 100 000 $ sur TokTok Shop|Earn $100,000 on TokTok Shop
-Gagne 25 parties au casino|Win 25 casino games
-Gagné avec ce produit :|Earned with this product:
-Gants dorés|Golden gloves
-Honoraires juridiques (rédaction des statuts)|Legal fees (drafting the articles)
-Il s'engage à traiter les réclamations clients (colis non reçus) dans un délai de 10 minutes.|He commits to handling customer claims (parcels not received) within 10 minutes.
-Impôts payés|Taxes paid
-Impôt estimé|Estimated tax
-Incroyable, |Amazing, 
- est au top avec | is great with 
-J'ai lu le contrat et j'accepte les conditions|I have read the contract and accept the terms
-Je n'ai jamais reçu ma commande !|I never received my order!
-Je n'ai jamais reçu mon |I never received my 
-Je recommande |I recommend 
- les yeux fermés.| without hesitation.
-Joue 10 parties au casino|Play 10 casino games
-Joue 100 parties au casino|Play 100 casino games
-Jusqu'à ×100|Up to ×100
-Jusqu'à ×170|Up to ×170
-L'Entrepreneur construit le site désigné ci-dessus selon les plans validés.|The Contractor builds the site described above according to the approved plans.
-La note de la boutique dépend des avis clients et influence les ventes.|The shop rating depends on customer reviews and affects sales.
-Le Dirigeant crée une société de vente de produits en ligne et en assume la responsabilité.|The Manager creates an online product sales company and takes responsibility for it.
-Le Dirigeant|The Manager
-Le Vendeur cède au Dirigeant la pleine propriété du bien désigné ci-dessus.|The Seller transfers to the Manager full ownership of the property described above.
-Le Vendeur cède au Dirigeant la pleine propriété du site désigné ci-dessus, livré clés en main.|The Seller transfers to the Manager full ownership of the site described above, delivered turnkey.
-Le prix et les frais sont payés comptant.|The price and fees are paid in cash.
-Le transfert de propriété est immédiat à la signature.|Ownership transfers immediately upon signing.
-Les revenus sont soumis à l'impôt, prélevé toutes les 15 minutes.|Income is subject to tax, collected every 15 minutes.
-Les travaux durent|Works take
-Licence boutique|Shop license
-Limite de détention|Holding limit
-Livraison rapide et | Fast delivery and 
- conforme, 5 étoiles.| as described, 5 stars.
-Livret : intérêts ×2|Savings: interest ×2
-Livret|Savings
-Livré le|Delivered on
-Loyers +|Rents +
-Loyers encaissés|Rents collected
-Loyers et contraintes élevés|High rents and constraints
-MERCI POUR VOTRE ACHAT !|THANK YOU FOR YOUR PURCHASE!
-MISE|BET
-Main-d'œuvre qualifiée|Skilled labor
-Meilleur achat du mois : |Best purchase of the month: 
- est parfait.| is perfect.
-Meilleur gain|Best win
-Minas Gerais, Brésil|Minas Gerais, Brazil
-Mise invalide|Invalid bet
-Mon enfant adore |My child loves 
- est génial.| is great.
-Moyen : |Average: 
- est décevant.| is disappointing.
-Mykonos, Grèce|Mykonos, Greece
-Nouvelle-Angleterre, USA|New England, USA
-Numéro ×36|Number ×36
-Obtiens la carte Black|Get the Black card
-Obtiens la carte Gold|Get the Gold card
-Obtiens la carte Matrix|Get the Matrix card
-Ordres bourse / crypto|Stock / crypto orders
-Ouvrir ta boutique en ligne|Open your online shop
-Ouvrir|Open
-Paiement au TPE avec ta carte (PIN 1234 par défaut). Chaque voiture rapporte en location.|Pay at the terminal with your card (default PIN 1234). Each car earns rental income.
-Partenariat commercial : +|Business partnership: +
-Partenariat|Partnership
-Parties gagnées|Games won
-Parties|Games
-Pas de bio|No bio
-Pas mal, mais |Not bad, but 
- ne m'a pas totalement convaincu.| didn't fully convince me.
-Passe 10 ordres de bourse ou crypto|Place 10 stock or crypto orders
-Passe 100 ordres de bourse ou crypto|Place 100 stock or crypto orders
-Peu de passage, terrain bon marché|Low foot traffic, cheap land
-Plafond de prêt ×2|Loan limit ×2
-Plus c'est gros, moins c'est cher… mais plus c'est long.|The bigger it is, the cheaper it gets… but the longer it takes.
-Plus d'abonnés = plus de vues = plus de ventes|More followers = more views = more sales
-Plus grand que|Higher than
-Plus petit que|Lower than
-Poste sur TokTok (📱, 1 vidéo / 3 min), tu peux payer une pub|Post on TokTok (📱, 1 video / 3 min), you can pay for an ad
-Prix d'achat|Purchase price
-Prix en direct|Live price
-Prochain :|Next:
-Prochain prélèvement dans|Next deduction in
-Prochains soldes dans|Next sale in
-Produit ajouté :|Product added:
-Produit moyen, je ne rachèterai pas |Average product, I won't buy again: 
-Produit totalement différent de la vidéo TokTok : |Product completely different from the TokTok video: 
-Profit estimé|Estimated profit
-Présentez la carte|Present your card
-Prêt bancaire|Bank loan
-Périphérie|Outskirts
-Qualité en dessous de la photo pour |Quality below the photo for 
-Racheter (déjà construit)|Buy back (already built)
-Rapport qualité/prix imbattable pour |Unbeatable value for money for 
-Retiré de TokTok Shop|Removed from TokTok Shop
-Revente de stock|Stock resale
-Revenus de la période|Income for the period
-Revenu estimé|Estimated income
-Récompense :|Reward:
-Rénovation|Renovation
-Rénover +25% —|Renovate +25% —
-Résultat net|Net result
-Ruine égéenne|Aegean ruin
-Saison haute marquée|Marked high season
-Signe le document et coche la case d'acceptation|Sign the document and tick the acceptance box
-Solde insuffisant pour ce jeton|Insufficient balance for this chip
-Suis 5 comptes sur TokTok|Follow 5 accounts on TokTok
-TOTAL À RÉGLER|TOTAL DUE
-Ta dette réduit ton capital net. Si elle dépasse 3× ton plafond, la banque saisit tes liquidités.|Your debt reduces your net worth. If it exceeds 3× your limit, the bank seizes your cash.
-Taux : 0,4 % par minute (intérêts composés). Encore empruntable :|Rate: 0.4% per minute (compound interest). Still borrowable:
-Terrain bon marché, peu de main-d'œuvre|Cheap land, little labor
-Total avec épargne :|Total with savings:
-Total déjà payé|Total paid so far
-Toujours rien dans ma boîte aux lettres, remboursez-moi.|Still nothing in my mailbox, refund me.
-Tous les 15 minutes, le fisc prélève 15 % des revenus perçus (entreprises, loyers, boutique). Sans liquidités, la somme s'ajoute à ta dette.|Every 15 minutes, the tax office takes 15% of the income received (businesses, rents, shop). Without cash, the amount is added to your debt.
-Trop cher pour ce que c'est, surtout |Too expensive for what it is, especially 
-Très bien, |Very good, 
- pourrait être un peu mieux.| could be a little better.
-Très fréquenté, loyers élevés|Busy area, high rents
-Tu gagnes !|You win!
-Tu possèdes déjà ce site dans cette ville|You already own this site in this city
-Tu suis @|You follow @
-Usine|Factory
-Vallée de la Loire, France|Loire Valley, France
-Vendu|Sold
-Vendue|Sold
-Vente immobilier|Property sale
-Vente voiture|Car sale
-Vidéo|Video
-Gagné|Won
- dépasse mes attentes, merci !| exceeds my expectations, thanks!
- est juste passable pour le prix.| is just passable for the price.
- ne marche pas du tout, à fuir.| doesn't work at all, avoid.
- a mal vieilli après une semaine.| aged badly after a week.
- est correct sans plus.| is okay, nothing more.
- fait le job, livraison un peu longue.| does the job, delivery a bit long.
-coûte plus cher|costs more
-jours — jamais livré|days — never delivered
-l'Entrepreneur général|the general Contractor
-la douceur|softness
-la lumière|brightness
-la solidité|sturdiness
-le Vendeur|the Seller
-le confort|comfort
-le son|sound
-le ventilateur|the fan
-livraisons en route par produit|deliveries in transit per product
-par produit · max|per product · max
-t'a suivi en retour !|followed you back!
-un seul hôtel par ville|only one hotel per city
-une seule usine par ville|only one factory per city
-une par ville|one per city
-unités ·|units ·
-hôtel(s)|hotel(s)
-usine(s)|factory(ies)
-possédé|owned
-· Impôt estimé|· Estimated tax
-· Mise totale|· Total bet
-· Revenu estimé|· Estimated income
-· gain|· win
-· prix conseillé|· recommended price
-· tu reçois|· you receive
-→ tu reçois|→ you receive
-· 🎬 Vidéos|· 🎬 Videos
-Élevé|High
-Émoluments du notaire (1,1 %)|Notary fees (1.1%)
-×2 ou rien|×2 or nothing
-‹ Retour|‹ Back
-↔️ égalité|↔️ push
-⚪ Lâcher une bille|⚪ Drop a ball
-✅ Bonne décision|✅ Good decision
-✍️ Signature du Dirigeant (dessine avec la souris ou le doigt)|✍️ Manager's signature (draw with the mouse or your finger)
-✍️ Signer et payer|✍️ Sign and pay
-✔ Ton compte TokTok est certifié !|✔ Your TokTok account is certified!
-⭐ Note de ta boutique :|⭐ Your shop rating:
-⭐ −1 étoile et des clients perdus…|⭐ −1 star and lost customers…
-🌍 Ouvrir le globe|🌍 Open the globe
-🏷️ Soldes −20 % pendant 2 min : plus de clients !|🏷️ Sale −20% for 2 min: more customers!
-💥 Pénurie fournisseur :|💥 Supplier shortage:
-💸 Perdu −|💸 Lost −
-📖 Comment ça marche|📖 How it works
-📢 Pub lancée ×|📢 Ad launched ×
-📣 Un influenceur cite ta boutique : +|📣 An influencer mentions your shop: +
-📦 En stock :|📦 In stock:
-📦 Stock|📦 Stock
-🔎 Vérifier le suivi|🔎 Check tracking
-🖋️ Contrat signé · frais payés :|🖋️ Contract signed · fees paid:
-🚚 Commande en route (|🚚 Order on the way (
-🚚 Commander du stock|🚚 Order stock
-🚨 Problèmes avec un produit|🚨 Problems with a product
-🛍️ Produit lancé sur TokTok Shop|🛍️ Product launched on TokTok Shop
-🧾 Contrôle fiscal : amende de|🧾 Tax audit: fine of
-🧾 Impôts prélevés :|🧾 Taxes collected:
-Impôts prélevés :|Taxes collected:
-Glisse pour tourner le globe, ＋/－ ou molette pour zoomer, clique sur une ville (🟢 libre · 🟡 à toi).|Drag to rotate the globe, ＋/－ or mouse wheel to zoom, click a city (🟢 free · 🟡 yours).
- villes.| cities.
-Offre en circulation|Circulating supply
-Offre totale|Total supply
-Solde disponible|Available balance
-MONTANT|AMOUNT
-Bonus quotidien|Daily bonus
-Prochaine vidéo dans|Next video in
-bientôt|soon
-Pseudo et bio : 1 changement par heure chacun. Logo modifiable à tout moment. ✔ Certification à 100 000 abonnés.|Username and bio: 1 change per hour each. Logo editable anytime. ✔ Certification at 100,000 followers.
-Tu risques aussi de perdre 10 à 30 % de tes abonnés, et tes prochaines vidéos feront moins de vues au début.|You also risk losing 10 to 30% of your followers, and your next videos will get fewer views at first.
-Certification à 100 000 abonnés|Certification at 100,000 followers
-PILE ou FACE|HEADS or TAILS`.split("\n").map(r=>r.split("|")).sort((a,b)=>b[0].length-a[0].length);
+Possède |Own |||Posee ||
+Détiens |Hold |||Ten ||
+Atteins |Reach |||Alcanza ||
+Obtiens |Get |||Consigue ||
+Achète |Buy |||Compra ||
+Paie |Pay |||Paga ||
+Poste |Post |||Publica ||
+le niveau |level |||el nivel ||
+biens immobiliers|properties|||propiedades||
+entreprises|businesses|||empresas||
+voitures|cars|||coches||
+hôtels|hotels|||hoteles||
+usines|factories|||fábricas||
+un hôtel|a hotel|||un hotel||
+une usine|a factory|||una fábrica||
+une voiture|a car|||un coche||
+un bien immobilier|a property|||una propiedad||
+cryptos différentes|different cryptos|||criptos distintas||
+actions différentes|different stocks|||acciones distintas||
+des actions|stocks|||acciones||
+du crypto|crypto|||cripto||
+ordres de bourse ou crypto|stock or crypto orders|||órdenes de bolsa o cripto||
+d'impôts|in taxes|||en impuestos||
+vidéos TokTok|TokTok videos|||vídeos de TokTok||
+amélioration Boutique|Shop upgrade|||mejora de la Tienda||
+améliorations Boutique|Shop upgrades|||mejoras de la Tienda||
+Gagne 100 000 $ avec ta boutique|Earn $100,000 with your shop|||Gana 100 000 $ con tu tienda||
+Lance un produit sur TokTok Shop|Launch a product on TokTok Shop|||Lanza un producto en TokTok Shop||
+Ouvre ta boutique en ligne|Open your online shop|||Abre tu tienda online||
+Reçois 1 000 000 de J'aime|Get 1,000,000 likes|||Consigue 1 000 000 de Me gusta||
+Obtiens la certification TokTok (100k abonnés)|Get TokTok certified (100k followers)|||Consigue la certificación TokTok (100k seguidores)||
+Agrandis ton entrepôt au maximum|Max out your warehouse|||Amplía tu almacén al máximo||
+Contracte un prêt|Take out a loan|||Pide un préstamo||
+Aucune mise précédente|No previous bet|||Ninguna apuesta anterior||
+Solde insuffisant|Insufficient balance|||Saldo insuficiente||
+Choisis ta chance|Choose your luck|||Elige tu suerte||
+Pose des jetons sur le tapis|Place chips on the table|||Coloca fichas en la mesa||
+Retire avant le crash|Cash out before the crash|||Retira antes del crash||
+Multiplie une mise par |Multiply a bet by |||Multiplica una apuesta por ||
+Chance de gagner|Win chance|||Probabilidad de ganar||
+Machine à sous|Slot machine|||Tragaperras||
+Fusée|Rocket|||Cohete||
+Dés|Dice|||Dados||
+Décoller|Take off|||Despegar||
+Retirer|Withdraw|||Retirar||
+Déposer|Deposit|||Depositar||
+Distribuer|Deal|||Repartir||
+Lancer|Flip|||Lanzar||
+Pile ou face|Heads or tails|||Cara o cruz||
+Pile|Heads|||Cara||
+Face|Tails|||Cruz||
+Dernières mains|Recent hands|||Últimas manos||
+Le croupier gagne|Dealer wins|||Gana la banca||
+Le croupier a blackjack|Dealer has blackjack|||La banca tiene blackjack||
+Tu as dépassé 21|You went over 21|||Te pasaste de 21||
+Égalité|Push|||Empate||
+À toi de jouer|Your turn|||Te toca||
+Roulette européenne (0 à 36). Mise sur :|European roulette (0 to 36). Bet on:|||Ruleta europea (0 a 36). Apuesta a:||
+Livret d'épargne|Savings account|||Libreta de ahorro||
+Intérêts : +0,1 % par minute|Interest: +0.1% per minute|||Intereses: +0,1 % por minuto||
+Compte courant : |Checking account: |||Cuenta corriente: ||
+Capital total : |Total capital: |||Capital total: ||
+Loyers à collecter|Rent to collect|||Alquileres por cobrar||
+Revenus locatifs : |Rental income: |||Ingresos por alquiler: ||
+Collecter|Collect|||Cobrar||
+Aucun bien pour l'instant. Va dans Marché.|No property yet. Go to Market.|||Aún no tienes propiedades. Ve a Mercado.||
+Tu possèdes tous les biens du marché 🎉|You own every property on the market 🎉|||Tienes todas las propiedades del mercado 🎉||
+Le bien est loué : les loyers se collectent dans l'onglet Immobilier.|The property is rented: collect rent in the Real estate tab.|||La propiedad está alquilada: cobra los alquileres en la pestaña Inmobiliario.||
+Prix de vente|Sale price|||Precio de venta||
+Prix du bien|Property price|||Precio de la propiedad||
+Acte de vente|Deed of sale|||Escritura de venta||
+Marché|Market|||Mercado||
+Prix en direct et trading|Live prices and trading|||Precios en directo y trading||
+Ton portfolio est vide. Achète depuis l'onglet Marché.|Your portfolio is empty. Buy from the Market tab.|||Tu cartera está vacía. Compra desde la pestaña Mercado.||
+Ton portfolio|Your portfolio|||Tu cartera||
+Valeur totale|Total value|||Valor total||
+Investi|Invested|||Invertido||
+Profit / perte|Profit / loss|||Beneficio / pérdida||
+Rendement|Return|||Rentabilidad||
+ACTIF|ASSET|||ACTIVO||
+QUANTITÉ|QUANTITY|||CANTIDAD||
+PRIX MOYEN|AVG PRICE|||PRECIO MEDIO||
+VALEUR|VALUE|||VALOR||
+PRIX|PRICE|||PRECIO||
+CAP. BOURSIÈRE|MARKET CAP|||CAP. BURSÁTIL||
+7 JOURS|7 DAYS|||7 DÍAS||
+Confirmer l'achat|Confirm purchase|||Confirmar la compra||
+Confirmer la vente|Confirm sale|||Confirmar la venta||
+Solde|Balance|||Saldo||
+Actions possédées|Shares owned|||Acciones en posesión||
+Prix de revient moyen|Average cost|||Coste medio||
+Total estimé|Estimated total|||Total estimado||
+Quantité invalide|Invalid quantity|||Cantidad no válida||
+Transaction annulée : le prix a changé, réessaie|Transaction cancelled: the price changed, try again|||Transacción cancelada: el precio cambió, inténtalo de nuevo||
+Gérer →|Manage →|||Gestionar →||
+Gérer|Manage|||Gestionar||
+Profit estimé |Estimated profit |||Beneficio estimado ||
+Améliorer — |Upgrade — |||Mejorar — ||
+Niveau max|Max level|||Nivel máx.||
+Acheté ✔|Bought ✔|||Comprado ✔||
+Acheter — |Buy — |||Comprar — ||
+Améliorations permanentes|Permanent upgrades|||Mejoras permanentes||
+Concession|Dealership|||Concesionario||
+Chalet des neiges|Snow chalet|||Chalet de nieve||
+Villa méditerranéenne|Mediterranean villa|||Villa mediterránea||
+Jet privé|Private jet|||Jet privado||
+Île privée|Private island|||Isla privada||
+Aéroport|Airport|||Aeropuerto||
+Banque privée|Private bank|||Banca privada||
+Empire médiatique|Media empire|||Imperio mediático||
+Centrale à fusion|Fusion plant|||Central de fusión||
+Café|Coffee shop|||Cafetería||
+Stand de limonade|Lemonade stand|||Puesto de limonada||
+Entrepôt|Warehouse|||Almacén||
+Hôtel|Hotel|||Hotel||
+Récompense : |Reward: |||Recompensa: ||
+Capital net de 1 M$|Net worth of $1M|||Patrimonio neto de 1 M$||
+Capital net de 1 Md$|Net worth of $1B|||Patrimonio neto de 1000 M$||
+Revenu de 1 M$ / min|Income of $1M / min|||Ingresos de 1 M$ / min||
+Revenu de 10 000 $ / min|Income of $10,000 / min|||Ingresos de 10 000 $ / min||
+Paie tes premiers impôts|Pay your first taxes|||Paga tus primeros impuestos||
+Aucun problème signalé.|No issues reported.|||No hay problemas notificados.||
+Aucun avis pour l'instant : fais tes premières ventes.|No reviews yet: make your first sales.|||Aún no hay reseñas: haz tus primeras ventas.||
+Aucun résultat|No results|||Sin resultados||
+Rien pour l'instant.|Nothing yet.|||Nada por ahora.||
+Rien à signaler pour l'instant.|Nothing to report yet.|||Nada que informar por ahora.||
+Aucune vidéo pour l'instant. Poste la première !|No videos yet. Post the first one!|||Aún no hay vídeos. ¡Publica el primero!||
+Aucun site pour l'instant. Ouvre la carte, zoome et choisis une ville.|No site yet. Open the map, zoom in and pick a city.|||Aún no hay sitios. Abre el mapa, haz zoom y elige una ciudad.||
+Ces activités doivent d'abord être ouvertes, puis elles se gèrent dans leur sous-onglet.|These activities must be opened first, then managed in their sub-tab.|||Estas actividades deben abrirse primero y luego se gestionan en su subpestaña.||
+Déjà ouvert|Already open|||Ya abierto||
+Pas encore ouvert|Not open yet|||Aún sin abrir||
+Nouveau problème signalé (Empire → Problèmes)|New issue reported (Empire → Issues)|||Nuevo problema notificado (Imperio → Problemas)||
+Ouvre d'abord ta boutique en ligne (Empire → Boutique en ligne) pour vendre des produits.|Open your online shop first (Empire → Online shop) to sell products.|||Abre primero tu tienda online (Imperio → Tienda online) para vender productos.||
+Ouvre d'abord ta boutique en ligne (Empire → Boutique en ligne).|Open your online shop first (Empire → Online shop).|||Abre primero tu tienda online (Imperio → Tienda online).||
+Choisis un produit et un type de vidéo|Pick a product and a video type|||Elige un producto y un tipo de vídeo||
+Produit ajouté : |Product added: |||Producto añadido: ||
+Produit abandonné — abonnés perdus|Product dropped — followers lost|||Producto abandonado: seguidores perdidos||
+Abandonner ce produit|Drop this product|||Abandonar este producto||
+Vendre ce produit|Sell this product|||Vender este producto||
+Vidéo postée !|Video posted!|||¡Vídeo publicado!||
+Ta vidéo devient virale !|Your video went viral!|||¡Tu vídeo se vuelve viral!||
+Prochaine vidéo dans |Next video in |||Próximo vídeo en ||
+Crée ton compte TokTok|Create your TokTok account|||Crea tu cuenta de TokTok||
+Compte créé !|Account created!|||¡Cuenta creada!||
+Profil mis à jour|Profile updated|||Perfil actualizado||
+Pseudo déjà pris|Username already taken|||Nombre de usuario ya en uso||
+Tout remettre à zéro ?|Reset everything?|||¿Restablecerlo todo?||
+Coffre prêt !|Chest ready!|||¡Cofre listo!||
+Mission|Mission|||Misión||
+Gagné +|Won +|||Ganado +||
+Livraison reçue : +|Delivery received: +|||Entrega recibida: +||
+Impôts prélevés : |Taxes collected: |||Impuestos cobrados: ||
+Contrôle fiscal : amende de |Tax audit: fine of |||Inspección fiscal: multa de ||
+Cashback récupéré : +|Cashback claimed: +|||Cashback recibido: +||
+Entrepôt agrandi : |Warehouse expanded: |||Almacén ampliado: ||
+Les marchés actions s'envolent|Stock markets soar|||Las bolsas se disparan||
+Craintes de récession|Recession fears|||Temor a una recesión||
+La banque centrale baisse ses taux|Central bank cuts rates|||El banco central baja los tipos||
+Le marché immobilier s'envole|Housing market soars|||El mercado inmobiliario se dispara||
+Une baleine accumule du BTC|A whale is accumulating BTC|||Una ballena acumula BTC||
+Un influenceur promeut DOGE|An influencer promotes DOGE|||Un influencer promociona DOGE||
+Un ETF crypto est approuvé|A crypto ETF is approved|||Se aprueba un ETF de cripto||
+Piratage d'une plateforme d'échange|Exchange platform hacked|||Hackean una plataforma de intercambio||
+Régulation crypto plus stricte annoncée|Stricter crypto regulation announced|||Anuncian una regulación cripto más estricta||
+Pénurie de bois : WoodCo bondit|Wood shortage: WoodCo jumps|||Escasez de madera: WoodCo se dispara||
+Résultats record pour TechNova|Record results for TechNova|||Resultados récord para TechNova||
+VoltMotors dévoile un nouveau modèle|VoltMotors unveils a new model|||VoltMotors presenta un nuevo modelo||
+Échec d'un essai clinique chez PharmaPlus|Clinical trial fails at PharmaPlus|||Fracasa un ensayo clínico en PharmaPlus||
+Grève des transports : livraisons retardées de 90 s|Transport strike: deliveries delayed by 90 s|||Huelga de transportes: entregas retrasadas 90 s||
+Paiement accepté|Payment accepted|||Pago aceptado||
+Numéro invalide|Invalid number|||Número no válido||
+PIN modifié|PIN changed|||PIN cambiado||
+Changer le PIN|Change PIN|||Cambiar PIN||
+Choisir une carte|Choose a card|||Elegir una tarjeta||
+Style de carte|Card style|||Estilo de tarjeta||
+Actualités|News|||Noticias||
+Découvrir|Discover|||Descubrir||
+Abandonner|Drop|||Abandonar||
+Valider|Confirm|||Validar||
+à l'instant|just now|||ahora mismo||
+Nouvelle vidéo|New video|||Nuevo vídeo||
+Temps de jeu|Playtime|||Tiempo de juego||
+Écouteurs sans fil|Wireless earbuds|||Auriculares inalámbricos||
+Coque de téléphone|Phone case|||Funda de móvil||
+Tapis de massage|Massage mat|||Alfombrilla de masaje||
+Merci pour votre achat|Thank you for your purchase|||Gracias por su compra||
+Rapporte |Earns |||Rinde ||
+ chacun| each||| cada uno||
+Achète pour augmenter ton revenu par minute.|Buy to increase your income per minute.|||Compra para aumentar tus ingresos por minuto.||
+Clique n'importe où sur l'écran pour gagner · Ce clic : |Click anywhere on the screen to earn · This click: |||Haz clic en cualquier parte de la pantalla para ganar · Este clic: ||
+Clique sur la carte pour changer de design|Click the card to change its design|||Haz clic en la tarjeta para cambiar el diseño||
+Clique |Click |||Haz clic ||
+ fois| times||| veces||
+Total avec épargne : |Total with savings: |||Total con ahorros: ||
+Livret insuffisant|Insufficient savings|||Ahorros insuficientes||
+Livret|Savings|||Ahorros||
+Banque|Bank|||Banco||
+Bank|Bank|||Banco||
+Empire|Empire|||Imperio||
+Crypto|Crypto|||Cripto||
+Portfolio|Portfolio|||Cartera||
+Possédé : |Owned: |||Poseído: ||
+Scandale chez |Scandal at |||Escándalo en ||
+Agence web|Web agency|||Agencia web||
+Mine d'or|Gold mine|||Mina de oro||
+Restaurant|Restaurant|||Restaurante||
+Laboratoire pharma|Pharma lab|||Laboratorio farmacéutico||
+Compagnie spatiale|Space company|||Compañía espacial||
+Ruine égéenne|Aegean ruin|||Ruina egea||
+Ferme coloniale|Colonial farm|||Finca colonial||
+Maison victorienne|Victorian house|||Casa victoriana||
+Loft industriel|Industrial loft|||Loft industrial||
+Riad de luxe|Luxury riad|||Riad de lujo||
+Penthouse|Penthouse|||Ático||
+Château|Castle|||Castillo||
+Centre commercial|Shopping mall|||Centro comercial||
+Gratte-ciel|Skyscraper|||Rascacielos||
+Mykonos, Grèce|Mykonos, Greece|||Míkonos, Grecia||
+Minas Gerais, Brésil|Minas Gerais, Brazil|||Minas Gerais, Brasil||
+Reykjavik, Islande|Reykjavik, Iceland|||Reikiavik, Islandia||
+Nouvelle-Angleterre, USA|New England, USA|||Nueva Inglaterra, EE. UU.||
+Côte d'Azur, France|French Riviera, France|||Costa Azul, Francia||
+Marrakech, Maroc|Marrakech, Morocco|||Marrakech, Marruecos||
+Dubaï, EAU|Dubai, UAE|||Dubái, EAU||
+Vallée de la Loire, France|Loire Valley, France|||Valle del Loira, Francia||
+Maldives|Maldives|||Maldivas||
+Tokyo, Japon|Tokyo, Japan|||Tokio, Japón||
+Manhattan, USA|Manhattan, USA|||Manhattan, EE. UU.||
+Acheté |Bought |||||
+Acheté : |Bought: |||||
+Achat entreprise|Business purchase|||||
+Amélioration de site|Site upgrade|||||
+Arnaque, {p} est tombé en panne direct.|Scam, {p} broke down right away.|||||
+Assurance responsabilité civile professionnelle|Professional liability insurance|||||
+Aucun cashback pour l'instant : il se cumule sur tes pertes|No cashback yet: it builds up from your losses|||||
+Bon produit, {p} correspond à la description.|Good product, {p} matches the description.|||||
+Bon rapport qualité/prix pour {p}.|Good value for money for {p}.|||||
+Colis bloqué au centre de tri depuis |Parcel stuck at the sorting center for |||||
+Colis jamais reçu, je veux un remboursement.|Never received my parcel, I want a refund.|||||
+Commande de stock|Stock order|||||
+Construction / achat de site|Site construction / purchase|||||
+Content de mon {p}, emballage un peu abîmé.|Happy with my {p}, packaging a bit damaged.|||||
+Contrat de construction|Construction contract|||||
+Contrôle fiscal|Tax audit|||||
+Coût de construction|Construction cost|||||
+Droits de mutation (5,8 %)|Transfer taxes (5.8%)|||||
+Déjà le deuxième {p} que je commande !|Already the second {p} I'm ordering!|||||
+Démo produit|Product demo|||||
+Déçu, {f} ne fonctionne pas bien.|Disappointed, {f} doesn't work well.|||||
+ (bénéfice | (profit |||||
+ (dans | (in |||||
+ coûte plus cher| costs more|||||
+ de suite) : +| in a row): +|||||
+ jours — jamais livré| days — never delivered|||||
+ livraisons max en route pour ce produit| deliveries max in transit for this product|||||
+ par produit| per product|||||
+ t'a suivi en retour !| followed you back!|||||
+ unités · | units · |||||
+1 000 $ sur le livret|$1,000 in savings|||||
+10 M$ sur le livret|$10M in savings|||||
+100 000 $ sur le livret|$100,000 in savings|||||
+2 produits max : abandonnes-en un d'abord|2 products max: drop one first|||||
+Une bonne note attire plus de clients ; un prix trop élevé par rapport au prix conseillé fait baisser les avis.|A good rating attracts more customers; a price too far above the suggested price lowers reviews.|||||
+🔥 Catalogue — le produit du moment change toutes les ~90 s|🔥 Catalog — the trending product changes every ~90 s|||||
+Téléphone|Phone|||||
+Bientôt disponible|Coming soon|||||
+bientôt|soon|||||
+ avis récents| recent reviews|||||
+Emplacement |Slot |||||
+ libre| free|||||
+Choisis un produit dans le catalogue ci-dessous.|Pick a product from the catalog below.|||||
+Gagné sur TokTok Shop : |Earned on TokTok Shop: |||||
+Le stock est partagé avec ta boutique.|Stock is shared with your store.|||||
+Aucun produit en vente.|No products for sale.|||||
+2. Type de vidéo|2. Video type|||||
+Croupier|Dealer|||||
+Toi (|You (|||||
+ · mise | · bet |||||
+En plein air|Outdoors|||||
+En production|In production|||||
+Européenne|European|||||
+Frais de greffe et d'immatriculation (RCS)|Registry and registration fees (RCS)|||||
+Frais de trading ÷2|Trading fees ÷2|||||
+Fréquentation forte toute l'année|Heavy foot traffic all year|||||
+Gagne 100 000 $ sur TokTok Shop|Earn $100,000 on TokTok Shop|||||
+Gagne 25 parties au casino|Win 25 games at the casino|||||
+Gaming et chaos|Gaming and chaos|||||
+Gants dorés|Golden gloves|||||
+Greffe du tribunal de commerce · formulaire M0|Commercial court registry · form M0|||||
+Honoraires juridiques (rédaction des statuts)|Legal fees (drafting the articles)|||||
+Incroyable, {f} est au top avec {p} !|Incredible, {f} is the best with {p}!|||||
+Je débute, abonne-toi !|I'm just starting, subscribe!|||||
+Je n'ai jamais reçu ma commande !|I never received my order!|||||
+Je n'ai jamais reçu mon {p} !|I never received my {p}!|||||
+Je recommande {p} les yeux fermés.|I recommend {p} with my eyes closed.|||||
+Je recommence toujours plus fort|I always come back stronger|||||
+Il s'engage à traiter les réclamations clients (colis non reçus) dans un délai de 10 minutes.|He undertakes to handle customer complaints (parcels not received) within 10 minutes.|||||
+Jusqu'à ×|Up to ×|||||
+L'Entrepreneur construit le site désigné ci-dessus selon les plans validés.|The Contractor builds the site designated above according to the approved plans.|||||
+La note de la boutique dépend des avis clients et influence les ventes.|The store rating depends on customer reviews and affects sales.|||||
+Le Dirigeant crée une société de vente de produits en ligne et en assume la responsabilité.|The Director creates an online product sales company and assumes responsibility for it.|||||
+Le Dirigeant|The Director|||||
+Le Vendeur cède au Dirigeant la pleine propriété du bien désigné ci-dessus.|The Seller transfers full ownership of the property designated above to the Director.|||||
+Le Vendeur cède au Dirigeant la pleine propriété du site désigné ci-dessus, livré clés en main.|The Seller transfers full ownership of the site designated above to the Director, turnkey.|||||
+Le prix et les frais sont payés comptant.|The price and fees are paid in cash.|||||
+Le transfert de propriété est immédiat à la signature.|Ownership transfers immediately upon signing.|||||
+Les revenus sont soumis à l'impôt, prélevé toutes les 15 minutes.|Income is subject to tax, collected every 15 minutes.|||||
+Les travaux durent |The works last |||||
+Licence boutique|Store license|||||
+Licence de commerce en ligne|Online business license|||||
+Lifestyle et café|Lifestyle and coffee|||||
+Livraison rapide et {p} conforme, 5 étoiles.|Fast delivery and {p} as described, 5 stars.|||||
+Livré le |Delivered on |||||
+Loyers encaissés|Rent collected|||||
+Loyers et contraintes élevés|High rents and constraints|||||
+Main-d'œuvre qualifiée|Skilled labor|||||
+Meilleur achat du mois : {p} est parfait.|Best purchase of the month: {p} is perfect.|||||
+Mise invalide|Invalid bet|||||
+Mon enfant adore {p}, {f} est génial.|My child loves {p}, {f} is great.|||||
+Moyen : {f} est décevant.|Average: {f} is disappointing.|||||
+Pas mal, mais {p} ne m'a pas totalement convaincu.|Not bad, but {p} didn't fully convince me.|||||
+Permis de construire (1 %)|Building permit (1%)|||||
+Peu de passage, terrain bon marché|Low foot traffic, cheap land|||||
+Plafond de prêt ×2|Loan limit ×2|||||
+Plus grand que |Higher than |||||
+Plus petit que |Lower than |||||
+Presque parfait, {f} est correct.|Almost perfect, {f} is fine.|||||
+Prochains soldes dans |Next sale in |||||
+Produit moyen, je ne rachèterai pas {p}.|Average product, I won't buy {p} again.|||||
+Produit totalement différent de la vidéo TokTok : {p}.|Product totally different from the TokTok video: {p}.|||||
+Prêt|Loan|||||
+Pseudo : 3 à 16 caractères (lettres, chiffres, . _)|Username: 3 to 16 characters (letters, digits, . _)|||||
+Périphérie|Suburbs|||||
+Qualité en dessous de la photo pour {f}.|Quality below the photo for {f}.|||||
+Rapport qualité/prix imbattable pour {p}.|Unbeatable value for money for {p}.|||||
+Retiré de TokTok Shop|Removed from TokTok Shop|||||
+Revente de stock|Stock resale|||||
+Risque élevé|High risk|||||
+Rénovation|Renovation|||||
+Saison haute marquée|Pronounced high season|||||
+Science et bonne humeur|Science and good humor|||||
+Signe le document et coche la case d'acceptation|Sign the document and tick the acceptance box|||||
+Suis 5 comptes sur TokTok|Follow 5 accounts on TokTok|||||
+Terrain bon marché, peu de main-d'œuvre|Cheap land, little labor|||||
+Toujours rien dans ma boîte aux lettres, remboursez-moi.|Still nothing in my mailbox, refund me.|||||
+Trop cher pour ce que c'est, surtout {p}.|Too expensive for what it is, especially {p}.|||||
+Très bien, {f} pourrait être un peu mieux.|Very good, {f} could be a bit better.|||||
+Très fréquenté, loyers élevés|Very busy, high rents|||||
+Tu gagnes !|You win!|||||
+Tu possèdes déjà ce site dans cette ville|You already own this site in this city|||||
+Tu suis @|You follow @|||||
+Vente de site|Site sale|||||
+Vente voiture|Car sale|||||
+Cashback casino|Casino cashback|||||
+Centre-ville|Downtown|||||
+Vidéo|Video|||||
+Bourse|Stock market|||||
+Casino|Casino|||||
+Élevé|High|||||
+la douceur|the softness|||||
+la lumière|the light|||||
+la solidité|the sturdiness|||||
+le confort|the comfort|||||
+le son|the sound|||||
+le ventilateur|the fan|||||
+le Vendeur|the Seller|||||
+le Greffe et la Chambre de Commerce|the Registry and Chamber of Commerce|||||
+l'Entrepreneur général|the general Contractor|||||
+{F} dépasse mes attentes, merci !|{F} exceeds my expectations, thanks!|||||
+{F} est juste passable pour le prix.|{F} is just passable for the price.|||||
+{F} ne marche pas du tout, à fuir.|{F} doesn't work at all, avoid it.|||||
+{p} a mal vieilli après une semaine.|{p} aged badly after a week.|||||
+{p} est correct sans plus.|{p} is okay, nothing more.|||||
+{p} fait le job, livraison un peu longue.|{p} does the job, delivery a bit long.|||||
+Émoluments du notaire (1,1 %)|Notary fees (1.1%)|||||
+×2 ou rien|×2 or nothing|||||
+↔️ égalité |↔️ tie |||||
+✅ Bonne décision|✅ Good decision|||||
+✅ En vente|✅ For sale|||||
+✔ Ton compte TokTok est certifié !|✔ Your TokTok account is verified!|||||
+⭐ −1 étoile et des clients perdus…|⭐ −1 star and lost customers…|||||
+🏚️ Correction sur l'immobilier|🏚️ Real estate correction|||||
+💥 Pénurie fournisseur : |💥 Supplier shortage: |||||
+💸 Perdu −|💸 Lost −|||||
+📢 Pub lancée ×|📢 Ad launched ×|||||
+📣 Un influenceur cite ta boutique : +|📣 An influencer mentions your store: +|||||
+🖋️ Contrat signé · frais payés : |🖋️ Contract signed · fees paid: |||||
+🚚 Commande en route (|🚚 Order on its way (|||||
+🚚 En route (|🚚 On its way (|||||
+🚚 En route : |🚚 On its way: |||||
+🛍️ Produit lancé sur TokTok Shop|🛍️ Product launched on TokTok Shop|||||`.split("\n").map(r=>r.split("|")).sort((a,b)=>b[0].length-a[0].length);
 const DMAP={},DRX=new RegExp(DICT.map(r=>(DMAP[r[0]]=r[LI]||r[1],r[0].replace(/[.*+?^${}()|[\]\\]/g,"\\$&"))).join("|"),"g"),DONE=new WeakMap();
 function trl(t){return LI?t.replace(DRX,m=>DMAP[m]):t}
 const TA=["placeholder","title","aria-label"];
@@ -1335,7 +1252,7 @@ const iv=setInterval(()=>{if(Date.now()-t0>700){clearInterval(iv);DZK=0;if(n){n.
 
 /* --- pile ou face --- */
 let FS="pile",FR=0,FLK=0;
-const gFl=()=>`<div class="coinw"><div class="coin" id="coin" style="transform:rotateY(${FR}deg)"><div class="cf">👑<small>HEADS</small></div><div class="cf bk">🏛️<small>TAILS</small></div></div></div><div class="cz-seg"><button class="${FS=="pile"?"on":""}" onclick="FS='pile';casBody()">👑 Pile</button><button class="${FS=="face"?"on":""}" onclick="FS='face';casBody()">🏛️ Face</button></div><p class="cz-note">48 % de chance de doubler ta mise.</p><button class="btn g" onclick="flipGo()">🪙 Lancer</button>`;
+const gFl=()=>`<div class="coinw"><div class="coin" id="coin" style="transform:rotateY(${FR}deg)"><div class="cf">👑<small>PILE</small></div><div class="cf bk">🏛️<small>FACE</small></div></div></div><div class="cz-seg"><button class="${FS=="pile"?"on":""}" onclick="FS='pile';casBody()">👑 Pile</button><button class="${FS=="face"?"on":""}" onclick="FS='face';casBody()">🏛️ Face</button></div><p class="cz-note">48 % de chance de doubler ta mise.</p><button class="btn g" onclick="flipGo()">🪙 Lancer</button>`;
 flipGo=function(){if(FLK)return;const b=cbet();if(!b)return;FLK=1;S.cash-=b;head();const win=Math.random()<.48,side=win?FS:(FS=="pile"?"face":"pile");FR=Math.ceil(FR/360)*360+1440+(side=="face"?180:0);const c=$("coin");if(c)c.style.transform=`rotateY(${FR}deg)`;setTimeout(()=>{FLK=0;cres(b,win?b*2:0,"Pile ou face")},1550)};
 
 /* --- roulette --- */
